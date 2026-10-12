@@ -48,7 +48,8 @@ export type EvalCase = z.infer<typeof EvalCase>;
 
 const bed = z.object({ type: z.string(), count: z.number().int().positive() });
 
-export const Room = z.object({
+// 저장하는 사양. 전망·펫·욕조 등 이름 기반 속성은 저장하지 않고 이름에서 파생한다 (src/lib/inventory.ts)
+export const RoomSpec = z.object({
   id: z.string(),
   branchId: z.string(),
   name: z.string(), // 사이트 표기 그대로
@@ -59,19 +60,23 @@ export const Room = z.object({
   beds: z.array(bed),
   bathrooms: z.number().int().positive(),
   facilities: z.array(z.enum(FACILITIES)),
-  oceanView: z.boolean(),
-  features: z.array(z.enum(ROOM_FEATURES)),
-  petAllowed: z.boolean(),
   pricePerNight: z.number().int().positive(), // 가짜 값
-  blocked: z.array(z.object({ from: isoDate, to: isoDate })), // 가짜 재고: [from, to) 예약 불가
-  specSource: z.enum(["observed", "estimated"]), // 상세 창에서 직접 본 사양인지
+  blocked: z.array(z.object({ from: isoDate, to: isoDate })), // 가짜 재고: 이 기간에 걸친 숙박은 불가 [from, to)
+  // observed: 상세 창 사양 전체를 봄 / capacity: 인원만 봄 / estimated: 객실 유형으로 추정
+  specSource: z.enum(["observed", "capacity", "estimated"]),
 });
-export type Room = z.infer<typeof Room>;
+export type RoomSpec = z.infer<typeof RoomSpec>;
+
+export type Room = RoomSpec & {
+  oceanView: boolean;
+  features: (typeof ROOM_FEATURES)[number][];
+  petAllowed: boolean;
+};
 
 export const Branch = z.object({
-  id: z.string(), // 사이트 URL slug
+  id: z.string(), // 확인한 지점은 사이트 URL slug, 나머지는 임의 id
   name: z.string(),
   region: z.enum(REGIONS),
-  area: z.string(),
+  areas: z.array(z.string()), // 고객이 부를 법한 이름: 로이움은 서초구지만 지점명이 "강남"
 });
 export type Branch = z.infer<typeof Branch>;
