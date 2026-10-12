@@ -16,13 +16,20 @@ for (const c of cases) {
   if ((e.checkIn === null) !== (e.checkOut === null)) fail("checkIn/checkOut 중 하나만 있음");
   if (e.checkIn && e.checkOut && e.checkOut <= e.checkIn) fail("checkOut <= checkIn");
   if (e.checkIn && e.checkIn < c.referenceDate) fail("checkIn이 referenceDate보다 과거");
-  if ((e.checkIn === null) !== e.needsClarification.includes("dates")) fail("날짜 없음 ⇔ dates 되묻기 불일치");
+  const r = e.dateRange;
+  if (e.checkIn && (r || e.nights !== null || e.weekend !== null)) fail("특정 날짜와 기간 필드를 같이 씀");
+  if (r && r.to < r.from) fail("dateRange.to < from");
+  if (r && r.to < c.referenceDate) fail("dateRange가 referenceDate보다 과거");
+  if (e.weekend !== null && !r) fail("weekend는 기간 검색에서만");
+  const noDates = e.checkIn === null && r === null;
+  if (noDates !== e.needsClarification.includes("dates")) fail("날짜·기간 없음 ⇔ dates 되묻기 불일치");
   if ((e.guests === null) !== e.needsClarification.includes("guests")) fail("인원 없음 ⇔ guests 되묻기 불일치");
   if (e.area && !e.region) fail("area가 있는데 region 없음");
 
-  console.log(
-    `${c.id} [ref ${fmt(c.referenceDate)}] ${fmt(e.checkIn)} → ${fmt(e.checkOut)}  ${c.input}`,
-  );
+  const when = r
+    ? `기간 ${fmt(r.from)}~${fmt(r.to)}${e.nights ? ` ${e.nights}박` : ""}${e.weekend ? " 주말" : ""}`
+    : `${fmt(e.checkIn)} → ${fmt(e.checkOut)}${e.nights ? ` (${e.nights}박)` : ""}`;
+  console.log(`${c.id} [ref ${fmt(c.referenceDate)}] ${when}  ${c.input}`);
 }
 
 const count = (s: string) => cases.filter((c) => c.split === s).length;

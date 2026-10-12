@@ -21,8 +21,11 @@ const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 export const SearchConditions = z.object({
   region: z.enum(REGIONS).nullable(),
   area: z.string().nullable(), // 시·구 단위, 접미사 없이: "속초", "해운대", "강남"
-  checkIn: isoDate.nullable(),
+  checkIn: isoDate.nullable(), // 날짜가 특정될 때만
   checkOut: isoDate.nullable(),
+  dateRange: z.object({ from: isoDate, to: isoDate }).nullable(), // 기간으로 말했을 때: 체크인 가능한 날짜 범위
+  nights: z.number().int().positive().nullable(), // 기간 검색에서 몇 박인지 (날짜가 특정되면 null)
+  weekend: z.boolean().nullable(), // 기간 검색에서 토요일 숙박을 포함해야 하는지
   guests: z.number().int().positive().nullable(), // 인원수에 포함되는 사람 (36개월 이하 제외)
   infants: z.number().int().nonnegative().nullable(), // 36개월 이하
   pet: z.boolean().nullable(),
