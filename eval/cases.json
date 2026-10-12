@@ -121,6 +121,67 @@
     "input": "어머니 휠체어 타셔서 베리어프리 객실, 어른 3명 인천 다음주 일요일 1박",
     "expected": { "region": "인천", "checkIn": "2026-10-25", "checkOut": "2026-10-26", "guests": 3, "features": ["barrierFree"] } },
 
+  { "id": "m01", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-guests-only", "clarify-dates"],
+    "input": [
+      { "role": "user", "text": "숙소 추천해주세요" },
+      { "role": "assistant", "text": "언제, 몇 분이 묵으실 예정인가요?" },
+      { "role": "user", "text": "4명이요" } ],
+    "expected": { "guests": 4, "needsClarification": ["dates"] } },
+  { "id": "m02", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-place-only", "clarify-guests"],
+    "input": [
+      { "role": "user", "text": "가족끼리 다음주 금토에 가려고요" },
+      { "role": "assistant", "text": "몇 분이 묵으실 예정인가요?" },
+      { "role": "user", "text": "부산이요" } ],
+    "expected": { "region": "부산", "checkIn": "2026-10-23", "checkOut": "2026-10-24", "needsClarification": ["guests"] } },
+  { "id": "m03", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-dates"],
+    "input": [
+      { "role": "user", "text": "제주 2명이요" },
+      { "role": "assistant", "text": "언제 묵으실 예정인가요?" },
+      { "role": "user", "text": "12월 24일부터 2박" } ],
+    "expected": { "region": "제주", "checkIn": "2026-12-24", "checkOut": "2026-12-26", "guests": 2 } },
+  { "id": "m04", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "correction"],
+    "input": [
+      { "role": "user", "text": "다음주 금토 부산 2명" },
+      { "role": "assistant", "text": "부산에서 10월 23일(금)~24일(토), 2명 기준으로 찾았어요." },
+      { "role": "user", "text": "아 강릉으로 바꿀게요" } ],
+    "expected": { "region": "강원", "area": "강릉", "checkIn": "2026-10-23", "checkOut": "2026-10-24", "guests": 2 } },
+  { "id": "m05", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "add-condition", "ocean"],
+    "input": [
+      { "role": "user", "text": "이번 주말 속초 2명" },
+      { "role": "assistant", "text": "속초에서 10월 17일(토)~18일(일), 2명 기준으로 찾았어요." },
+      { "role": "user", "text": "바다 보이는 방이면 좋겠어요" } ],
+    "expected": { "region": "강원", "area": "속초", "checkIn": "2026-10-17", "checkOut": "2026-10-18", "guests": 2, "oceanView": true } },
+  { "id": "m06", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "remove-condition", "pet"],
+    "input": [
+      { "role": "user", "text": "강아지랑 둘이 다음주 금토 서울" },
+      { "role": "assistant", "text": "서울에는 반려동물과 함께 묵을 수 있는 객실이 없어요." },
+      { "role": "user", "text": "강아지는 맡기고 갈게요" } ],
+    "expected": { "region": "서울", "checkIn": "2026-10-23", "checkOut": "2026-10-24", "guests": 1 } },
+  { "id": "m07", "split": "dev", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-both", "date-range"],
+    "input": [
+      { "role": "user", "text": "휴가 때 어디 가볼까" },
+      { "role": "assistant", "text": "언제, 몇 분이 묵으실 예정인가요?" },
+      { "role": "user", "text": "11월 말쯤, 3명" } ],
+    "expected": { "guests": 3, "dateRange": { "from": "2026-11-21", "to": "2026-11-30" } } },
+  { "id": "m08", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-dates-and-place"],
+    "input": [
+      { "role": "user", "text": "4인 가족, 방 2개 필요해요" },
+      { "role": "assistant", "text": "언제 묵으실 예정인가요?" },
+      { "role": "user", "text": "다음주 토요일 1박, 양양이요" } ],
+    "expected": { "region": "강원", "area": "양양", "checkIn": "2026-10-24", "checkOut": "2026-10-25", "guests": 4, "minBedrooms": 2 } },
+  { "id": "m09", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["multi-turn", "answer-place-only", "date-range"],
+    "input": [
+      { "role": "user", "text": "8명이서 12월 초에 주말예약을 하고 싶습니다." },
+      { "role": "assistant", "text": "12월 1일~10일 중 주말 포함, 8명 기준으로 전 지역에서 찾았어요." },
+      { "role": "user", "text": "제주만 보여주세요" } ],
+    "expected": { "region": "제주", "guests": 8, "dateRange": { "from": "2026-12-01", "to": "2026-12-10" }, "weekend": true } },
+  { "id": "m10", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["multi-turn", "correction"],
+    "input": [
+      { "role": "user", "text": "서울 2명 10월 20일부터 3박" },
+      { "role": "assistant", "text": "서울에서 10월 20일(화)~23일(금), 2명 기준으로 찾았어요." },
+      { "role": "user", "text": "아 1박만 할게요" } ],
+    "expected": { "region": "서울", "checkIn": "2026-10-20", "checkOut": "2026-10-21", "guests": 2 } },
+
   { "id": "u01", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "date-range"],
     "input": "연말에 2인이 서울에서 예약 가능한 숙소들을 보여주세요.",
     "expected": { "region": "서울", "guests": 2, "dateRange": { "from": "2026-12-21", "to": "2026-12-31" } } },

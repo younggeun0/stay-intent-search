@@ -39,11 +39,14 @@ export const SearchConditions = z.object({
 });
 export type SearchConditions = z.infer<typeof SearchConditions>;
 
+export const Turn = z.object({ role: z.enum(["user", "assistant"]), text: z.string() });
+export type Turn = z.infer<typeof Turn>;
+
 export const EvalCase = z.object({
   id: z.string(),
   split: z.enum(["dev", "holdout"]),
   referenceDate: isoDate,
-  input: z.string(),
+  input: z.union([z.string(), z.array(Turn)]), // 여러 턴이면 대화 전체. 정답은 마지막 턴까지 누적된 조건
   expected: SearchConditions,
   tags: z.array(z.string()),
 });

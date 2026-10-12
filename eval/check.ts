@@ -29,7 +29,9 @@ for (const c of cases) {
   const when = r
     ? `기간 ${fmt(r.from)}~${fmt(r.to)}${e.nights ? ` ${e.nights}박` : ""}${e.weekend ? " 주말" : ""}`
     : `${fmt(e.checkIn)} → ${fmt(e.checkOut)}${e.nights ? ` (${e.nights}박)` : ""}`;
-  console.log(`${c.id} [ref ${fmt(c.referenceDate)}] ${when}  ${c.input}`);
+  const input = typeof c.input === "string" ? c.input : c.input.map((t) => `${t.role === "user" ? "고객" : "AI"}: ${t.text}`).join(" / ");
+  if (typeof c.input !== "string" && c.input.at(-1)?.role !== "user") fail("대화는 고객 턴으로 끝나야 함");
+  console.log(`${c.id} [ref ${fmt(c.referenceDate)}] ${when}  ${input}`);
 }
 
 const count = (s: string) => cases.filter((c) => c.split === s).length;
