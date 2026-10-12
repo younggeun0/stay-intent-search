@@ -119,5 +119,21 @@
     "expected": { "region": "서울", "checkIn": "2026-11-01", "checkOut": "2026-12-01", "guests": 1, "facilities": ["washer"], "unhandled": ["장기 투숙 가능"] } },
   { "id": "h10", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["feature", "relative-date"],
     "input": "어머니 휠체어 타셔서 베리어프리 객실, 어른 3명 인천 다음주 일요일 1박",
-    "expected": { "region": "인천", "checkIn": "2026-10-25", "checkOut": "2026-10-26", "guests": 3, "features": ["barrierFree"] } }
+    "expected": { "region": "인천", "checkIn": "2026-10-25", "checkOut": "2026-10-26", "guests": 3, "features": ["barrierFree"] } },
+
+  { "id": "u01", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "clarify-dates", "date-range"],
+    "input": "연말에 2인이 서울에서 예약 가능한 숙소들을 보여주세요.",
+    "expected": { "region": "서울", "guests": 2, "needsClarification": ["dates"] } },
+  { "id": "u02", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "clarify-dates", "date-range"],
+    "input": "4인 가족 여행을 할 예정입니다. 11월 말 주말포함해서 3일정도 생각중이예요.",
+    "expected": { "guests": 4, "needsClarification": ["dates"] } },
+  { "id": "u03", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "clarify-dates", "date-range"],
+    "input": "8인이서 12월 초에 주말예약을 하고 싶습니다.",
+    "expected": { "guests": 8, "needsClarification": ["dates"] } },
+  { "id": "u04", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "clarify-dates"],
+    "input": "세 커플이 묵을 수 있는 제주 숙소가 있을까요?",
+    "expected": { "region": "제주", "guests": 6, "needsClarification": ["dates"] } },
+  { "id": "u05", "split": "holdout", "referenceDate": "2026-10-13", "tags": ["human-written", "clarify-dates", "date-range"],
+    "input": "아이포함 3인인데 11월에 예약가능한 서울 숙소가 있나요?",
+    "expected": { "region": "서울", "guests": 3, "needsClarification": ["dates"] } }
 ]
