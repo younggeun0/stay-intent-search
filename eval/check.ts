@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { cases } from "./cases";
 import { clarifyErrors, wrongFields } from "./score";
+import { normalize } from "../src/lib/extract";
 
 const DAY = "일월화수목금토";
 const dow = (d: string) => DAY[new Date(`${d}T00:00:00Z`).getUTCDay()];
@@ -45,6 +46,15 @@ for (const c of cases) {
   assert.deepEqual(wrongFields({ ...base, unhandled: ["주차"] }, { ...base, unhandled: [] }), ["unhandled"]);
   assert.deepEqual(wrongFields(base, { ...base, dateRange: { from: "2026-11-01", to: "2026-11-30" } }), ["dateRange"]);
   assert.deepEqual(clarifyErrors({ ...base, needsClarification: ["dates"] }, { ...base, needsClarification: ["guests"] }), { missed: ["dates"], extra: ["guests"] });
+}
+
+// 정규화 검사: 모든 정답 라벨은 정규화해도 그대로여야 한다 (라벨과 코드 규칙이 일치하는지)
+for (const c of cases) assert.deepEqual(normalize(c.expected), { ...c.expected, needsClarification: [...c.expected.needsClarification].sort() }, `${c.id}: 정규화 후 라벨이 바뀜`);
+{
+  const base = { ...cases[0].expected };
+  const n = normalize({ ...base, checkIn: null, checkOut: null, guests: null, infants: 0, pet: false, region: "부산", area: "부산" });
+  assert.deepEqual([n.infants, n.pet, n.area, n.needsClarification], [null, null, null, ["dates", "guests"]]);
+  assert.equal(normalize({ ...base, nights: 2, weekend: true }).nights, null); // 날짜가 있으면 기간 필드 제거
 }
 
 const count = (s: string) => cases.filter((c) => c.split === s).length;
