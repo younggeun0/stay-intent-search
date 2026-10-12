@@ -106,7 +106,8 @@
 
 - [x] 기술 스택: Next.js 16 + TypeScript + Zod 단일 앱. Spring API 분리는 시간이 남을 때만 검토한다
 - [ ] **평가셋 정답 라벨 사람 검수** (`npm run eval:check` 출력을 보며 `eval/cases.json` 확인). 검수 전에는 프롬프트 작업을 시작하지 않는다
-- [ ] LLM 제공자와 모델
+- [x] LLM 제공자: Vercel AI Gateway(월 $5 무료 크레딧)로 Claude Haiku 5.5, GPT-6 Luna, Gemini 2.5 Flash-Lite를 같은 평가셋으로 비교해 고른다. 세 모델 모두 입력/출력 100만 토큰당 $0.10/$0.40~0.50이다
+- [ ] **AI Gateway API 키 발급** → `.env.local`에 `AI_GATEWAY_API_KEY` (사용자 작업)
 - [x] 실제 사이트 필터 지원 범위 확인 (3장 관찰 결과)
 - [ ] 제출 형식: 공개 GitHub 레포 여부, 배포 URL 필요 여부
 
@@ -119,8 +120,11 @@
 | `eval/cases.json` | 평가셋 dev 30 / holdout 10 |
 | `src/data/inventory.ts` | 목업 인벤토리 15개 지점 50실. 이름은 실제, 사양은 `specSource`로 출처 구분, 가격·재고는 가짜 |
 | `src/lib/inventory.ts` | 객실 이름 → 속성 파생(`attrsFromName`) |
+| `src/lib/rules.ts` | **해석 규칙의 단일 출처**. LLM 프롬프트이자 라벨 기준 |
+| `src/lib/extract.ts` | 조건 추출 (AI SDK `generateText` + `Output.object`, Zod 스키마 그대로 사용) |
+| `eval/run.mts`, `eval/score.ts` | 모델별 평가 실행(정확도, 되묻기 오류, 지연, 비용)과 채점 |
 
-검증 명령: `npm run eval:check`(라벨 불변식), `npm run inventory:check`(인벤토리).
+검증 명령: `npm run eval:check`(라벨 불변식 + 채점기 검사), `npm run inventory:check`(인벤토리), `npm run eval:run -- --split dev --label v1`(모델 평가).
 
 인벤토리는 "조건에 맞는 객실 없음" 케이스가 자연스럽게 생기도록 구성했다. 아래 목록은 **손으로 예상한 것**이다. 검색 함수를 만든 뒤 실제 결과로 다시 생성하고, 의도하지 않은 빈 결과는 고친다.
 - 리뷰에서 추가로 지적된 예상 빈 결과: d30(강원에 식기세척기 객실 없음, 의도 아님), h05(복층+욕조 객실 없음), h02(속초에 펫 객실 없음)

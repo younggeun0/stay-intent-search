@@ -1,5 +1,7 @@
 // 정답 라벨 검증: 스키마 + 해석 규칙에서 나오는 불변식. 검수용으로 요일을 함께 출력한다.
+import assert from "node:assert/strict";
 import { cases } from "./cases";
+import { clarifyErrors, wrongFields } from "./score";
 
 const DAY = "일월화수목금토";
 const dow = (d: string) => DAY[new Date(`${d}T00:00:00Z`).getUTCDay()];
@@ -32,6 +34,17 @@ for (const c of cases) {
   const input = typeof c.input === "string" ? c.input : c.input.map((t) => `${t.role === "user" ? "고객" : "AI"}: ${t.text}`).join(" / ");
   if (typeof c.input !== "string" && c.input.at(-1)?.role !== "user") fail("대화는 고객 턴으로 끝나야 함");
   console.log(`${c.id} [ref ${fmt(c.referenceDate)}] ${when}  ${input}`);
+}
+
+// 채점기 자체 검사: 채점이 틀리면 모든 수치가 무의미하다
+{
+  const base = cases[0].expected;
+  assert.deepEqual(wrongFields(base, structuredClone(base)), []);
+  assert.deepEqual(wrongFields({ ...base, features: ["spa", "loft"] }, { ...base, features: ["loft", "spa"] }), []);
+  assert.deepEqual(wrongFields({ ...base, unhandled: ["주차"] }, { ...base, unhandled: ["무료 주차"] }), []);
+  assert.deepEqual(wrongFields({ ...base, unhandled: ["주차"] }, { ...base, unhandled: [] }), ["unhandled"]);
+  assert.deepEqual(wrongFields(base, { ...base, dateRange: { from: "2026-11-01", to: "2026-11-30" } }), ["dateRange"]);
+  assert.deepEqual(clarifyErrors({ ...base, needsClarification: ["dates"] }, { ...base, needsClarification: ["guests"] }), { missed: ["dates"], extra: ["guests"] });
 }
 
 const count = (s: string) => cases.filter((c) => c.split === s).length;

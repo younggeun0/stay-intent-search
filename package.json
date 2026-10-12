@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "eslint",
     "eval:check": "tsx eval/check.ts",
-    "inventory:check": "tsx src/lib/inventory.check.ts"
+    "inventory:check": "tsx src/lib/inventory.check.ts",
+    "eval:run": "tsx --env-file-if-exists=.env.local eval/run.mts"
   },
   "dependencies": {
+    "ai": "^7.0.138",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
