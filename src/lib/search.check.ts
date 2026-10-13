@@ -19,7 +19,7 @@ assert.deepEqual(candidateStays({ ...blank, dateRange: { from: "2026-11-19", to:
 // 예약 불가 기간 [10-16, 10-19)과 겹치면 빠지고, 끝나는 날 체크인은 된다
 const pet = { ...blank, pet: true };
 assert.equal(search({ ...pet, checkIn: "2026-10-17", checkOut: "2026-10-18" }).hits.length, 0);
-assert.equal(search({ ...pet, checkIn: "2026-10-19", checkOut: "2026-10-20" }).hits.length, 1);
+assert.equal(search({ ...pet, checkIn: "2026-10-19", checkOut: "2026-10-20" }).hits.length, 2); // 펫 객실은 시흥 웨이브파크 2실
 assert.ok(search({ ...pet, checkIn: "2026-10-17", checkOut: "2026-10-18" }).relaxations.some((o) => o.labels.join() === "다른 날짜"));
 assert.match(search({ ...pet, checkIn: "2026-10-17", checkOut: "2026-10-18" }).relaxations.flatMap((o) => o.reasons).join(), /예약이 찼어요/);
 // 인천·속초 모두 펫+오션뷰 객실 없음: 지역 하나만 바꿔서는 안 되고, 두 조건을 같이 풀어야 하는 조합이 나와야 한다

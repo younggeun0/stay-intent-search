@@ -54,11 +54,14 @@ export type EvalCase = z.infer<typeof EvalCase>;
 
 const bed = z.object({ type: z.string(), count: z.number().int().positive() });
 
-// 저장하는 사양. 전망·펫·욕조 등 이름 기반 속성은 저장하지 않고 이름에서 파생한다 (src/lib/inventory.ts)
+// 저장하는 사양 (src/data/official.json, 공식 사이트에서 수집). 전망·펫·욕조 등은 이름과 시설 태그에서 파생한다 (src/lib/inventory.ts)
 export const RoomSpec = z.object({
   id: z.string(),
   branchId: z.string(),
   name: z.string(), // 사이트 표기 그대로
+  slug: z.string().nullable(),
+  images: z.array(z.string()), // 공식 CDN 이미지 id
+  tags: z.array(z.string()), // 공식 시설 아이콘 중 검색 조건이 되는 것: 욕조, 베리어프리, 복층, 펫, 커넥팅
   baseGuests: z.number().int().positive(),
   maxGuests: z.number().int().positive(),
   sizeM2: z.number().positive().nullable(),
@@ -66,10 +69,10 @@ export const RoomSpec = z.object({
   beds: z.array(bed),
   bathrooms: z.number().int().positive(),
   facilities: z.array(z.enum(FACILITIES)),
-  pricePerNight: z.number().int().positive(), // 가짜 값
+  pricePerNight: z.number().int().positive(), // 2026-12-02 1박 기준 조회값. 실제 요금은 날짜마다 다르다
   blocked: z.array(z.object({ from: isoDate, to: isoDate })), // 가짜 재고: 이 기간에 걸친 숙박은 불가 [from, to)
-  // observed: 상세 창 사양 전체를 봄 / capacity: 인원만 봄 / estimated: 객실 유형으로 추정
-  specSource: z.enum(["observed", "capacity", "estimated"]),
+  // observed: 객실 상세(시설 포함)까지 수집 / capacity: 인원·사양만 수집하고 시설은 같은 지점 객실로 추정
+  specSource: z.enum(["observed", "capacity"]),
 });
 export type RoomSpec = z.infer<typeof RoomSpec>;
 
@@ -80,9 +83,12 @@ export type Room = RoomSpec & {
 };
 
 export const Branch = z.object({
-  id: z.string(), // 확인한 지점은 사이트 URL slug, 나머지는 임의 id
-  name: z.string(),
+  id: z.string(), // 공식 사이트 URL slug
+  officialId: z.number().int(),
+  name: z.string(), // 브랜드 + 지점명 (사이트 표기)
+  brand: z.string().nullable(),
   region: z.enum(REGIONS),
-  areas: z.array(z.string()), // 고객이 부를 법한 이름: 로이움은 서초구지만 지점명이 "강남"
+  areas: z.array(z.string()), // 고객이 부를 법한 이름 (손으로 매핑): 로이움은 서초구지만 지점명이 "강남"
+  image: z.string(), // 공식 CDN 이미지 id
 });
 export type Branch = z.infer<typeof Branch>;

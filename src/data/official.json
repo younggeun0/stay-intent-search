@@ -1,0 +1,6995 @@
+{
+ "collectedAt": "2026-10-13",
+ "source": "urbanstay.co.kr 공개 페이지가 호출하는 /apis/v1/products, /apis/v1/branch/{id}/roomtype/{slug} (2026-12-02 1박 기준 조회)",
+ "branches": [
+  {
+   "id": "gangnam-sac-signity",
+   "officialId": 19,
+   "name": "르컬렉티브 강남 예술의전당 시그니티",
+   "brand": "르컬렉티브",
+   "region": "서울",
+   "areas": [
+    "강남",
+    "서초"
+   ],
+   "image": "ccf7ce94-c9ba-49e4-b206-1b18ffb88906"
+  },
+  {
+   "id": "gangnam-sac-roium",
+   "officialId": 30,
+   "name": "르컬렉티브 강남 예술의전당 로이움",
+   "brand": "르컬렉티브",
+   "region": "서울",
+   "areas": [
+    "강남",
+    "서초"
+   ],
+   "image": "ecc497f6-0f3f-4f54-a296-1200dd17ffc0"
+  },
+  {
+   "id": "boutique-ikseon",
+   "officialId": 21,
+   "name": "어반스테이 부티크 익선",
+   "brand": "어반스테이",
+   "region": "서울",
+   "areas": [
+    "종로",
+    "익선"
+   ],
+   "image": "3e7d053c-5ecc-44ef-b402-50e902932e28"
+  },
+  {
+   "id": "myeongdong",
+   "officialId": 5,
+   "name": "어반스테이 명동",
+   "brand": "어반스테이",
+   "region": "서울",
+   "areas": [
+    "중구",
+    "명동"
+   ],
+   "image": "0dddb124-0c08-4815-929a-9427f927f650"
+  },
+  {
+   "id": "dongtan-hotel",
+   "officialId": 52,
+   "name": "플라트 호텔 동탄",
+   "brand": "플라트 호텔",
+   "region": "경기",
+   "areas": [
+    "화성",
+    "동탄"
+   ],
+   "image": "f775bf01-703a-44e5-be25-ee1bf595a5e3"
+  },
+  {
+   "id": "siheung-penthouse",
+   "officialId": 29,
+   "name": "르컬렉티브 시흥 펜트하우스",
+   "brand": "르컬렉티브",
+   "region": "경기",
+   "areas": [
+    "시흥"
+   ],
+   "image": "04f40dcd-b523-4235-a597-a419ded1e4a9"
+  },
+  {
+   "id": "siheung-wavepark",
+   "officialId": 27,
+   "name": "르컬렉티브 시흥 웨이브파크",
+   "brand": "르컬렉티브",
+   "region": "경기",
+   "areas": [
+    "시흥"
+   ],
+   "image": "bb4fcd32-fe05-404e-a02d-58faf88d186f"
+  },
+  {
+   "id": "siheung-geobukseom",
+   "officialId": 46,
+   "name": "어반스테이 시흥 거북섬",
+   "brand": "어반스테이",
+   "region": "경기",
+   "areas": [
+    "시흥",
+    "거북섬"
+   ],
+   "image": "75f9ab2b-d7c5-44a4-9de7-fd1fedc64b23"
+  },
+  {
+   "id": "over-the-mountain",
+   "officialId": 54,
+   "name": "오버더마운틴 가평",
+   "brand": null,
+   "region": "경기",
+   "areas": [
+    "가평"
+   ],
+   "image": "e44c926d-a7d0-42bc-af55-b73218cd7487"
+  },
+  {
+   "id": "incheon-chinatown",
+   "officialId": 35,
+   "name": "어반스테이 인천차이나타운",
+   "brand": "어반스테이",
+   "region": "인천",
+   "areas": [
+    "중구",
+    "차이나타운"
+   ],
+   "image": "c745ed35-d42c-4763-8e84-79239430faa3"
+  },
+  {
+   "id": "songdo-moonlight-park",
+   "officialId": 8,
+   "name": "어반스테이 송도달빛공원",
+   "brand": "어반스테이",
+   "region": "인천",
+   "areas": [
+    "송도",
+    "연수"
+   ],
+   "image": "a2d166f8-2354-44c7-8c1b-8f3bcdf303f6"
+  },
+  {
+   "id": "busan-station",
+   "officialId": 7,
+   "name": "르컬렉티브 부산역",
+   "brand": "르컬렉티브",
+   "region": "부산",
+   "areas": [
+    "동구",
+    "부산역"
+   ],
+   "image": "09ec2829-3bfc-4031-a9de-7805e43724f5"
+  },
+  {
+   "id": "haeundae-paragraph",
+   "officialId": 45,
+   "name": "르컬렉티브 해운대 패러그라프",
+   "brand": "르컬렉티브",
+   "region": "부산",
+   "areas": [
+    "해운대"
+   ],
+   "image": "0292b4db-8c84-4ac8-803a-05764d756324"
+  },
+  {
+   "id": "busan-gijang",
+   "officialId": 16,
+   "name": "르컬렉티브 부산기장",
+   "brand": "르컬렉티브",
+   "region": "부산",
+   "areas": [
+    "기장"
+   ],
+   "image": "c1a3e241-9b01-45e4-b533-d3f5586abdf7"
+  },
+  {
+   "id": "busan-songdo-beach",
+   "officialId": 28,
+   "name": "어반스테이 부산송도해변",
+   "brand": "어반스테이",
+   "region": "부산",
+   "areas": [
+    "서구",
+    "송도"
+   ],
+   "image": "7069245e-b865-4874-af48-f1cdad3fd2bc"
+  },
+  {
+   "id": "haeundae-station",
+   "officialId": 48,
+   "name": "어반스테이 해운대역",
+   "brand": "어반스테이",
+   "region": "부산",
+   "areas": [
+    "해운대"
+   ],
+   "image": "820f17c1-f8d6-4146-af6c-ac7e1a04c3ba"
+  },
+  {
+   "id": "seomyeon",
+   "officialId": 3,
+   "name": "어반스테이 서면",
+   "brand": "어반스테이",
+   "region": "부산",
+   "areas": [
+    "부산진구",
+    "서면"
+   ],
+   "image": "bcc27f91-3f37-4f00-8c32-54b4659296f6"
+  },
+  {
+   "id": "busan-cityhall",
+   "officialId": 15,
+   "name": "어반스테이 부산시청",
+   "brand": "어반스테이",
+   "region": "부산",
+   "areas": [
+    "연제구",
+    "시청"
+   ],
+   "image": "a59daa23-df7e-427a-819c-92e30fda87ab"
+  },
+  {
+   "id": "sokcho-xiella",
+   "officialId": 53,
+   "name": "플라트 더 원 속초자이엘라 더 비치",
+   "brand": "플라트 더 원",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "ede8501d-f29d-4ae0-aa04-24d4912e71a0"
+  },
+  {
+   "id": "yangyang",
+   "officialId": 55,
+   "name": "플라트 더 각 양양",
+   "brand": "플라트 더 각",
+   "region": "강원",
+   "areas": [
+    "양양"
+   ],
+   "image": "b649c871-746e-4539-b7cb-0b8e2840ba68"
+  },
+  {
+   "id": "sokcho-central",
+   "officialId": 51,
+   "name": "르컬렉티브 속초중앙",
+   "brand": "르컬렉티브",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "c9cb06cb-c04e-49e9-a40a-77114204bd30"
+  },
+  {
+   "id": "sokcho-beach",
+   "officialId": 50,
+   "name": "르컬렉티브 속초해변",
+   "brand": "르컬렉티브",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "27602643-c47f-4b89-bad3-c167f3dcf1b5"
+  },
+  {
+   "id": "naksan-beach",
+   "officialId": 49,
+   "name": "어반스테이 낙산해변",
+   "brand": "어반스테이",
+   "region": "강원",
+   "areas": [
+    "양양",
+    "낙산"
+   ],
+   "image": "9f911bee-8268-436b-a0a4-91302372139a"
+  },
+  {
+   "id": "sokcho-beach-c",
+   "officialId": 10,
+   "name": "어반스테이 속초해변C",
+   "brand": "어반스테이",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "a619bfd6-d510-479c-a517-b71b34aa607e"
+  },
+  {
+   "id": "sokcho-deungdae-beach",
+   "officialId": 13,
+   "name": "어반스테이 속초등대해변",
+   "brand": "어반스테이",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "7015eb4c-d7f2-4856-aca2-3b33625207e0"
+  },
+  {
+   "id": "sokcho-beach-ab",
+   "officialId": 34,
+   "name": "어반스테이 속초해변AB",
+   "brand": "어반스테이",
+   "region": "강원",
+   "areas": [
+    "속초"
+   ],
+   "image": "13325a46-70ce-4c67-b53a-336c7807b917"
+  },
+  {
+   "id": "jeju",
+   "officialId": 57,
+   "name": "플라트 아카이브 제주",
+   "brand": "플라트 아카이브",
+   "region": "제주",
+   "areas": [
+    "제주"
+   ],
+   "image": "59b65632-56db-442f-8f0d-3b77df44bf84"
+  },
+  {
+   "id": "jeju-airport",
+   "officialId": 6,
+   "name": "어반스테이 제주공항",
+   "brand": "어반스테이",
+   "region": "제주",
+   "areas": [
+    "제주"
+   ],
+   "image": "423fdff2-70b7-4d7c-8750-603fdd3acca6"
+  },
+  {
+   "id": "ulsan",
+   "officialId": 18,
+   "name": "스타즈 울산",
+   "brand": "스타즈",
+   "region": "울산",
+   "areas": [
+    "남구"
+   ],
+   "image": "df35ab7f-8921-4d6e-ac7d-2a7c1b0740f5"
+  },
+  {
+   "id": "dangjin-terminal",
+   "officialId": 32,
+   "name": "어반스테이 당진터미널",
+   "brand": "어반스테이",
+   "region": "당진",
+   "areas": [
+    "당진"
+   ],
+   "image": "f3d041df-cb59-4160-a8da-e7552b8fe766"
+  }
+ ],
+ "rooms": [
+  {
+   "id": "rt178",
+   "branchId": "boutique-ikseon",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 267400,
+   "images": [
+    "83bb4653-edea-4537-8080-b508a89c43fc",
+    "18d6a7f4-29ec-4a72-824e-a8be53451ed2",
+    "bdf9d267-3594-457a-a564-2249474d092b",
+    "2c245658-1624-4e76-9476-5c750092044c",
+    "615dfacf-228d-462a-b3ca-7403a941d822",
+    "5ff64e05-f76b-4ccd-8ae4-14be3fbf91ce",
+    "40e3e498-417e-4717-ac23-19d5193c5208",
+    "6f3a3bc6-fee1-4d59-a7ec-6989e2996ec1"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt179",
+   "branchId": "boutique-ikseon",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 267400,
+   "images": [
+    "d804b0a4-dc36-4269-98f8-286ee6613296",
+    "8b143dd6-7b9c-4f17-b4ac-d26ffa5e611c",
+    "2a734173-dbe8-4def-9b37-b347c2ca5ed5",
+    "766ff9c7-1d3d-46e2-93d6-cec2412038df",
+    "f2982ed6-f15e-4cc2-a4e0-c707d4aa1141",
+    "12de878c-89f7-488b-8499-2973061aee7b",
+    "82bb96b0-f869-439c-9f9e-6d3c92b57218",
+    "5fb27055-becc-444a-a2ad-2e816cef6708"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt180",
+   "branchId": "boutique-ikseon",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 267400,
+   "images": [
+    "b6cc3596-f606-4c42-b6c5-8bfe77e7f018",
+    "dda38f64-2337-4bad-b340-2b72feb1535f",
+    "cf15228b-af4b-4f86-91b0-19ad5d9aa91a",
+    "f555fa07-9670-455c-887d-8a43500d3c06",
+    "4c49ec6a-bee9-4319-9bcb-f299588a917b",
+    "322444cf-0135-4d4d-9c40-708623d4cf5b",
+    "6bc67bfe-8ef2-495f-94ff-d0d501df97cc",
+    "a038491c-2fe9-4505-b207-7e9a5b1fc46a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt181",
+   "branchId": "boutique-ikseon",
+   "name": "스튜디오 파노라마",
+   "slug": "studio-panorama",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 296000,
+   "images": [
+    "f1cb2cd9-04f8-4ea5-842b-ad1104366d49",
+    "64e8c912-6c94-47a2-b5fd-d30765c35982",
+    "8426baad-6f65-47d4-83a0-845ea28be221",
+    "ebc62b8c-566b-495b-9110-0f1edcb76220",
+    "5d4b5ada-590c-46f9-9fff-29c0ae1ffb99",
+    "a2e858ed-1b97-4a20-bfa4-3a7d367819a3",
+    "35557496-cec6-47c7-831e-cfd4c7774488",
+    "41df51fc-8486-4638-a216-0eaebb082e83"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt182",
+   "branchId": "boutique-ikseon",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 36,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 479600,
+   "images": [
+    "be2c8605-e8c1-4218-9b78-b0d4f7886dc7",
+    "db9470f5-a780-437c-b594-a86f7a892a2e",
+    "a59c21dd-497a-47ef-b4e8-80bf554f9e74",
+    "bfb2b3fe-5d83-4653-a3ca-023440ea6a72",
+    "699cf73d-d8ad-4c37-a38c-39ab903f9b37",
+    "eaa95b7c-ced0-4a29-be20-b2aefdc3dd27",
+    "24736f13-6bb2-4c94-83e1-0eba8a139f07",
+    "d7cb7b62-d7a7-48fb-b2e2-e51ae272dc18"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt99",
+   "branchId": "busan-cityhall",
+   "name": "스튜디오 비즈니스",
+   "slug": "studio-business",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 105800,
+   "images": [
+    "982d7d56-e6ac-4917-ba91-67db2bdc263d",
+    "faaeef2f-1cb1-4551-b151-04314a867645",
+    "f27a9fbe-d0b0-4360-8dca-815c27f0da7f",
+    "8621d760-4d35-4c86-9fab-48d41fb84ca6",
+    "3b7ff4fb-281c-4b08-b77a-07480e5ae2d8",
+    "a54629a7-38d8-43a9-b952-a016372ece46",
+    "4acbe89b-83f2-4751-b5a9-16c2b5809eb9",
+    "774b2a68-295a-4fe8-bf34-a43a2d3af32f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt100",
+   "branchId": "busan-cityhall",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 21,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 88000,
+   "images": [
+    "48921522-33d4-4db7-9bc0-039810a66719",
+    "de2373f3-f107-4286-a555-d3041ca130d3",
+    "f54e2638-69d1-4623-bef2-74eddab24129",
+    "aac701dd-cf4a-4c58-81e1-23352b43b750",
+    "23183f68-b552-4049-aa27-2cda28d05181",
+    "95b77d64-18ca-4d52-bdc2-2413ac9d20c5",
+    "f812e48d-599a-40e5-a1a2-b3455508b784",
+    "163082c9-579f-4ce6-b56f-01e0a0d4a51c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt102",
+   "branchId": "busan-cityhall",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 21,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 108200,
+   "images": [
+    "58887122-ea21-4306-b58e-46008b8a5a05",
+    "60a1e0a4-58ff-4dae-b1fb-91239b480bd1",
+    "0354e415-3520-4389-bd4f-f36f43487208",
+    "7a216b51-cd70-4d68-8b18-ce3d088eac0b",
+    "f75568cf-04a3-4d45-af20-873b060fdbea",
+    "a9dcae46-1d61-43f6-87dd-9c379332ac2d",
+    "aad9e451-60fd-4c7f-a34f-5b222a3622ad"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt104",
+   "branchId": "busan-cityhall",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 25,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 144800,
+   "images": [
+    "10817307-e285-4d53-a6c6-2a28786ca5c5",
+    "13d54b92-a34b-40e6-a316-5989c7f5c84a",
+    "4946ae1b-0c7a-4c26-b33f-660724eb9a32",
+    "1f9516a4-cf91-42a1-bcd3-b3292da89fea",
+    "c567dab7-21fc-48b1-bb5b-2374945af5cc",
+    "804a419f-48d3-41f4-aa48-7b5cfb1b06d6",
+    "430774ae-8dbc-426f-9e88-1ebac40dc8d3",
+    "2d25e3e8-6c08-441e-beb0-43f5a769fb61"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt268",
+   "branchId": "busan-cityhall",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 21,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 84000,
+   "images": [
+    "d2f2db8c-2179-4cf4-9a23-1ef71fa823e9",
+    "a147334a-5872-4136-b89c-6912bbc12168",
+    "6e8860da-aec1-4eef-b066-df0d7f8d6f3f",
+    "04fba1c4-5569-4732-a303-0b59be2947f0",
+    "56f04e25-1f8e-4b52-ad90-2cd4b7172e61",
+    "04240f77-28fb-4fff-a0a9-2161cd04878c",
+    "d495e331-cd68-43a7-8839-09fa0a9737cb",
+    "e082dcd5-f172-4cb2-bb94-762c3930e52f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt112",
+   "branchId": "busan-gijang",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 74,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 128600,
+   "images": [
+    "7b30c9a9-0e50-4764-b7cf-90a83c5abc08",
+    "47a79ffb-9afb-44ba-8485-d18cb205c2b2",
+    "4955022f-d60a-46c4-a59c-96b675e7c066",
+    "afa8c3e2-eec7-4761-a4e0-f49ee1415066",
+    "b8b6f78d-4646-43ce-9e5a-8a0d7fcb62ce",
+    "1736d4d7-e982-4258-904d-80262d710ca6",
+    "374d611f-4a7d-48e9-8356-8a7b42155f1c",
+    "ecc80628-96d2-4115-81d5-8b4d35c884de"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt114",
+   "branchId": "busan-gijang",
+   "name": "패밀리 투룸 오션",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 74,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 285600,
+   "images": [
+    "e79d5ee6-74a6-4e2d-8653-2c4eed8e0bda",
+    "715ef2ee-adac-40b5-8dc8-952e6d4c0f27",
+    "442f53ad-cdb8-4231-8186-08004c8714ce",
+    "e8345eed-f3aa-49b2-801a-6d9233116fa4",
+    "5ec44591-1273-4ad8-b4f9-0ffaf28f805e",
+    "fcbabb73-80a2-459d-a88c-1b886c90a158",
+    "7f03e158-233d-47a2-9152-a0ae2047758d",
+    "76b4bc56-ec36-4387-90f6-474f103f4623"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt115",
+   "branchId": "busan-gijang",
+   "name": "패밀리 쓰리룸",
+   "slug": "family-three-room",
+   "baseGuests": 5,
+   "maxGuests": 8,
+   "sizeM2": 82,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 240900,
+   "images": [
+    "41128b6e-23da-4edd-8387-0d335c5c9906",
+    "c5e20b0e-5ef1-4a87-99f5-f8712f73ca20",
+    "00b54dac-96ff-4075-b963-98d0449b0d4c",
+    "40635718-4473-451b-a316-a5faade081fd",
+    "534e0a3d-aa78-4e17-8c71-b5222b4003c8",
+    "ab119854-3f6d-45e2-b3ba-cc6b8bbc13b5",
+    "786c6a2a-1759-48af-b4ef-9c0803a178b0",
+    "57a12321-0de0-4c8f-9408-e8ff718e055d"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt117",
+   "branchId": "busan-gijang",
+   "name": "패밀리 쓰리룸 오션",
+   "slug": "family-three-room-ocean",
+   "baseGuests": 6,
+   "maxGuests": 8,
+   "sizeM2": 82,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 328100,
+   "images": [
+    "d5bd108c-c446-46f2-ac4c-794e991da880",
+    "08e08d47-1c79-4088-b974-434123059aaf",
+    "404a79aa-9408-4cb2-a90c-dfdef2c70605",
+    "a9db1456-5f2e-4b98-ae9a-1cd7de330840",
+    "2ef07697-e498-410d-b5c1-2b97e14d9b2b",
+    "f15f2ea5-8d95-4472-9b03-1edfeeb64024",
+    "6886838f-2b20-4910-b590-cc3f58070f48",
+    "bd49e56f-1fa4-4b04-814d-2dbf96caa8a3"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt214",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 100000,
+   "images": [
+    "c2fd0407-becf-4fd5-841f-abd63e4dce63",
+    "cf5ed6ca-ca15-42bb-98f6-b70603812ce0",
+    "2ec32c45-d4a8-451f-9235-17f9f24ebc2a",
+    "2c3c1544-87c1-4196-b37b-11f839843fc4",
+    "89c63b02-be4d-42d2-a07c-df23a76bdac5",
+    "05009234-ca38-4c82-aa58-e8236e6fff48"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt215",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 오션",
+   "slug": "studio-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 117600,
+   "images": [
+    "30e20c2a-6d94-4c2e-82ca-3318a95d6148",
+    "5e7abb35-fd3b-49e2-8d46-c8e84dc0be8f",
+    "2a0718f7-2965-4cf0-9766-56161f30ac7a",
+    "5f0101c3-e5cd-44e8-b020-7f6fc4bad734",
+    "cb3c550a-63e8-4599-a6a4-03ffc4d76f8d",
+    "d6e8b9e9-d4d7-4bc6-b1dd-d9f5f5c6ce6b",
+    "0ee5ffc7-e8bd-453a-a957-dca352f45f4d",
+    "45b08fa6-3d4f-4d51-b2d5-84624392f9e1"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt216",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 117300,
+   "images": [
+    "0c2b9900-c5ce-4436-876b-fb6e44a566eb",
+    "f9cc6f32-d88e-4749-90e9-cfab99ba38ac",
+    "e7fcaca5-8ca4-4c32-bd80-28a3e0096956",
+    "e4a3e354-6ed9-4ae2-b5da-991f43fad408",
+    "81c7b96e-4eec-4e01-8d1c-83ef8ad063a9",
+    "6c43a40d-8743-460a-8959-abe134b740d5",
+    "d0403ac3-3d33-4ec2-a04b-89f5e8fd8642"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt217",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 트윈 오션",
+   "slug": "studio-twin-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 137000,
+   "images": [
+    "9e26c1fd-4927-4cde-a5bf-f0c6f554cfaa",
+    "5e616875-6cd8-4032-ae2b-09023800f7fa",
+    "594b70a3-f87d-4c45-9836-2c645aae0809",
+    "c755b232-10a7-415d-a711-98a698ca6e0f",
+    "0b316044-c882-4469-82d1-90523b6f139b",
+    "37b086fa-f3df-422a-adc7-a0b6be4eca3a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt218",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 25,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 137000,
+   "images": [
+    "d3ac9ab0-8e0d-4d45-8cf4-37a47ff1da18",
+    "5a1edc87-f03c-461b-89e9-42ca2df16cd7",
+    "9f5bf5e5-693c-44bd-85f0-6aa6fe80d381",
+    "aec1adc7-94ca-49fe-8605-5e90d527c74f",
+    "5ff88f9b-807f-4d05-877d-9b3200b0f3a1",
+    "05f24296-8656-4761-b911-3a3e05d20650",
+    "026eec4a-60f0-4d4a-a760-ff78d226c7ee"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt219",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 패밀리 오션",
+   "slug": "studio-family-ocean",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 25,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 156400,
+   "images": [
+    "1c59bc89-e711-459c-bb44-63d1eb52d7e2",
+    "dd398ca7-a5fc-4ba0-9369-2b58ca7d3b3f",
+    "8088bd14-0ace-41e5-8bba-275d055724a3",
+    "ec71a7ab-7f29-463c-b87f-7fed965c1713",
+    "3403feb6-786d-4f0b-9b80-773e5721f50c",
+    "46eb295b-56ec-4abe-a585-75f20c3fa657",
+    "fdc215be-9d34-4839-ad29-17fa582f10e7",
+    "a62cef33-359a-437d-8367-78779d00fc30"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt220",
+   "branchId": "busan-songdo-beach",
+   "name": "스튜디오 스위트 와이드 오션",
+   "slug": "studio-suite-w-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 34,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 187700,
+   "images": [
+    "11789379-bf35-4917-8294-458bab58ed62",
+    "cf56fe0e-25dc-409a-9e58-e640ee0999ab",
+    "cdd52f4c-6d81-451a-b026-f6a17dba2519",
+    "4407a27e-5ee1-471a-a6e1-41a3088da46d",
+    "de9a6422-d382-4d5e-a621-c12afb273a08",
+    "01ca4c9d-b043-4a18-bb2c-1ba9956f8e69",
+    "06a69881-a502-4efd-98e2-dd1f251a049a",
+    "d526767f-f221-494b-9447-b62b4f413d34"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt221",
+   "branchId": "busan-songdo-beach",
+   "name": "패밀리 투룸 오션",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 63,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 225200,
+   "images": [
+    "a14788f6-51cf-45cb-b50b-b6ed03918059",
+    "48b59c6a-a909-47a2-ad71-ca5440172806",
+    "e94c5292-6626-4687-b2f6-14433d51dc96",
+    "5b24d0fc-7cd5-412b-9107-26be61519691",
+    "9de1f383-cf1a-4cd7-982e-80cbb9ebb3bb",
+    "f35030b5-1cd3-4dd8-8fb8-b9e2ae2d81d6",
+    "ab92707d-5a08-4222-8932-97ec39e469f9",
+    "0131e6b3-0722-4b35-86eb-6695f789ccea"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt40",
+   "branchId": "busan-station",
+   "name": "패밀리 쓰리룸 G",
+   "slug": "family-three-room-g",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 158,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "dishwasher",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 294000,
+   "images": [
+    "37e58ef5-78b9-4d83-b71f-47127c8ad661",
+    "70749488-a4cf-4696-8c26-c53609df03c3",
+    "06281cc8-8f97-4341-9262-54cdcec6118c",
+    "82cf73b2-7d1a-4dda-a0f6-31904992e8c0",
+    "0b4bde10-0963-400d-9073-c67e1eb3a9cf",
+    "09844d46-ce3f-4234-aa68-ea4eebc979e2",
+    "6cf3e3cf-63ab-4018-bad0-fa378d742702",
+    "49752122-5b1e-4c33-a85a-148fd23c26c3"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt98",
+   "branchId": "busan-station",
+   "name": "프리미어 스위트 G 커넥팅",
+   "slug": "premier-suite-g-connecting",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 158,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "dishwasher",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "커넥팅"
+   ],
+   "pricePerNight": 204200,
+   "images": [
+    "9f553f2f-4b5f-4fc8-85b9-eaecda691b40",
+    "96bed272-4e1b-446b-8886-c6aa16524f48",
+    "61e21102-8d2b-4a05-8e42-a66cb8344c94",
+    "6f0b449c-2887-4d4c-a38f-ecb5693919d5",
+    "c7cad092-bb02-43d5-8150-9b116ec63b88",
+    "36d5751e-65c9-4554-8ba4-7aa692083637",
+    "d8225713-1d4a-4b63-8534-67f6f0300fe4",
+    "7f29b882-8821-4f78-b0d0-0fb81b5182ea"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt165",
+   "branchId": "busan-station",
+   "name": "프리미어 스위트 와이드",
+   "slug": "premier-suite-w",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 66,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 180100,
+   "images": [
+    "175b7b9f-aa02-4eaa-8c6d-ee065ea680ad",
+    "805cdf25-eac7-42b0-8ffc-6c892ab75701",
+    "aeac5a73-9b35-4d18-bddc-98b9b780733c",
+    "ab4a0e58-e85b-46ba-bf10-5aa48f8f4aa5",
+    "b01273ee-9c96-439a-bc4a-e2e9c373c51c",
+    "a8b008aa-8ca2-49c1-bf99-262ccf81df6f",
+    "e5e235c8-d912-4287-ae91-b0cb3bbaa33d",
+    "aafa2d5d-7841-4053-84fa-4f72d19890f6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt166",
+   "branchId": "busan-station",
+   "name": "패밀리 쓰리룸 G 파노라마",
+   "slug": "family-three-room-g-panorama",
+   "baseGuests": 6,
+   "maxGuests": 8,
+   "sizeM2": 166,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "dishwasher",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 352700,
+   "images": [
+    "d469d1ca-accc-444e-808c-dc15181a01e1",
+    "3f5618c6-61fc-4649-aa3c-5c847a628b85",
+    "44fea738-96e2-4064-8a00-4275e1250064",
+    "3477b0fc-1599-4849-98d1-6a5962760f3d",
+    "8c2ce72c-f2bb-4bf1-87b6-4f619d48de8c",
+    "f6b24b8c-ada7-4508-a4c6-f4e0c53a3c9c",
+    "e53771c3-1356-43c7-9598-36d0eab9edab",
+    "79c54c24-887f-4af7-98ae-16b6bb3002a1"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt167",
+   "branchId": "busan-station",
+   "name": "패밀리 투룸 G",
+   "slug": "family-two-room-g",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 158,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "dishwasher",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 245000,
+   "images": [
+    "67a33ea1-46b8-4b3b-b4a9-bd86556c6971",
+    "1371429d-6dad-4263-8dc1-15618c9c747a",
+    "47229ce6-190f-4f1f-8f4c-20aaef37e77e",
+    "cefab867-d389-4039-aa6f-2b7cb88a0fe4",
+    "778b615c-dcd0-4672-a3e0-0b9d16b8cb5e",
+    "dd54b53a-cec1-4708-9501-87dae607d284",
+    "e4f8ff3a-2264-4633-8bc4-7ef74991dc1a",
+    "50990286-13d9-44c9-a9ca-911373da8328"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt234",
+   "branchId": "dangjin-terminal",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 137900,
+   "images": [
+    "335b0b2d-450f-4c74-9ae3-1bc511344488",
+    "a1abbfac-1282-4171-a949-4f80c4eaeb47",
+    "2b41f585-e847-4b60-997c-475029b42994",
+    "1d63f509-803b-4a20-993a-2edcb0d1ad75",
+    "c228b682-e5c0-47df-b2b9-5737bfecc486",
+    "3488a77f-8c32-475a-aecf-01b2e9b01717",
+    "bb764ff4-1cde-4bc2-b914-0155ef6dea77"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt236",
+   "branchId": "dangjin-terminal",
+   "name": "스튜디오 싱글",
+   "slug": "studio-single",
+   "baseGuests": 1,
+   "maxGuests": 1,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 92600,
+   "images": [
+    "7b8a1470-9e36-491d-bfe7-42f394556d0b",
+    "c558974e-9f48-485d-9fca-4776078695b6",
+    "8fa46e51-c723-49fa-9f2f-16092e56e900",
+    "f4896168-33b9-4430-b9c9-240fadadcc0b",
+    "28ddf824-ba09-46fd-b291-0acaa4f42baa",
+    "76c1a175-f621-4ca2-a6ad-57bdfff1ae62",
+    "790d96a9-7593-4d55-b6e3-669c749f749d"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt237",
+   "branchId": "dangjin-terminal",
+   "name": "스튜디오 로프트 패밀리",
+   "slug": "studio-loft",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 139400,
+   "images": [
+    "befaf2fb-8358-443b-bbef-1d46e8e5fc37",
+    "e24e5bd5-4d3a-4687-9892-8bd6aaab5cbe",
+    "510ffb24-f616-43c3-93df-18eca331e686",
+    "12aaca78-07f9-4152-8e6e-6a96ad491ec0",
+    "a7562b6e-a1f1-4697-86b4-ee7e1ca0372f",
+    "5b93dcd4-2d83-40d4-9f8a-3ff3001d5713",
+    "f08d09b1-c75b-4c57-93cb-5e3af804ff37",
+    "7e12529f-75ef-4514-9f47-d221fb5c719f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt238",
+   "branchId": "dangjin-terminal",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 114600,
+   "images": [
+    "7a05993e-dec2-457b-b0b7-64062a92247f",
+    "fbde299b-d0d8-4387-a4b5-b1d5bcefbfae",
+    "da4832a8-b93c-41b3-82f2-ab2fded45602",
+    "ea141c09-db05-4a30-9e18-0820677fb4e2",
+    "01a6bec9-199e-4d4c-89d9-44edaf4047a8",
+    "6704b3e0-2f41-4ad9-8f29-8dd01827856d",
+    "0af1e6fb-6b6a-4eb5-b20b-d32e8ca803a9",
+    "86a807af-c304-41f4-8fe5-3eeac71583cc"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt362",
+   "branchId": "dongtan-hotel",
+   "name": "스탠다드 배리어프리",
+   "slug": "standard_barrier-free",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 83500,
+   "images": [
+    "a4d3c4a7-ff44-4442-bee7-9fbbfc3a541d",
+    "2a53a965-559f-445f-9a32-01368836b0a2",
+    "52b98e8b-5815-4cb4-bc67-d678f88988e9",
+    "928e29d7-1a77-4471-9781-5ac50053f326",
+    "a25865b9-a290-484c-b711-929076122c78",
+    "34b5bbbb-875b-4e41-a288-a43d62172322",
+    "815167e0-7122-4e9c-bf1e-59e66afd1469",
+    "3e5187aa-85a8-4c91-b7e4-e2d6bec39c3f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt363",
+   "branchId": "dongtan-hotel",
+   "name": "스탠다드",
+   "slug": "standard-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 107900,
+   "images": [
+    "7b80424f-09ed-4fcd-b144-1f50675bd2e7",
+    "bcff8376-4bf6-4ed6-a5f8-2c943c69354b",
+    "cbd08e68-9501-40ce-b097-83f4ef8b1b1b",
+    "39bee784-c4b6-4299-83e1-a3a2640a2ba0",
+    "07856437-c371-409b-bd4b-5133bb78a493",
+    "053cbc37-ccf6-4a2a-a303-6599a7a57120",
+    "0e53a509-c459-422b-8a22-a4c54fbfe37e",
+    "56700767-af2b-4de5-be76-714a38b0e63b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt364",
+   "branchId": "dongtan-hotel",
+   "name": "스탠다드 트윈",
+   "slug": "standard",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 104360,
+   "images": [
+    "4d4e62d5-8acb-48ae-aaa8-77c402c470ed",
+    "3b45a526-043b-47f9-94c7-60dd7abe2904",
+    "e42e2b94-542b-4a60-8e88-e16ebefbd7e2",
+    "a20fb95d-6d0f-43c1-9fe8-846dac7104ea",
+    "82a3aaad-0bfe-477e-ad42-5c528bef8829",
+    "7eb3bcee-b85b-415e-a91f-22c6e13a87bf",
+    "3feb5616-8991-47cc-99d3-71cdc31fa7f7",
+    "4ee543b0-e549-4bb2-929a-b604c4f83239"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt365",
+   "branchId": "dongtan-hotel",
+   "name": "스탠다드(욕조)",
+   "slug": "standard(bathhub)",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 114800,
+   "images": [
+    "dfbe2579-2a7c-4758-9ab1-95e8fb3b27c9",
+    "ab9fc112-2bd4-4847-ba7c-1254971e16a1",
+    "80120479-53cf-414a-ba09-22e8fa46826e",
+    "8dc362b9-d98b-4db9-afd4-27e5e688dbdc",
+    "089880fe-8474-4449-9f36-4a75aedbb04c",
+    "0cbd7afe-49ee-416f-ad37-fc6ca148b432",
+    "198a5500-e11c-4adb-b5b1-4a55827babf6",
+    "944c53ff-9b27-43e2-8a07-9245c793eae8"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt226",
+   "branchId": "gangnam-sac-roium",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 147720,
+   "images": [
+    "e580009c-dbb4-451f-b280-9e6f4768eaa2",
+    "8e3732f0-4ed9-4e32-9b8c-4d231f9994af",
+    "ca9df695-c0a0-410e-acf7-8bb64f6ac38e",
+    "5f20e9bc-ed07-4857-b62f-2a70000f117f",
+    "8682c701-14ec-471c-9df2-6ffa551e250d",
+    "27ffaed2-270d-49ab-8f6e-1558be76d949",
+    "289efb10-2847-4096-b466-f5e8fbf61f86",
+    "579b0857-e761-4847-b42c-37e810a04c1f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt227",
+   "branchId": "gangnam-sac-roium",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 157560,
+   "images": [
+    "b8ba225f-0bab-4c7b-92a3-119406f3e884",
+    "934a4646-83c6-4fff-808c-5fc3cff926d4",
+    "9905e334-80b6-4876-9a65-ea8cea509f79",
+    "acd4462e-6d1a-4984-ac77-cdfb14d0d0b9",
+    "3206234c-8138-49fc-a83e-7c4f2c9991e1",
+    "000a9a73-2f06-44c0-ba74-c4629abbf105",
+    "1bd05470-e625-45f9-93f2-ebd913fbe75b",
+    "81bcb682-0b7e-48b1-9f92-bef99b2a2125"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt228",
+   "branchId": "gangnam-sac-roium",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 39.3,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 187110,
+   "images": [
+    "1b54f8fb-21c5-4717-ae7d-f7824d5ce5c5",
+    "e6c7e64d-629b-485d-b9b1-6da5fbcc12cf",
+    "ccbecd53-8040-465d-8b41-9f5a79089fe1",
+    "36f756d2-1aec-40b1-b362-c85759eda183",
+    "df96c660-89ff-4560-858a-a64874a382b9",
+    "342e2528-8335-4850-bf04-5c45c5f9dedf",
+    "72967481-6c98-4ce4-8fae-372552f2173a",
+    "c68dc6d9-4111-49fd-a6f4-37c9f8179c8f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt229",
+   "branchId": "gangnam-sac-roium",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 47.2,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 236340,
+   "images": [
+    "3aa91fd2-955d-4f2f-a016-253965f60acb",
+    "7f9339d6-6d20-46d2-8cb6-15d354e421e8",
+    "6466e70e-bd23-4c60-a6dd-f17b824acb22",
+    "c9bb8f17-3def-4586-a080-d91474f78057",
+    "00789a13-7c80-4750-8fb6-3ce5eaae4e51",
+    "c531b1c0-c75e-4a95-8f37-5357e7e81b4b",
+    "a918b375-fb80-4629-a2de-cf7eae0707dc",
+    "88c4f946-4c68-47b6-b95c-0f5196408f04"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt361",
+   "branchId": "gangnam-sac-roium",
+   "name": "스튜디오 베리어프리",
+   "slug": null,
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 29,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 137870,
+   "images": [
+    "954abe0c-01ae-4505-8fe4-c090ad25400f",
+    "7cc8ba84-5f0d-4424-9c7a-7d75a0e4bbed",
+    "5b96cad4-7d55-4c0b-8302-2699af966a66",
+    "94fca6a6-870a-4a84-90cb-92a5f178736c",
+    "a374fb05-6574-4312-aa70-3a9dfd33a4b1",
+    "eebafac8-0381-4257-bfe3-a1ec188c52cd",
+    "bdfb79b7-8852-461c-b6d2-e47d5a8045ba",
+    "5a09bbd9-a113-4a12-9bac-c3c8aa2abc24"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt146",
+   "branchId": "gangnam-sac-signity",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 29,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 180920,
+   "images": [
+    "0c9d1562-64d2-4187-90ef-761ef67df8ea",
+    "987c248b-d611-4b0c-adf7-0e076f798c26",
+    "15f5e27f-58cc-49b4-86fc-cbec1b540d14",
+    "472fff89-8abd-42d2-985c-77febb74d2c3",
+    "365a27dc-c69f-4ff4-88b2-c54e041009f0",
+    "e43e4e00-aa8e-4a52-acbf-b0a0d8c72f93",
+    "3c7ead0a-5ea2-4135-9f3f-4f8122be6749",
+    "551a92b0-4d18-4761-aafd-d8f73155cd4f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt147",
+   "branchId": "gangnam-sac-signity",
+   "name": "프리미어 스위트 랜덤",
+   "slug": "premier-suite-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 36,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 192780,
+   "images": [
+    "b4832f15-0f76-4dae-88fa-b827de2a496a",
+    "af657fc3-03b6-4072-befe-dfe705a3daf1",
+    "fcbb4d21-9ff2-4de6-ab85-2eec11c548e7",
+    "dd16107f-2b9a-4cf9-8f31-8e701182cca9",
+    "b817aef9-784f-4653-b4a9-9a08d24b110d",
+    "6c97a2e5-5029-479d-8714-e7830a3ebaa3",
+    "b0b1d2a1-2ccf-4533-a740-7b221499bb00",
+    "9ee24622-8675-450b-9cf1-56e2d28a3ee6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt148",
+   "branchId": "gangnam-sac-signity",
+   "name": "프리미어 스위트 와이드",
+   "slug": "premier-suite-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 50,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 209590,
+   "images": [
+    "fafc6fda-736a-494b-aadd-947ff207274a",
+    "815edb6f-5e68-47ca-9e60-5191ce1ad998",
+    "bfa9d472-d8af-46ed-85cc-7dce6c74cc83",
+    "b4441a60-bac5-44c9-b910-64df3af52633",
+    "df5f2297-df9d-47d9-996e-b5afab5a2c97",
+    "f53d3904-95e5-4b83-9926-ee97bcba4881"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt149",
+   "branchId": "gangnam-sac-signity",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 59,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 345030,
+   "images": [
+    "9082d135-02ea-4a25-877d-96f4c17aa0b5",
+    "911f2cbd-f316-4c02-9920-64648c9609b4",
+    "f42f8c39-e4b0-48fb-9445-290fcaaf7270",
+    "4f81ee8a-a7e3-4937-b33c-c75377000ef4",
+    "df8fdb8f-ecc1-47ab-a2f2-0325a8bf56cb",
+    "9acd2ee3-a162-4816-abaf-d9312a4dfc98",
+    "d89ed810-97e0-498d-9616-b76766661bb9",
+    "7971d7ad-ad7e-4def-8d42-79d063d54d69"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt172",
+   "branchId": "gangnam-sac-signity",
+   "name": "프리미어 스위트 (욕조)",
+   "slug": "premier-suite(bathhub)",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 50,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 265940,
+   "images": [
+    "0dd36d47-ef77-4165-8dbd-5810c4e1439f",
+    "4f7fbef3-96ce-4c5f-b151-0b38ba9f3a46",
+    "a7b555ff-c913-47da-96d0-4161c6baf6fd",
+    "f144f85a-476b-4ecd-8078-935b37f6fe12",
+    "eb2073e7-7d5c-4f55-85f6-0a0ef238e812",
+    "f2615589-d1f9-404f-b399-4c78c787b107",
+    "e8ca7c2e-ce3f-4ee9-a328-32c92155fbf3",
+    "f787fb89-b37b-4e0b-bab0-7c9c838f3afe"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt201",
+   "branchId": "gangnam-sac-signity",
+   "name": "프리미어 스위트 패밀리",
+   "slug": "premier-suite-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 50,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [],
+   "pricePerNight": 265940,
+   "images": [
+    "4a85fa69-a089-44ef-8aa8-384c853d6eee",
+    "1252c736-8af3-4978-adbb-3eeb21e91015",
+    "e83ecfd4-704f-451a-84d0-45a7563c41b2",
+    "49276a7b-6114-43ef-812d-1f076029d789",
+    "e8026d0f-6405-4859-896b-4c8fa8820f2c",
+    "c3adbbd4-ac9d-4513-9669-56f96d794c7f",
+    "1c7314ce-7ba3-403b-ab97-bf52a6ac576d",
+    "561794f9-bbbf-4aaa-a150-0a8564d18a9c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt296",
+   "branchId": "haeundae-paragraph",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 143100,
+   "images": [
+    "21f1d4b5-d9cd-48ff-b814-66bd2c381252",
+    "4562cd63-9496-4a6d-a553-7e921028af0c",
+    "ffcdee1f-532a-4f31-8f0c-765805dd4d8f",
+    "aedfc8ac-27d3-43fc-9df3-5308c3111d57",
+    "ddf3c54f-e82d-450a-addc-46bb7c2a0467",
+    "c37d56de-7be7-4c5b-b49e-8cb9871a6442",
+    "3df9d0b9-49f9-4db6-bbb2-8fddc8c78627",
+    "b810d38e-8723-43d7-a75f-f2d3ecb1d01a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt297",
+   "branchId": "haeundae-paragraph",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 37,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 160500,
+   "images": [
+    "a7e40b3f-48b3-400e-866a-afb6d76fb365",
+    "fa1cba10-f90f-41b7-8ea4-0d3dc33fc4b5",
+    "6820b1c6-fa5c-4b89-bbfd-4b88f3ee4c08",
+    "fef8520c-92ee-4621-a0b2-2b26471c7567",
+    "08b6503b-d90c-463f-9748-9ea424abecfe",
+    "f11ff942-bc30-40dc-a84a-f1b782082bde",
+    "277926f2-de98-4241-9eb2-2d4dee522368",
+    "23c80a6e-caf0-4a91-aa38-186834ee9ecf"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt298",
+   "branchId": "haeundae-paragraph",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 32,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 190800,
+   "images": [
+    "10b8af9a-f91f-43f0-8022-b3bd5e3594b3",
+    "8e9af548-aa47-4b7c-b040-bc1561be9e36",
+    "a13bdee6-7791-4eda-96cd-d24daeab2d9c",
+    "4118de0d-2f8a-4a71-a8a9-a7d969bc0b31",
+    "f79756a8-b768-4837-93a3-10c1f706ab00",
+    "5b6912e9-cf09-45a0-abc7-5dc192dc610c",
+    "27e44d8f-67a4-4e65-bad1-3e1995dec8ba",
+    "42aaac18-17cf-4cad-ba26-dde11499a5a8"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt299",
+   "branchId": "haeundae-paragraph",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 91,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 454400,
+   "images": [
+    "4c844a2c-8ee4-49e8-ae5d-7e52455bb1aa",
+    "9cbcae23-bb4c-44a7-ae3b-e42e9d125d52",
+    "d5da54e0-6626-4775-b804-783096bbadcf",
+    "7e302ef1-44dc-4065-a4b0-4a1b0bd1e984",
+    "38f4829c-c2da-4458-b5d2-6c6018b83174",
+    "14d2ba78-7acd-4bf3-a368-c18213847da6",
+    "0aae0669-bb59-4d05-9024-b7d9c3e1a203",
+    "7696d8e0-703d-4d55-b4e2-63c951694764"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt300",
+   "branchId": "haeundae-paragraph",
+   "name": "패밀리 쓰리룸",
+   "slug": "family-three-room",
+   "baseGuests": 6,
+   "maxGuests": 8,
+   "sizeM2": 159,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 561200,
+   "images": [
+    "61ee3705-8e76-410e-ab84-8c932fb21d26",
+    "1376c578-3d7c-4640-8fc7-d20aff97849e",
+    "88fa2de5-8f76-40a9-87fa-8632ccc57274",
+    "209a6046-68b6-4fcd-b5a0-698c5144fd46",
+    "db502e21-b872-4991-9d77-deaf185eef89",
+    "5370732f-d1d9-48b4-b2db-c4e7c336222b",
+    "d79cb2df-3dfc-45a3-8bfc-a62978a7134a",
+    "c73d8849-518c-4d79-a98b-9de0e808548b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt301",
+   "branchId": "haeundae-paragraph",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 131900,
+   "images": [
+    "609cf281-05ca-4b6c-a212-dc3903c5b658",
+    "ad845afe-2195-453f-9324-10eb4854012a",
+    "d3554320-0381-4fa6-a063-9540403fbf8a",
+    "3a0af04c-6266-4db7-896a-9ccd9311a725",
+    "7a69e47e-f3b4-47c4-b8c8-f8d5281dfa85",
+    "dc50861d-869a-46ff-9fde-e337bb01c2a5",
+    "104a7a22-6f46-4a27-983a-0cef9da5c200",
+    "13b8c61d-e1b6-4c75-a227-80998ef9d5e9"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt313",
+   "branchId": "haeundae-station",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 25,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 107000,
+   "images": [
+    "3ecdeafc-be88-4b03-aa06-0ebced9e0219",
+    "001cc7d6-d9b8-41da-8514-4d8913138230",
+    "b12fd2b8-1a1a-45ad-b466-0f1c8bb01659",
+    "10a1b661-e306-4bcf-ba99-b1c7c6d2a608",
+    "ddaaf997-b3b2-4558-91a1-089e427418d6",
+    "171002f6-6257-47d7-94fb-0e8f9fc686ee",
+    "3cacd5b8-52f4-4762-8db8-f335f4699855",
+    "ed344c74-27e7-4ae5-9651-284d17f59fbd"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt314",
+   "branchId": "haeundae-station",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 29,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 110600,
+   "images": [
+    "aa75a5ed-1f6d-42d9-878a-7025b26835b4",
+    "908cf81b-0bca-4743-91c5-03a650f8c61e",
+    "a389ff8d-b16e-407c-b263-3eaab045240b",
+    "b122328f-3ac3-4fa9-ab7c-62168ea96b20",
+    "f3cf0af8-2aea-4569-b369-4d7eafc47d41",
+    "553103a8-b20e-4db4-a90d-d5b607042e4f",
+    "49b61a6c-9ff2-4d77-bd25-420db4b93a50",
+    "0fe568aa-6bd1-4297-b0fc-26a00b291022"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt315",
+   "branchId": "haeundae-station",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 26,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 107600,
+   "images": [
+    "a20e6fb8-0b28-4e78-b8bc-e5a0f43bed6c",
+    "7e25d879-f8af-4685-acea-e20628637c28",
+    "728f394f-9c17-4b7e-ac30-188d16818b3d",
+    "71fdf01d-7abf-4d4d-8ab8-dc4fd30bada5",
+    "09d8d204-b2ae-4f26-9ea2-fba649893f02",
+    "e44f3e61-221e-4174-88d0-1065dce014d1",
+    "c6ad6102-b949-4e0c-95e1-2d857344d552",
+    "e160bfc0-6af1-4377-bad6-af4eb3417cc4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt316",
+   "branchId": "haeundae-station",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 49,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 143000,
+   "images": [
+    "6184a7e0-9e88-4a3a-bb51-ef563389ef12",
+    "8b0b4fbd-d0b4-4d2a-b8a6-cdbf4f73b1c4",
+    "145c4bc6-8344-4663-9089-836c3db9c4aa",
+    "3c1c70cd-e346-4f25-b081-3b314d172062",
+    "398e8cae-07a0-4401-88ca-b4e103dc1b5b",
+    "5f561e0a-ba71-4fea-9822-1b563f7db1cc",
+    "f62a9f68-68fe-454f-bb53-8ec6edf01e02",
+    "18420582-80c2-4ccf-bb3b-8ad39a594348"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt317",
+   "branchId": "haeundae-station",
+   "name": "프리미어 스위트 오션",
+   "slug": "premier-suite-ocean",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 49,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 158800,
+   "images": [
+    "acca56e9-4057-449a-b50e-e95770308e60",
+    "2b43d892-a30f-47ee-a2e9-0e34adcf880a",
+    "d2590dbe-1974-48b2-94fc-28fcad1ab443",
+    "79a35a1f-d575-49d0-8d41-66d81db21287",
+    "eb27f029-448e-4f5f-9f7e-c7a194ba3378",
+    "2db8f56e-3358-458b-b120-a30e684f1611",
+    "16d57a20-a360-4fdb-9089-0df483d504df",
+    "dbe224bd-a342-4e0b-8d15-7eb93831efad"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt318",
+   "branchId": "haeundae-station",
+   "name": "프리미어 스위트 트윈",
+   "slug": "premier-suite-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 40,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 133500,
+   "images": [
+    "e908a322-4db5-4a7c-bf68-09326d3c87d4",
+    "4f276700-3ff7-4413-8854-d9cb41bb9059",
+    "36c99d58-c376-42d7-92b8-fde9462c000d",
+    "a357d11f-ecae-471a-950e-7fddff6b3074",
+    "a118a378-ae2b-4a35-bdb1-a8b15e5ffa7c",
+    "1d354872-40c6-4e90-a12a-6efcdd6de8b1",
+    "5051afc4-4bc9-4aea-9623-f6632e018be4",
+    "1ad4580e-03c3-4653-a3e9-656e914c790d"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt319",
+   "branchId": "haeundae-station",
+   "name": "프리미어 스위트 패밀리",
+   "slug": "premier-suite-family",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 55,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 201900,
+   "images": [
+    "a69ce095-eedc-4219-8669-142d4d9cfb20",
+    "23f03dd8-3dd6-4f42-8130-9b600b2f3591",
+    "c71c0d57-f40d-4b95-9052-1325a4944213",
+    "ff2e9208-8e5c-4ca4-bfbc-57a3a213169d",
+    "faac9672-6ca8-4da7-af8c-ff9f20dce697",
+    "7e2c21ea-c52f-4fe7-bfb6-80fffe35da2d",
+    "195e1535-6782-41d8-af54-86784d2d0c60",
+    "06117dd6-a4d3-4d3a-8efb-1a208f239ae7"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt320",
+   "branchId": "haeundae-station",
+   "name": "프리미어 스위트 패밀리 오션",
+   "slug": "premier-suite-family-ocean",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 55,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 224700,
+   "images": [
+    "12ce0226-488d-4f3f-bc43-898d49a91293",
+    "3163c96a-3d71-4afa-a237-6b8119c27698",
+    "a0e2b775-2673-4802-a961-0b154d087576",
+    "1a73f9b4-5606-4829-9d80-3b1beb347578",
+    "8bce1744-7693-4a3b-a25d-d402099b5811",
+    "e22e7c56-4c85-42f6-9697-87ce25ec7118",
+    "ce1d4982-809e-410b-8c7f-33d37fb61bad",
+    "7865e3c2-a1ae-4f53-b281-743fb3976c2e"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt277",
+   "branchId": "incheon-chinatown",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 97000,
+   "images": [
+    "6eaa7fa1-6bf3-4dc8-b973-ab9c2c7dabc0",
+    "886309b2-3396-4fd3-9b38-98bdd80f4983",
+    "1ec64d08-d790-4596-a0d8-63bdbdddfaa8",
+    "a0a1c12c-0dac-46b7-b2ff-48ae6c11e041",
+    "10e2ecbd-9663-4d05-b852-232575deed7f",
+    "a1c02961-2ace-439c-b13a-8f31232a79a5",
+    "0486d731-aefb-45ca-9c79-bfb87b57ae06",
+    "8df4367b-90ca-4035-b743-b45618067f64"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt278",
+   "branchId": "incheon-chinatown",
+   "name": "스튜디오 (B)",
+   "slug": "studio(bathhub)",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 121200,
+   "images": [
+    "f6b4afd4-98d6-4fc1-92bf-a15b90fc1a9d",
+    "87452466-6bb0-4694-92b7-8d6687565861",
+    "cdbc1be9-83c7-42a7-b341-86823bd75155",
+    "169d53ee-e4db-4d57-91bc-ef6f93395380",
+    "de307283-ad68-4456-9e3d-df3432dd82d1",
+    "d0591aa4-5d3c-4271-a932-eef42cc0a42a",
+    "cad4a9e4-259b-4520-8a07-7bded72ca5ba",
+    "08664c16-ec36-4a99-a42c-f28135c611d4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt280",
+   "branchId": "incheon-chinatown",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 121200,
+   "images": [
+    "c5fb847b-f37e-4f9c-8323-072903f64080",
+    "73468555-a158-44bd-81cb-8feeab92327f",
+    "f668833f-a300-4b5f-b426-826f1b4dd399",
+    "61e093e9-220b-4be9-9436-214e32ec5c0a",
+    "4c14c195-ff6d-483b-b3f0-beb8e3013bd5",
+    "8e743ddf-1836-4dbc-b781-e4dc27a453d7",
+    "fb53ff17-20ca-4159-be56-9d4819cc3ea3",
+    "43ee33b6-df81-4836-912a-f96ef5ddffc1"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt281",
+   "branchId": "incheon-chinatown",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 33,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 227000,
+   "images": [
+    "afa9c93c-07bf-4ab5-a177-12c911a23f93",
+    "3b0ff13c-33c2-4020-8049-d7bb1ff19bb9",
+    "9063d683-7fcd-4dba-9e71-753c309f15a5",
+    "5bd8a352-e4cd-4cbd-b105-e531caa17394",
+    "e443b405-2de8-4720-8013-d9f79f6b445c",
+    "79f027d6-109c-4437-8c04-1170bca19a70",
+    "3bd50770-634f-4bfe-9434-d08770b1eb38",
+    "e11f8a8c-590e-4e3e-a0e7-0ea81dccaf70"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt282",
+   "branchId": "incheon-chinatown",
+   "name": "스튜디오 하버오션",
+   "slug": "studio-harbor-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "베리어프리"
+   ],
+   "pricePerNight": 194300,
+   "images": [
+    "629b9dbb-8a46-4e5d-b18d-c319ab3c45fe",
+    "9f0c6b2a-25f4-4158-9f1a-818b05a954ee",
+    "6d14d258-0664-4508-9537-56e57f5bda9b",
+    "d46a7db9-7e11-4266-9099-7c2892489cec",
+    "49ead688-5d10-41a9-a452-2db6732fa800",
+    "c6d000de-9772-45c4-8126-b335643d4e04",
+    "9e66aaa1-415e-47da-a9c6-d769d3be3a96",
+    "a8590800-d1cd-46e0-a263-d89568fb66e2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt283",
+   "branchId": "incheon-chinatown",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 6,
+   "maxGuests": 7,
+   "sizeM2": 72,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 265100,
+   "images": [
+    "1109be8a-3daf-446a-ba56-cba1a829d870",
+    "f3a7b160-cd17-4c35-bc28-e426aedb23da",
+    "c9d6fd6d-5e8b-4057-93e8-2dea7987dc78",
+    "057437ad-af2e-46f6-8a54-de8a78013ca2",
+    "b5885d32-4f0d-450f-9dbf-815e2e83bfd3",
+    "40fd4e6e-780c-4bba-bfe7-650c57108cd6",
+    "58014283-f0b5-40d2-8fbf-94e5c1cc53ad",
+    "4224a212-6c69-4663-9bed-44f040038fc2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt284",
+   "branchId": "incheon-chinatown",
+   "name": "패밀리 쓰리룸",
+   "slug": "family-three-room",
+   "baseGuests": 6,
+   "maxGuests": 7,
+   "sizeM2": 72,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 342300,
+   "images": [
+    "cf0bb1d0-18ec-48e5-a56e-a2c2022cf07b",
+    "1141bdbd-62c6-4735-b367-312ee969b4a7",
+    "ab844b74-daf2-471b-947b-39d8215abf69",
+    "ce04a66c-5ea7-4c6d-8368-44f2098d60a2",
+    "93d561ed-5f75-427e-825a-4803a061b6ea",
+    "e1e947cc-f1e4-482c-ba93-19b2c1c7c25c",
+    "4cc9a1b2-6d7c-482a-beab-eab2b4d51fb6",
+    "a88528b4-2e54-428a-9d85-0c3d75ee7421"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt421",
+   "branchId": "jeju",
+   "name": "스튜디오 더블",
+   "slug": "studio-double",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 42.84,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 111700,
+   "images": [
+    "b76d4da5-b4dd-4ca6-825a-46a8db2594d4",
+    "fef03b7f-a3eb-47c1-8767-18e7a08deb2e",
+    "9106e95f-3a09-4d5e-8aa3-2a510f1f348d",
+    "1d03ec57-2108-4ba7-b8ff-99cc514ddca1",
+    "d1a4bd4a-c3bc-4c3d-b2a7-f95fbe193bd6",
+    "03788d25-a620-495e-ad25-c0b820fee9e5",
+    "b8d1deba-52a3-4f40-82f4-887565bb44e7",
+    "d9fd005e-1e0c-431a-af14-d290f2b9e521"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt422",
+   "branchId": "jeju",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 42.84,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 143400,
+   "images": [
+    "4dcb4483-9fea-4662-a94d-a7c3ea714b3a",
+    "63a3f316-c5b4-4d92-a892-9cff628a332c",
+    "2b57af45-3b10-487d-871b-f1a43a5bd06e",
+    "9b97f251-aae5-4c28-ba33-f53226e86ab0",
+    "dcdcc71b-6210-4222-8076-64accbf12238",
+    "558a48c8-a05c-480d-b5e7-2fc3e819f98b",
+    "4a907b5b-7d83-4ad6-9ca7-a21434ccef3d",
+    "22b17d27-d143-491f-a129-41b65c17e93f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt423",
+   "branchId": "jeju",
+   "name": "프리미어 스위트 트윈 배리어프리",
+   "slug": "premier-suite-twin-barrier-free",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 60.17,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "베리어프리"
+   ],
+   "pricePerNight": 191200,
+   "images": [
+    "72189fc7-9ac7-4f63-9bfc-2cfcfd02b6ac",
+    "9b13590b-9cfc-4dec-bb80-4d55ff110086",
+    "8c298a84-8ccc-4830-8678-d589c677ff59",
+    "3a3c6ed8-00ae-4d40-bb49-fbde9fe4c0c1",
+    "1fb81a15-c82f-4208-8c72-5976b055f854",
+    "c87bffae-84aa-49ab-af3a-68be6726f591",
+    "c1c32f8b-bc31-495c-b7d7-0d983be80cae",
+    "01658739-1029-4c94-bb4f-4cb8e89ecd0c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt424",
+   "branchId": "jeju",
+   "name": "프리미어 스위트 트윈",
+   "slug": "premier-suite-twin",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 60.17,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 191200,
+   "images": [
+    "34365433-0d9c-4867-be5c-2127d34e1817",
+    "30d82f60-ab37-496b-9298-2cac2ebd241d",
+    "3c1fa44a-1cd9-4d2a-a95e-e2e0048bb6cc",
+    "8ccc2cb2-9e9f-4948-a2df-776a5fcd4d43",
+    "9ddfc42e-8e60-4a5d-a446-e49623d5140d",
+    "07c291b5-cba3-4ba5-8759-f304c80280fd",
+    "f23dd9e0-3b40-48a9-8765-35cc8a7fecd7",
+    "9e9240c0-eacb-4c9d-850a-8d2d69a7ce97"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt425",
+   "branchId": "jeju",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 8,
+   "sizeM2": 89.49,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 270000,
+   "images": [
+    "d0d0f67e-4ff5-4d0e-8ee4-5200d00b050f",
+    "1cfbc0c6-1121-48a8-b905-bbf6f4311e53",
+    "1021fd5c-09ff-4fd5-941c-f9edc7e49194",
+    "760b1eca-1e89-4948-b11f-6d2bfb8e5b61",
+    "438998cf-1d13-4fb8-bf2e-deab13f7b6ff",
+    "84be1110-9bed-43da-8c2c-674f6cd5e7ba",
+    "8d8ccdd4-a43d-46d2-b8bf-3faed25ed78d",
+    "213c5043-b108-4b1c-9608-9e584b489bdb"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt11",
+   "branchId": "jeju-airport",
+   "name": "스튜디오 싱글",
+   "slug": "studio-single",
+   "baseGuests": 1,
+   "maxGuests": 1,
+   "sizeM2": 20,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 92100,
+   "images": [
+    "e5f122ab-a6a7-4228-9ca5-6bf0ec3e3d04",
+    "b552e195-ceb2-41bc-958b-6fad034aa902",
+    "2b6baa37-60ff-4fc5-bd59-43055abd2aee",
+    "42ada2da-40a1-48dd-a0aa-e0c975fd54cc",
+    "3239e926-b7ec-4624-9960-8dcbea9b6118",
+    "1354cd0f-d35b-4ae7-9e91-452a62e0c43a",
+    "953dfdc2-4b6c-4593-b1e7-d0ad838638b2",
+    "3d0bb332-4f9b-4581-a2f8-213ccd48afc5"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt12",
+   "branchId": "jeju-airport",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 106800,
+   "images": [
+    "d2992740-f2ad-4043-8a5f-5e33504ab37e",
+    "a3fcc22a-ec8b-409b-9100-f9abe5b0c8fd",
+    "ac0a4d62-9a75-43ad-819f-0c3b7ab46e60",
+    "c8624acc-bed1-469b-812b-b39aed5687ab",
+    "992a54d8-270d-40c4-a669-043204429e21",
+    "f106bbae-fd9f-4048-8c5a-bf207f613fbd",
+    "675fe6b5-3b86-4e8a-8ce5-742d11fe65ab",
+    "9164e5ac-ca11-4f4a-9f3c-4657939c404d"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt13",
+   "branchId": "jeju-airport",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 26,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 121700,
+   "images": [
+    "a50809b3-20b7-4128-9e1c-3b628328af26",
+    "5fb5ce50-60e8-4503-80fb-b227b36c054a",
+    "80ffc117-e816-4b25-99b4-5a6c69bbaa02",
+    "91daafa2-5756-44a1-8c07-fccbca2524d2",
+    "eca97741-ede9-425e-9eaf-7e84c07bf489",
+    "76ef784d-9e80-4b51-bd93-69b1bed2b835",
+    "84d20e3b-b0d5-4907-b9a4-150b51772f77",
+    "d1b2c242-17ce-44eb-a9cb-2c55979b12cd"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt14",
+   "branchId": "jeju-airport",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 33,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 139800,
+   "images": [
+    "5b7067fc-7eb9-448b-9596-eeef52cb11a8",
+    "f75a976f-b5b1-4ebe-8c16-dc5b09f53a45",
+    "34e6edc3-faea-4244-abc3-fe685aa4583a",
+    "1da969b3-0052-4b3b-a76d-c3757e0cb501",
+    "a6890b61-5000-4e61-b9f1-cb3f670b09ea",
+    "c389eb8b-3a6b-451e-892e-160b1fb64d5e",
+    "d81245e2-3985-4f1a-815c-faa9e59d9edb",
+    "0a511039-7c5d-4f2c-a91e-1a77e681e529"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt141",
+   "branchId": "myeongdong",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 18,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 198240,
+   "images": [
+    "e802efb1-164e-42aa-9e5a-2738fb384cc0",
+    "b9a6c4c6-561b-4f91-b9d2-609751ebdb72",
+    "d1686540-0334-4473-aded-fde9ab143ee2",
+    "9f8dfc11-720f-4027-826f-a69a48dd0e0f",
+    "9fbe2116-4945-4fdf-9c67-097220c28839",
+    "b0668549-e8a4-48d5-aa1f-d887248a6f35",
+    "44332bc2-eea0-42fd-b3d4-a0985983c777",
+    "44ff3e81-ccf0-41c1-987b-734ee7c4556b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt142",
+   "branchId": "myeongdong",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 18,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 208210,
+   "images": [
+    "c38f4ab1-0f8f-49d2-852e-9ab43b27a63d",
+    "80cd65df-48fd-4eb5-978a-cb0bfc9f7525",
+    "be53b416-5cb5-4f9f-a868-4c04a741226f",
+    "66d5cca1-2878-4695-80fe-aa0ff5c10ded",
+    "5f5e9060-0156-434f-9a0f-eb935349f7f6",
+    "d2ab6742-7930-44ea-87af-31e439120944",
+    "1e92a7c5-45a9-4765-b23c-4f7aa14a8ef8",
+    "acad7f0c-f3de-448d-a228-c4512869835c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt143",
+   "branchId": "myeongdong",
+   "name": "스튜디오 파노라마",
+   "slug": "studio-panorama",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 18,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 238300,
+   "images": [
+    "dedfb93f-cd79-47e9-87d4-50c8ccce0757",
+    "e377bb8c-deb7-440f-8e97-3d6bd71afb39",
+    "4231d518-9ade-40d0-a534-d26d9698917c",
+    "a650d8ef-0020-4e17-9051-98b7f2735987",
+    "973137dc-726c-4bcc-9d01-64359e63ab27",
+    "c5f4652f-df2c-40c6-b006-40a5145fda35",
+    "265fea74-ed9d-45da-b62f-f00500c68b0d",
+    "a2c245ac-5592-47dc-aebf-5c6ed5dff585"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt209",
+   "branchId": "myeongdong",
+   "name": "스튜디오 테라스",
+   "slug": "studio-terrace",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 218170,
+   "images": [
+    "1b6651bb-9906-4bbe-b200-47a67445b40b",
+    "3c29dea4-4f4b-4594-a33c-7a1dfa814c0f",
+    "78ac045b-e78b-47be-bc22-abe6ee1230c4",
+    "b0320f40-082f-4498-a4b3-e0baa5613f22",
+    "be09679f-c301-4234-bda4-6b7000d2ba61",
+    "5535300c-e1f8-43f4-a40e-c6165efa0714",
+    "710f961c-cfff-40cf-b426-8e1d1395925e",
+    "9650b76b-19ff-4043-a42c-968319964421"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt427",
+   "branchId": "myeongdong",
+   "name": "스튜디오 패밀리",
+   "slug": null,
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 18,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 258020,
+   "images": [
+    "e7c08816-0dd7-4c20-9124-70b59d77c029",
+    "d73e4676-a06a-4eaf-a672-b508693a0430",
+    "ad83e897-53f2-433b-bad3-6bf2ac0218ab",
+    "c210091e-0140-43b5-bd90-48768dfc7240",
+    "fa785541-b08e-427c-9f2d-26af7922ee8d",
+    "f93ec396-15f6-4b62-adaa-c977ff90c7b1",
+    "adfafddb-47d8-42ba-ad83-dae9d79e19ed",
+    "f77e6994-485f-4a0c-be92-fc61931ef3d2"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt321",
+   "branchId": "naksan-beach",
+   "name": "스튜디오 설악",
+   "slug": "studio-seorak",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 26,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 97900,
+   "images": [
+    "865d78cc-457a-475b-8567-1d780c04aab4",
+    "5ff2bf6e-c206-49a4-9c3f-cd4c3bcf5b86",
+    "c188f25d-a28d-4e80-855e-cb421bc4a06e",
+    "e034ab94-cb13-40c8-8f4c-501471cc3bf0",
+    "16fcd494-059a-4281-a12f-8f98589d7cc2",
+    "5fa96ce2-1a49-49c2-9dce-d374844226ca",
+    "c579df29-113d-49b4-88ff-f96b5a0524e0",
+    "ec42fcc0-a22f-43cf-bf59-434d8dab4880"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt322",
+   "branchId": "naksan-beach",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 26,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 84300,
+   "images": [
+    "9090f38b-b1ee-42d3-9b71-fc6c0bab0dbb",
+    "2fccf218-a3b2-4689-bfa5-b42d3981af0c",
+    "96936b19-acdf-4161-9721-464c4d5e41c8",
+    "ac5bfa40-ad6d-4054-9386-3fe1459fadbd",
+    "0590e293-dbd5-4e69-b6f4-2ddf4831df17",
+    "1f2e0006-d375-4c8a-a23b-a56fa944d883",
+    "91daa647-d287-4791-8a42-dd81390c495d",
+    "15f3a3af-c9b3-49de-a506-f3a102d0226c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt323",
+   "branchId": "naksan-beach",
+   "name": "스튜디오 패밀리 파셜 오션",
+   "slug": "studio-family-partial-ocean",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 110100,
+   "images": [
+    "ed38a4a9-9ee2-4452-a2cf-d2ceced7fb94",
+    "6d68c95d-2ea0-4c38-9a5f-318742235f48",
+    "8cb4eb6f-3566-4885-81bf-931a50342fcc",
+    "92a60609-4e46-479b-b8dd-e00207c2341b",
+    "0f5aa566-d818-4087-9a2b-75e28c860bb5",
+    "1cc44b2d-16d3-4890-b574-50581028636a",
+    "3437cde0-5520-4823-8464-8a7e2018aef2",
+    "f2ac3d1d-c320-4082-aacf-ed1e12ed61c4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt324",
+   "branchId": "naksan-beach",
+   "name": "프리미어 스위트 오션",
+   "slug": "premier-suite-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 45,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 155100,
+   "images": [
+    "c59e86f4-ff5b-40dd-81ac-769c27dadffb",
+    "8f0070b9-7c0e-43d4-be47-0c6a6e17de51",
+    "c4d9666d-2792-40b7-a404-c1f79dac595c",
+    "a2ce6164-7b53-4b44-a41b-ffc0f4e0f67e",
+    "a33ab5af-00f8-4734-8561-c465ebb4a3f5",
+    "7fb0585a-4288-4865-8b58-8e8ce9b6e9c7",
+    "bde3c1b6-6ea3-4225-bb7d-f02521b735b1",
+    "a190287d-bca4-4e98-a885-e35cf6b35422"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt351",
+   "branchId": "naksan-beach",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 24,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 106400,
+   "images": [
+    "3a7f3166-9b6b-42df-88e4-bc8dba87c449",
+    "44fd41a7-470e-484a-b30f-00e7e54bbcb7",
+    "f920a8ed-167e-4b37-ae35-1820d7f9a189",
+    "485a3e06-fe21-4e02-bfb1-85b57be4692a",
+    "d193cccf-7ccb-46b0-ae52-6d39ff367db3",
+    "831b9143-81a3-46f0-88eb-aad77bee5ce0"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt434",
+   "branchId": "naksan-beach",
+   "name": "프리미어 스위트 패밀리 오션",
+   "slug": null,
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 42.29,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [],
+   "tags": [],
+   "pricePerNight": 228000,
+   "images": [
+    "b537fa99-0d9e-41e6-8de7-f06a7d5c55c0",
+    "8e7fa776-7a96-4c25-bc2e-4199c917144f",
+    "8ddb0d13-79c3-44bb-bdbe-5356c36bb491",
+    "52ce48c8-2bff-4b0f-ac6a-8f2d301eed5c",
+    "13384fd5-04d5-411c-a2cf-e1a6654e8721",
+    "894b4b70-51b5-48bb-9779-7e2c6277d729",
+    "4e93c00f-6656-4fc7-a80e-edf2d51e5abe",
+    "155c11e0-eb72-4c1e-907f-9660000225a8"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt395",
+   "branchId": "over-the-mountain",
+   "name": "호텔_스튜디오 더블",
+   "slug": "hotel_studio_double",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 42.97,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 113000,
+   "images": [
+    "4e5d5366-2c15-44e4-98ce-53b943822cde",
+    "69a4cadf-20bc-446a-b6bd-6540e743f204",
+    "90f9bc34-f011-4c09-828a-fba9483e53d4",
+    "468e0559-bb9a-4a6b-8298-a944c5b74249",
+    "9cf1b97b-d277-4175-9b97-068adac5423d",
+    "0312c475-12f4-4452-82dd-6d993715a8c4",
+    "62d97640-1f3d-4c43-93c9-87e0919b0620",
+    "4ca5d228-39dc-4786-a734-0198f995c8ac"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt398",
+   "branchId": "over-the-mountain",
+   "name": "포레스트_프리미어 스위트 A",
+   "slug": "forest_premier_suite_a",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 92.56,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 150000,
+   "images": [
+    "615143a8-9ddf-4102-acf6-dfa631f956fb",
+    "aad4b711-aa9f-4765-8e01-fd90b725506e",
+    "4a17bc7e-3806-4611-bfc0-c57ea0b20f92",
+    "9cf19389-29ba-40dd-8682-1f756b1e4ebe",
+    "93e8da95-ecb5-43e1-aa38-e545534af0db",
+    "4b2065b6-5a37-4824-9892-8f7c93a1936e",
+    "446bb4a4-5077-4f2a-bf1f-f5ffd34395f1",
+    "529978cc-3d87-4ecc-9446-58501cd4225a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt400",
+   "branchId": "over-the-mountain",
+   "name": "패밀리_프리미어 스위트 B",
+   "slug": "family_premier_suite_b",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 109.09,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 210000,
+   "images": [
+    "dca0a83f-812e-4875-b786-00e9933ca999",
+    "7e77b6fb-df6c-4f8f-9cb9-6b84c2110367",
+    "a198b476-6a21-4e41-80b3-a9550ddba210",
+    "e10297b1-e8fe-424a-99ea-613e9b225755",
+    "6db7c599-0d45-4a31-a347-ef38dd91e308",
+    "956badec-83c8-4156-9d93-7b8249c82be6",
+    "d351dbd5-9aad-4f84-a71c-d8c0b2c3f5a4",
+    "27204c83-f0e3-432c-af10-2214bc4a1e85"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt401",
+   "branchId": "over-the-mountain",
+   "name": "포레스트_프리미어 스위트 B",
+   "slug": "forest_premier_suite_b",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 125.62,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 210000,
+   "images": [
+    "e9b2010b-e7e1-4dba-859a-4a1b2220691c",
+    "080165e7-8a22-498f-be5e-156e16734922",
+    "f44592ec-6df0-4e42-b4c4-49ab000f7b0c",
+    "9774b010-2c67-45fc-8d39-6a6376e1a6bf",
+    "833c360d-f783-411d-96d6-2a68e2fa94f5",
+    "6dc013f1-206e-469f-b251-d00eb688a889",
+    "6ac4cdf2-a17f-41d2-a048-030dcb014818",
+    "3730c283-5cd1-409e-9805-0dfd6c6a4e40"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt403",
+   "branchId": "over-the-mountain",
+   "name": "패밀리_패밀리 투룸",
+   "slug": "f_family_two_room",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 165.29,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "온돌",
+     "count": 1
+    },
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 300000,
+   "images": [
+    "ac35c181-cc4e-4af3-ab07-2b838751ab60",
+    "0b0ffc4f-ebaf-433f-b182-f089aa0f3db9",
+    "7f778c33-10dc-4436-81c8-9961e03fe75f",
+    "d39d0e85-154d-4516-acc8-b870e1927d2b",
+    "07549c99-503d-4d02-8785-f3713f2a7e91",
+    "013b9cbf-0405-4ba2-9b5b-95bb04336dc7",
+    "db46ea0f-7ba1-434b-bfdd-c9136d77bb4d",
+    "afa61f3a-706d-4a46-9e89-deffe7cd9d2c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt404",
+   "branchId": "over-the-mountain",
+   "name": "포레스트_패밀리 투룸",
+   "slug": "forest_family_two_room",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 148.76,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "온돌",
+     "count": 1
+    },
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 263000,
+   "images": [
+    "b3323c68-208d-471f-89cf-61b11cb4ab5f",
+    "818a020c-af70-480b-910a-f39bdf00aa7f",
+    "2fff2ec4-aa8d-4f65-b053-1f5d1805432b",
+    "9a424981-7d2f-4fb5-8cba-ec178925b2cd",
+    "bd014907-0844-4f12-b705-c2b0724d578d",
+    "b23de09d-daa4-4f51-960e-f2f6f06b933c",
+    "77fb697b-a506-429f-853f-3947d07d2b39",
+    "cf166c4e-d0c4-42ef-9ca3-f177015345d0"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt54",
+   "branchId": "seomyeon",
+   "name": "스튜디오 싱글",
+   "slug": "studio-single",
+   "baseGuests": 1,
+   "maxGuests": 1,
+   "sizeM2": 16,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 88800,
+   "images": [
+    "f8736311-8b51-4a4e-a93d-f413fe40752e",
+    "f3242ddb-b0a4-4c34-9e50-fc8c25ce3bed",
+    "9eec3737-e195-4750-8618-a358bd9de10b",
+    "945c2027-eb29-427a-a39e-43e6df545d34",
+    "e26a3b4e-a898-40fe-ac81-0a1e654f7940",
+    "2e46901f-efdb-445a-a893-bae149c9bf38",
+    "2100a7f7-f915-4e4c-89e9-5c1ac320f2f0",
+    "22b33353-be1d-4ac3-bf07-38e1816c4fa5"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt55",
+   "branchId": "seomyeon",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 15,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 109700,
+   "images": [
+    "cbc87d23-1340-4b64-8c21-dd11f88474d9",
+    "d6573754-e883-4a76-8be5-90ba8e5b8770",
+    "e0ac185b-a5fe-4e0e-bcd0-c5d0bb386694",
+    "fa932a5e-cf9c-414d-9f1a-d10d48db35bf",
+    "6b8d8436-a846-4ba1-9bd4-fabc037ec189",
+    "7437f4b6-a302-42dc-ac39-95466a61ca89",
+    "3e301b6e-aba6-4f61-9142-d89aa0263621",
+    "d4096dfa-0413-4b6c-bbcf-b2223bb53561"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt57",
+   "branchId": "seomyeon",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 15,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 125300,
+   "images": [
+    "98898290-85b6-4aee-95ce-fc4b9916d669",
+    "22b8bb9f-2b72-4ae9-ad67-e3d6547bdf51",
+    "15f4e3f1-babf-4960-a86c-cf1e7bde10fa",
+    "bae44105-1f75-4671-bea5-9cea453cfad8",
+    "4e3d01a6-e6ee-4af4-a3b6-a7cb60a7daa7",
+    "a8b30cf8-6589-4f34-9409-b834e16b7a81",
+    "a28eee6b-e464-474c-9a63-b9493e957ae5",
+    "4b057574-0738-45c8-acb3-1570a9389adc"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt131",
+   "branchId": "seomyeon",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 15,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 111200,
+   "images": [
+    "9d1bc866-85b5-4483-baba-84bcbdf70513",
+    "a82140ab-69cb-40a8-9a9a-91a2c97f45d2",
+    "ae2e41ee-df3a-4609-a82b-5d4a5296a719",
+    "9db0198a-2a59-4e54-b946-e9a2b72d4996",
+    "9916c05a-eee1-4786-a168-86a09a08993e",
+    "a235fd92-77c8-4533-9a3e-6b1e5d45cf34",
+    "14f3265e-762f-4663-9b7b-57b297674e85",
+    "01c70cf2-15ef-4d9b-895f-44f77d05de39"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt266",
+   "branchId": "seomyeon",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 15,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "더블",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 98000,
+   "images": [
+    "516cff56-96d6-4afd-9007-4faba2ad244d",
+    "32d734d9-4a7d-4d4a-adc1-bb5a89a4f6f3",
+    "fe27b4e0-c6b3-42b2-962b-7d0ad82980da",
+    "7a34bcf2-625d-4c2c-874a-54e7a24cf5ca",
+    "193894fe-39fc-486a-af9d-9cacf2af7d63",
+    "70fa5d88-ce5a-4943-8c54-505f16121623",
+    "902eea93-695e-4d81-aac4-42e4f18db92c",
+    "b93ac116-9c23-41be-9a28-9496d5c50d79"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt291",
+   "branchId": "siheung-geobukseom",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 25,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 84500,
+   "images": [
+    "939004d3-22ce-40ae-baa6-a9f615c8a91d",
+    "d4c5d671-eb12-45cb-9f92-3a86a3b6a081",
+    "ecc9617b-80d8-40a9-94af-3467f0c23d27",
+    "ebc717a3-7e5e-494a-aedf-364666f43b9d",
+    "5e8959a0-68cf-4a56-84c5-d0e5573846ba",
+    "62c345d1-444e-4b81-8ff9-95ca968e932f",
+    "c16c4f92-a840-409a-9171-83616e4ba166",
+    "cd9d4579-4869-400f-a856-9e0b8f3259e6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt292",
+   "branchId": "siheung-geobukseom",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 104900,
+   "images": [
+    "59214c3b-e94e-4637-9de1-deb345cc15a2",
+    "987a6616-232b-4e73-a6d4-811aeafd4850",
+    "20b12077-7818-4cb2-8c63-195e4ee5bbb6",
+    "6fa94bfb-ee83-4a98-a648-d51ad8bbd9d1",
+    "7c8d2883-81f4-473b-acf1-a09307e1c664",
+    "c1b89805-bf6d-4a94-9b7e-6c18ea10be09",
+    "d28682ff-3d58-4dde-af03-544de5ac92b9",
+    "f9afd335-40e9-4294-bc5f-c345ee7708f9"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt293",
+   "branchId": "siheung-geobukseom",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 106400,
+   "images": [
+    "a1e24c46-ad4f-40c2-bf4e-7610c52269d1",
+    "069fcdd8-2561-4b99-b8fb-9e6ac3d95293",
+    "2e7feb16-89ce-4a5e-be6e-da8a37bda61b",
+    "c277f0d0-70a4-418c-8440-506ecc9cdb70",
+    "4bc68cc4-2bf6-48f0-83f0-842333f7d0bc",
+    "b52de96b-d9a1-48fa-852d-31f65a859689",
+    "399541b4-f211-4452-8f37-e9554ff89924",
+    "699ffcd0-f43b-4af4-9a45-79013ff62f79"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt294",
+   "branchId": "siheung-geobukseom",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 115100,
+   "images": [
+    "833d81e7-d2fc-49b3-aa6f-cd10c5d5dddb",
+    "577fbf4c-49ee-4699-a5e8-a8781467b48c",
+    "c8055d7b-c44b-4d70-a762-ec523a310d0b",
+    "3ba4bc0c-4b9d-4ccf-9aec-235c6cfed793",
+    "d7262195-88cf-447a-9708-dfc7a7560261",
+    "6652d312-d9c8-4172-9066-2105cb4cc9b8",
+    "09f7acf9-5b9a-435a-a221-ac23a2fa9d20",
+    "9b61b86d-355e-47b2-bb1e-d64a5aeba2fe"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt295",
+   "branchId": "siheung-geobukseom",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 56,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 191400,
+   "images": [
+    "eb800ab4-124c-41a5-88f3-785bb5a59554",
+    "1fe3e19e-545f-49e4-8e58-8ec024afff0f",
+    "a4c2f05b-1407-4779-ae6a-1f139384e832",
+    "3f31ae64-bb91-4fc4-a976-d1648047e165",
+    "abe4e183-3b82-4dce-be1f-e302078d218e",
+    "bf717637-52e7-4be9-9cc6-ac7777dc7748",
+    "2ce57fd7-8633-4cdc-a73a-ebda737ccd16",
+    "b5f75136-2fd3-4703-bbf4-c3e2f6e26c39"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt420",
+   "branchId": "siheung-geobukseom",
+   "name": "스튜디오 패밀리",
+   "slug": null,
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 35,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 142800,
+   "images": [
+    "cddd3851-b313-4bb1-abda-3092747f8a64",
+    "062b64d2-e1b1-4246-9b8c-faf42a06a5fe",
+    "30e1bf23-3399-4ddc-babf-f680020825ef",
+    "df0ffcd7-6ae8-4d50-a1f7-5635b324bbba",
+    "fda5bd11-6adf-43fc-aebf-0359ec7824c3",
+    "6b384500-e40d-46f9-af5d-204a4d93e96f",
+    "800c941d-26e8-44dd-8900-d45a27a4c415",
+    "1209926e-e1d4-4b08-a6c6-af5d8979085f"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt222",
+   "branchId": "siheung-penthouse",
+   "name": "펜트하우스",
+   "slug": "penthouse",
+   "baseGuests": 4,
+   "maxGuests": 8,
+   "sizeM2": 118,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 3,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk",
+    "styler"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 800000,
+   "images": [
+    "dc22c1b8-7bf2-45a7-a5cb-00eed866d2b3",
+    "b694c1e9-cd77-4c9b-9545-7612810ff436",
+    "8a9cd236-29c4-4721-9490-5575831466d5",
+    "e1ee66d8-bdb9-4680-9fd0-e27c26a095de",
+    "f6afc4f1-0f86-4305-852d-4ad04788475c",
+    "aa0a15a6-8e8d-4b02-8bb0-b533fd60d287",
+    "1064c645-8e97-4609-a7c8-201e3ba15c66",
+    "b429dd0f-d467-4d4f-8025-09e0ec31abd2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt203",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 27,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 131600,
+   "images": [
+    "4aa4f48f-2242-49f5-9906-61a1c1b2eae7",
+    "cffd382e-1698-479a-abc4-a46d57a7bb44",
+    "c38d255d-3a6f-4684-8623-bfea791f02c9",
+    "38408fc1-2185-4ba3-ac52-2596cabe81f9",
+    "4375d200-051f-4568-8205-6f84c7b24091",
+    "379939b1-5f70-465e-bb54-90541e472bd1",
+    "e5aef06b-05a1-4fd8-86c1-be5ed2bcc6fc"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt204",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트 서프",
+   "slug": "studio-loft-surf",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 189590,
+   "images": [
+    "bb45325a-42bd-43c0-ba76-98c8c133f136",
+    "e3a76b41-f01b-42c9-8ff5-bef78767a54d",
+    "2d2c08e7-8c8c-4b60-8ef2-5c6004e6d277",
+    "df0ac276-a6a6-4a29-8a37-b01782ead2b1",
+    "28bc0ac1-188f-4e3c-b4db-4241b04b66c2",
+    "a6cb134c-9c6b-4c0e-b3a8-197b6d350cd4",
+    "8fa7b943-480f-466b-b3b7-0d4d5a695a14",
+    "30c14fec-be5f-4976-8b8a-272327dfff81"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt205",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트",
+   "slug": "studio-loft",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 136300,
+   "images": [
+    "d82d63df-cd1b-4d13-a511-dd56aa192769",
+    "da98e0ec-cdcd-4629-86a9-2001e5af59dc",
+    "0da84c6a-86be-4766-a805-2aa53f2f2c1d",
+    "8fc6bf77-2cd3-4a8f-aee0-9da4c5641857",
+    "26039ea8-c480-4b2d-b679-a1f1446ff013",
+    "576e0e3e-3e0b-4c49-b447-d3a657256d4e",
+    "b7045225-3030-4f66-bdf0-6f9d25150146",
+    "989f0992-4c5b-4980-97d5-de0807f77cdf"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt206",
+   "branchId": "siheung-wavepark",
+   "name": "프리미어 스위트 패밀리",
+   "slug": "premier-suite-family",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 42,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 242250,
+   "images": [
+    "8c7d9add-9aeb-4ccf-a776-bccba9c54c42",
+    "1708b5f6-732a-4aac-8a61-ce4ab10b4f4c",
+    "ae52d6fb-a102-4f9b-ba91-c9b995b0a5d2",
+    "32600bbe-8f7e-4500-a957-db06d29eb789",
+    "34645e04-da12-4ebb-8667-6591116dc163",
+    "9de8e2fb-ab9c-4079-8607-655f2135e8cb",
+    "c6f7f39c-e03f-40d2-bd08-9f13c1486b18",
+    "dd12b931-bf45-4f82-a117-f7f87c3a75f9"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt207",
+   "branchId": "siheung-wavepark",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 74,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 347580,
+   "images": [
+    "12d025dd-aa9d-4cb7-97d4-e3b42105c73d",
+    "a1dc3207-ef85-49d8-90c2-ce7f55e8c307",
+    "3426f409-7905-4849-bf3b-c528b2df63c6",
+    "2a52a0bf-55fc-4566-83a2-7412d7cbbfe4",
+    "f523eff5-f290-4db0-8f5a-4f882c8206ad",
+    "e86bd7cf-bc10-48d3-91f2-bd8ebdedb11e",
+    "0f2f5a9f-6e3c-4461-af7e-0678c7c55241",
+    "26aac6d3-fb32-487c-b55b-a0fab9203a3f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt224",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트 트윈",
+   "slug": "studio-loft-twin",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 139200,
+   "images": [
+    "f2dda9ba-768c-4217-864b-4cc48ba656d3",
+    "8b093054-b0fc-47ee-86e4-c06e23bda34e",
+    "632c2230-31ea-44f1-aad1-90d5f3e442a4",
+    "bb3dfeea-4722-4692-a3cc-ff69c4a1b086",
+    "53e33c3d-5b2f-4cfa-a2fc-709c6c81e7c4",
+    "833413ee-fc91-4b67-ba2e-17cd6e6ac5de",
+    "e544bc5e-4c24-4527-b300-723d3bcbe374",
+    "5befbc38-b5a4-4330-af83-852d48fecc69"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt246",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트 패밀리",
+   "slug": "studio-loft-family",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 221180,
+   "images": [
+    "7811078a-2fe7-4016-b059-84d2367b003f",
+    "542db1b7-12b9-4634-a9e9-230bda184e0a",
+    "cc0eaef6-067b-4267-8010-92f1d4ff8c56",
+    "965eede1-cb8f-4814-b153-737515d19ff2",
+    "add6d33b-f641-45c5-a138-f304396d68f9",
+    "fbf99865-2798-4c1a-8a32-233e1a90007f",
+    "697d4c16-eb4f-448c-bdb9-e5750225fba7",
+    "a5b52cad-9242-4937-8517-0eb09cb6c43f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt258",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트 파셜 오션",
+   "slug": "studio-loft-partial-ocean",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 184320,
+   "images": [
+    "b1ae76f0-2baf-479c-b2d5-ff4a4ab4bdfb",
+    "6bad0133-0c47-4bd4-8384-90bf078c1852",
+    "795e03b1-3247-4f5d-8d82-ab25e60390a4",
+    "d20326ae-b787-4105-b7ed-2500d79c2f04",
+    "0e6e4876-5a9a-4d3c-904a-676be94a4103",
+    "fea586ff-9c9c-4a22-8377-47b59f8a1e2a",
+    "967efc0a-498c-458a-a949-c3bcd9814833",
+    "eefb8fbf-f5d3-4f91-a32d-288baaa57cc6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt410",
+   "branchId": "siheung-wavepark",
+   "name": "스튜디오 로프트 패밀리_펫룸",
+   "slug": "studio-loft-family-pet",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 30,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "복층",
+    "펫"
+   ],
+   "pricePerNight": 223200,
+   "images": [
+    "fad8a608-e59d-429b-84ee-db17251f9aee",
+    "270d5894-063b-45be-820a-a4eb805b7244",
+    "f43847c8-e076-482c-a976-150c5e67915b",
+    "8fc8cc29-4fa8-4bc4-9e9b-31a240df4f6b",
+    "12011d89-5157-48de-9505-2a214cc510f3",
+    "3365e815-1d64-47d7-81d6-8d5257c267d3",
+    "15b05ce4-b03b-4e75-8da3-40cd56bafe75",
+    "c9e49d8a-eacd-46cc-87f5-d388c81a78b5"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt411",
+   "branchId": "siheung-wavepark",
+   "name": "프리미어 스위트 패밀리_펫룸",
+   "slug": "premier-suite-family-pet",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 42,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [
+    "펫"
+   ],
+   "pricePerNight": 315980,
+   "images": [
+    "e980f5bf-a156-4c30-940e-fa7b2ee79d47",
+    "9a9c6d7c-99de-4bc2-abba-30cad8e2c0c4",
+    "40ab7d0a-84d5-40bd-b16d-fe22fbad5379",
+    "e9864a36-9266-4517-8e8d-a8210df4774c",
+    "5605cf39-040b-487c-a78a-8336a9eb50e9",
+    "92e3ded0-0fe2-408e-a3fb-0687ac0435e1",
+    "45d2178b-7a2f-4af9-9378-477693c0ae57",
+    "3d94bd74-c956-403e-a975-693229408945"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt326",
+   "branchId": "sokcho-beach",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 92800,
+   "images": [
+    "31e8f274-23ee-4478-851e-0d264b517f5f",
+    "92ae9fce-87d5-4c0b-9522-23cb547e68aa",
+    "44a693cc-311d-4b86-baca-ce55a19e0e50",
+    "8e434df8-721e-45e8-905b-938fc29bdc91",
+    "80e45d1f-1271-43e4-ba12-ba80bcb4205d",
+    "8ad57197-cf4e-4694-8229-397e3590811e",
+    "819064da-b882-4a7f-b599-a7a2eb73681a",
+    "2b6756f3-1e49-460c-b364-e2e838a4032a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt327",
+   "branchId": "sokcho-beach",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 102900,
+   "images": [
+    "832034e7-b334-4641-8899-13b7da4920dc",
+    "45347670-7610-4b3e-ad5c-9fc56787d36b",
+    "356bb710-348e-43b9-8d6f-5e4c7acf6cc5",
+    "bcb31c37-e425-4dca-b022-dea2dfe742e6",
+    "05043145-9b16-4d37-83e8-bcc7f63e3bc9",
+    "f33ede9a-cd01-49d1-ad11-00d9e78f475b",
+    "a7e2ccca-6bab-4686-ba00-8b6b7c00b08d",
+    "fb0699fd-a8c0-4605-9bda-d310878826d2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt328",
+   "branchId": "sokcho-beach",
+   "name": "스튜디오 파셜오션",
+   "slug": "studio-partial-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 108700,
+   "images": [
+    "c06d1fe3-a433-42e7-9eb0-f76af1f7054b",
+    "7592d407-7d89-481b-9288-ff4ccb397b79",
+    "f76815ef-e87b-4aa7-bab0-07b40cfa86d0",
+    "3f7f2ad4-6470-4da0-a1ec-f146b870d210",
+    "8b2bb56d-48c8-4a3a-acf1-20028fd41be3",
+    "5ab6536f-092e-4eb1-b320-24a40c4bb8c1",
+    "1b1cb355-d2a6-4d63-b2da-7989f185d5e2",
+    "2c309b05-8ed8-47e1-a440-95b11cf77514"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt329",
+   "branchId": "sokcho-beach",
+   "name": "스튜디오 오션",
+   "slug": "studio-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 135150,
+   "images": [
+    "08ae0627-a30c-4700-8455-f28fe4261281",
+    "93432afd-2f0c-45d5-b64f-93f2236258f7",
+    "53d9bccc-d010-4630-ab00-41be8e61565d",
+    "637cfc02-cfab-43e2-ac21-e483b0a04fe0",
+    "eef96b01-195c-4cd3-8679-7483de568d63",
+    "9247347a-9d64-4d4c-9e95-2299e8212b3f",
+    "e54c7dc8-e44e-4b81-97e9-f87380668adc",
+    "7644bcb9-9378-4bfa-ae01-1f2d2000f2e0"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt330",
+   "branchId": "sokcho-beach",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite-ocean",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 33,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 180200,
+   "images": [
+    "2088a3a5-e65e-4940-ac84-32f1f54c67f2",
+    "e12b322b-47a2-4711-a2ce-b16ffdc7340a",
+    "161f24c6-641c-457a-8726-fb979a6b640f",
+    "af378b87-d794-4b60-a501-81e25ead43d7",
+    "d80ff953-fa1d-46c9-bfc7-51ae649b28c4",
+    "4ffb013d-92c2-4ad2-b2e3-d96f555f93b4",
+    "b54fba8a-857c-44b5-9afe-599673b38e53",
+    "d61324a4-a4b4-4ab6-a8a0-25db7ab5217c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt331",
+   "branchId": "sokcho-beach",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 46,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 281550,
+   "images": [
+    "b88f96f2-69d7-4c09-9569-64f9931b920b",
+    "77bcef29-0855-4a0c-89ad-ae9dafecb475",
+    "66b15b8b-9cdd-4b6a-a589-69a9f737935e",
+    "e16cd991-9b66-4bd0-b927-813043d7b889",
+    "1d56e5e3-288f-4880-9553-d5ed96debbde",
+    "03aa4130-41b6-4a80-8876-2a8ad72afe16",
+    "6b269e40-f546-4d17-92c7-51651c554cf0",
+    "5bcedd54-ff37-4359-8075-90a4b9bbbe0d"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt332",
+   "branchId": "sokcho-beach",
+   "name": "패밀리 투룸 오션",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 46,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 337860,
+   "images": [
+    "bf515603-9210-4d0a-96b8-a629c49691fa",
+    "2467d80c-49b1-4251-9674-ba24ca731bbd",
+    "494e1d4e-ea85-4c3d-ad9e-1b185fe0c006",
+    "aa0ecadd-3869-4062-bfac-1756b25791dd",
+    "a2ed4dfc-257a-4a5c-ac6d-0b0b42a85664",
+    "be35d5a9-e7c8-4c47-b01d-c9863d2d39d6",
+    "0b2d5920-e4ad-4ff6-becf-88b38c82bb20",
+    "a36e2c21-1aa7-49e5-9b27-f0731082eecf"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt247",
+   "branchId": "sokcho-beach-ab",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 104700,
+   "images": [
+    "dacadd9e-50f3-4e4a-9bc5-d9405b117b6b",
+    "c227e949-7118-41e3-a921-fca56bfef9b5",
+    "2c17414b-37f3-4dcc-a4e8-a7fc0d1931f0",
+    "1cc4ec31-1a66-4fcd-a431-011b9fa3143a",
+    "97c8a195-09ea-4f39-9639-982b8e9b5153",
+    "662487c5-2b7f-4dee-ac87-bb6afc6c12b1",
+    "bf76d127-0fc3-401d-ac9c-c3fbd5372112",
+    "ea815ef2-087a-45e9-9e0e-b61bd1b72c08"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt249",
+   "branchId": "sokcho-beach-ab",
+   "name": "스튜디오 가든",
+   "slug": "studio-garden",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 107900,
+   "images": [
+    "7a23c23f-10d3-41ce-940a-7c58a4440f45",
+    "9efbcc23-96f0-4dcf-896d-26711e48b1ed",
+    "1f829531-5390-4c21-9fb0-a02d9ac5c88c",
+    "3164688d-eddb-453a-8d0c-bfc33c4a3a1e",
+    "7738f374-ed5a-4dc2-8c3f-c05f335f797c",
+    "de39f0e3-2fb3-4a68-886e-9bf3a00fd18c",
+    "52c254cc-6322-4b77-a8ca-9d37a76e9c5e",
+    "65258a0b-e9a0-4637-993a-1b46788e7b5e"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt250",
+   "branchId": "sokcho-beach-ab",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 100800,
+   "images": [
+    "4337e867-3707-4c99-b081-4deee6e41e9d",
+    "74ffb83e-b734-4841-bf6a-5a6b7f530875",
+    "3b24a4e1-a669-4691-ae61-96bb164320c2",
+    "66e54d15-19a2-4a2e-9bcf-8ef31e71f1d3",
+    "2dc7b161-c648-4104-a3a9-f8f94fae3758",
+    "36633d3b-634c-4c71-83bb-0e588d310216",
+    "3353f08c-549f-41ea-9f8e-e888fbfe2082",
+    "27f9657f-1e1f-4549-ab63-75a4798118b8"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt251",
+   "branchId": "sokcho-beach-ab",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 134700,
+   "images": [
+    "e5653df3-9c96-4785-915c-8dd3cc1126cc",
+    "852b7863-c672-4e17-8998-d0151d916377",
+    "f8c6f65a-5fc5-4b92-97c9-82889c5e855d",
+    "8e1f2e1d-d159-4192-aa5f-b1497b1edc93",
+    "e0933f45-7857-415b-bc71-57e26dc62686",
+    "fb1c33b3-e677-4866-945e-06adc3cce0fc",
+    "01b4a0b0-ad30-4965-a960-9d0528940b5d",
+    "d43bef95-8f20-433f-937d-78a2902330c4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt254",
+   "branchId": "sokcho-beach-ab",
+   "name": "프리미어 스위트",
+   "slug": "primier-suite",
+   "baseGuests": 4,
+   "maxGuests": 5,
+   "sizeM2": 46,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 107760,
+   "images": [
+    "678f4737-d4be-4bd0-961e-48997d8c0f76",
+    "ee233aab-9536-4e04-a0c0-bcce520a6147",
+    "a3455d39-7cc3-41c4-84fc-b9fbc7302055",
+    "4a95f87c-3db2-4fd9-84de-430112d86659",
+    "a4dd5b61-d45a-449e-99bc-ee009deb7ff1",
+    "c0fe4f75-e117-4c04-bb5c-4dbc7829fa91",
+    "f991b4c7-fe44-40ce-aa50-c1279bf6920f",
+    "8f776168-40ff-4775-aeef-7b18c0bf8a01"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt302",
+   "branchId": "sokcho-beach-ab",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 85700,
+   "images": [
+    "e1ac25b0-5df7-4800-bcd2-0c4deaad570b",
+    "f03bd86c-6d7e-4bb8-991a-ec9df255bd52",
+    "a3ca36c3-36be-43e0-86b2-5aed0b0a6708",
+    "905629a7-dd99-439a-b58f-3819fd3d6f55",
+    "6b52bfc0-27db-4ff7-8200-b46add3802a9",
+    "7f9d11f4-20a8-4aac-9060-409af2192082",
+    "24638657-a88e-45fb-8dae-5c6b0de9b187",
+    "f46397ee-3867-4a7d-8eb7-2974cb3a3a6c"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt64",
+   "branchId": "sokcho-beach-c",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19.8,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 93900,
+   "images": [
+    "10bfdc6b-d3d8-4fa0-b907-3492e9c548a7",
+    "a9624c5e-206c-4435-bb3b-cdb03421722c",
+    "b629e068-385b-4cde-a172-8116a9f039f8",
+    "9b1450b1-a1a8-4166-b07d-478f538e46e2",
+    "ffa72a42-1a35-4de5-beaa-da65e8cc6412",
+    "6cb869ea-8d11-4c2e-8ee1-3ab774b0a315",
+    "b70c57eb-ca64-4987-a047-11e1ba23fd6a",
+    "9c17c6bf-b177-464f-9cd2-30731cbd11a4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt66",
+   "branchId": "sokcho-beach-c",
+   "name": "스튜디오 파셜 오션",
+   "slug": "studio-partial-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19.8,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 100100,
+   "images": [
+    "28e71a35-90aa-4bdb-a2ef-c0acf99642ba",
+    "7cdc2537-3366-4eaf-a916-bc7d2322843a",
+    "f29089dc-8ead-4523-b267-f433439e4aa7",
+    "535cca0e-fdb3-4401-8050-82eeaf2056ce",
+    "455c402d-d46e-4b22-bd53-c3b6e449cb14",
+    "71dc8694-24b8-47bd-8d89-bf86a9440d1d",
+    "ea57a073-f420-4938-921a-fc61767a1062",
+    "c6669d50-5f81-4125-888e-4347a14ba339"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt67",
+   "branchId": "sokcho-beach-c",
+   "name": "프리미어 스위트 오션",
+   "slug": "premier-suite-ocean",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 36.4,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 171200,
+   "images": [
+    "c568c3e1-2765-4c7a-b949-ef77974605b7",
+    "83239dac-a3f1-45dd-8b73-fc8eaabdbe4a",
+    "22af367b-4428-48e6-96d0-0e486d097852",
+    "8f428b3a-4c93-4f21-b109-c4f2ad4274aa",
+    "7ea1af55-6920-457b-8dee-724c11ba9f5e",
+    "85a84321-c957-4635-9f41-0de5ba06902f",
+    "713bc535-8785-4c72-98f9-4907ef7b8173",
+    "780a0f49-da40-4a7a-9275-ed88120dd7fb"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt70",
+   "branchId": "sokcho-beach-c",
+   "name": "패밀리 투룸 오션",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 6,
+   "sizeM2": 59.5,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 256100,
+   "images": [
+    "46f50883-a8e8-4139-ad1d-6f1ade87e4e6",
+    "0e7777a7-72bd-4413-a678-80d9bebf85ac",
+    "bbd0306b-10b4-4760-9677-24199894dd97",
+    "54498393-705c-4a82-944f-e41e6d12cd3d",
+    "49640b94-10e0-4889-9b29-5e55d8a580a7",
+    "d8acf3f9-6910-4390-a932-553500a7be19",
+    "a32abc91-e13a-4936-95c9-be74931544a5",
+    "cb3a983e-a404-4d53-a4ab-30743313bdca"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt171",
+   "branchId": "sokcho-beach-c",
+   "name": "프리미어 스위트 코너",
+   "slug": "premier-suite-corner",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 36.4,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 148000,
+   "images": [
+    "de9c96d0-f117-4bc2-bc72-a467c9122934",
+    "a00b4aee-cc04-43be-8e9e-c36b3962e7c5",
+    "331085bc-46b6-4520-92ae-628d3cd37a81",
+    "41ea100b-c634-42b1-81f1-ba2ec8e6ffab",
+    "836022a1-c03c-4984-9b87-b501004c6550",
+    "748254e5-08ce-4c99-83fa-80d6ef280810",
+    "b9d0237c-a56f-4077-b8a0-76865f3a3563",
+    "8d2160ab-ad9e-4211-baba-44849b69fa90"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt342",
+   "branchId": "sokcho-central",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28.7,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 111900,
+   "images": [
+    "c30a9adf-6509-4fe0-9091-8ac691f761be",
+    "0fe1602d-ac90-4dac-bcd5-196dd57c26a3",
+    "42dbe64c-e7c3-411a-a78a-287000957861",
+    "53e9dfa8-0dae-4087-993b-6beeab1bfa14",
+    "adc711f6-14b1-4098-b0ec-2f4b15181f68",
+    "b7690435-e705-4788-952d-0c2b0a757839",
+    "39911ab9-4946-4120-86e7-a4dc0c377a78",
+    "766b9b79-9307-438d-938f-d1755118c8b2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt343",
+   "branchId": "sokcho-central",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28.7,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 116400,
+   "images": [
+    "1dab06b1-74f7-489e-8114-a5fc681cedf5",
+    "d20cdc9c-532d-438e-99b2-257511eb09fd",
+    "db67b7f4-97ce-4fac-a6ca-ee331bac6ce6",
+    "ac8eb595-af7e-4301-ab20-1e63d40e74d1",
+    "bf944d08-0745-4046-be8b-bb69d77af4cf",
+    "c5b8451a-a61d-4686-86c7-40583006b1ff",
+    "d12cf346-ca4b-481c-b735-45a416728bc8",
+    "5f546503-02b5-4712-ad47-32597642139f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt344",
+   "branchId": "sokcho-central",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 28.7,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 155200,
+   "images": [
+    "43ad1036-640b-4eea-a89a-b3ea6c1cdb77",
+    "863caced-853a-499e-958d-9cbe73205035",
+    "ad31b0f9-e9c3-4055-85c6-126ab61dc75f",
+    "f9632084-b506-4f94-82b2-804d63bed36c",
+    "685df884-1623-457a-8793-46380ad1a92c",
+    "75bcfafb-a8e6-4eb0-a215-a74c86b749e7",
+    "0af3d8fe-91c2-48bb-a284-d2bfa09d7d7e",
+    "d8ccc797-10ea-467d-9542-111cd3a1fa8b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt345",
+   "branchId": "sokcho-central",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 54.4,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 269900,
+   "images": [
+    "55918804-01cd-4b75-81dd-be0d5edd654d",
+    "64aae9bd-82d5-4856-b7d9-b6d84a845110",
+    "6e6d041f-7c5b-4b6c-aa21-d4ae3c91a9aa",
+    "4ceb2afd-d64d-4a7b-8be0-8c86c7ce7bb8",
+    "aef6517f-b2fa-493a-8c63-3f9a40ccf2b8",
+    "cb9bb28c-ef48-4923-93d1-405d3874eb03",
+    "6990b75b-5d92-4a5f-9ab5-19373e89a296",
+    "cb7a9252-de67-4b75-80db-50aba80172f3"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt346",
+   "branchId": "sokcho-central",
+   "name": "패밀리 와이드 투룸",
+   "slug": "family-wide-two-room",
+   "baseGuests": 4,
+   "maxGuests": 5,
+   "sizeM2": 84,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 348300,
+   "images": [
+    "1c1b0fd1-b7e0-485d-933c-3c995ef84b56",
+    "84d9d43b-08a4-4496-9fa8-6407c9d954a2",
+    "6f93d2e6-46f5-4d14-a98e-865c2359734a",
+    "fe98232d-255e-40b6-be1e-5dbcfb12d2ef",
+    "e8d881f6-d31b-4b49-bc35-2b42c39b554b",
+    "10f73410-8f05-452f-bac5-6ed91d67db07",
+    "cbccc089-3e75-4046-b6f2-e3e6659d7b43",
+    "94b6effc-7316-4f7a-8d75-0a95c4b9e076"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt347",
+   "branchId": "sokcho-central",
+   "name": "패밀리 로프트 투룸",
+   "slug": "family-loft-two-room",
+   "baseGuests": 4,
+   "maxGuests": 5,
+   "sizeM2": 53.6,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조",
+    "복층"
+   ],
+   "pricePerNight": 301600,
+   "images": [
+    "72fed196-f48d-49a9-a1cb-9ce6950a57d1",
+    "b83b9de2-9861-4283-af00-b2e71d80f91a",
+    "29bf405c-a6e8-44a6-a4f2-8afe31273183",
+    "e312d47d-c733-478d-9dfc-e1a2d599c0c4",
+    "d9860b96-8197-4ccb-a971-4bff4aa1c7a7",
+    "1b79198e-d2a1-497e-9002-3df5d353d0b0",
+    "01b518f3-1316-4033-822e-25c031fa0486",
+    "533cc793-99c6-447a-8c60-147078ebab1b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt348",
+   "branchId": "sokcho-central",
+   "name": "패밀리 와이드 로프트 투룸",
+   "slug": "family-wide-loft-two-room",
+   "baseGuests": 4,
+   "maxGuests": 5,
+   "sizeM2": 84.3,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조",
+    "복층"
+   ],
+   "pricePerNight": 394000,
+   "images": [
+    "bec1c68f-9cba-4d5e-90e4-7e36564d6d90",
+    "6765e224-947f-42a7-92e2-702aa89e4a3b",
+    "51bdffd1-c900-4697-83ad-20888392d8e7",
+    "bb96e960-74fe-4fb8-9798-6e71bb4bb663",
+    "b09883f9-8bf1-4875-9951-fdf5c30c986d",
+    "d2be5c97-0b29-450f-b9d4-3ad8c2685b29",
+    "a5b588d8-3780-448c-9c6e-d26f3649f496",
+    "cae56cf6-1ad1-4435-a7fd-6d120d80855e"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt349",
+   "branchId": "sokcho-central",
+   "name": "패밀리 쓰리룸",
+   "slug": "family-three-room",
+   "baseGuests": 8,
+   "maxGuests": 9,
+   "sizeM2": 86,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 439600,
+   "images": [
+    "4b32bc5e-f55a-484c-9cfa-3537c44967eb",
+    "86499a54-ceac-401d-b8b4-1675e874bb38",
+    "e82bcbd2-b39d-4cbd-bd7a-5d7fd5c622f7",
+    "5a0a059a-dc3d-4f99-a493-93751c333081",
+    "2b3e92b0-b217-4451-8a25-38a56b2520fa",
+    "6ccef384-a247-482f-8565-25befb581ea9",
+    "b081abf3-6612-4a21-aa31-8e61dac59403",
+    "6f82dda1-f034-4f37-bbd1-d69b5969e7a0"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt350",
+   "branchId": "sokcho-central",
+   "name": "펜트하우스",
+   "slug": "penthouse",
+   "baseGuests": 8,
+   "maxGuests": 10,
+   "sizeM2": 120.7,
+   "bedrooms": 3,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 3,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 748000,
+   "images": [
+    "e3828d40-e8c1-4c43-a19f-5193e4e7f985",
+    "a75f5fc0-33e4-447e-a1e5-5d03b12e0489",
+    "3c810a8b-9a6b-4d11-a5bd-783007c541d8",
+    "b713acc3-cd5f-4a1e-ab10-acfef39e2560",
+    "ece103ca-3814-4ff4-a820-7791f8beaead",
+    "2e00a57e-a068-45d7-80ce-05a5d34368df",
+    "5355072e-b64b-4c4c-aba0-a871a2216a2b",
+    "258d22a7-ba7b-410b-9c35-e1fc9cc61a2f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt357",
+   "branchId": "sokcho-central",
+   "name": "스튜디오 배리어 프리",
+   "slug": "studio-barrier-free",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28.7,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "베리어프리"
+   ],
+   "pricePerNight": 105100,
+   "images": [
+    "7797c971-f706-4ffc-8454-ecb9dbf97e04",
+    "6536fc43-6c44-4d27-80ff-8d7b8238f594",
+    "f1baca59-b35a-4272-96b7-a827ea5e63fb",
+    "c19a1cda-83d6-4cb3-9e4b-3a6f6f7fdc5d",
+    "e2cbd1cb-062c-454c-9cc7-1d5b1159f8ae",
+    "d7d96a57-fa91-403c-b752-d653689b60d6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt359",
+   "branchId": "sokcho-central",
+   "name": "패밀리 와이드 투룸 A",
+   "slug": "family-wide-two-room-a",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 73,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 308200,
+   "images": [
+    "ca057401-c87d-470a-b3c0-70feb410ce09",
+    "925ee7ef-d55e-4e79-88ea-757923903e0b",
+    "a8af5ba8-eba2-4ad8-914a-3cc194f38b04",
+    "56af3ab3-bce5-4198-ac14-64276f6cc3f3",
+    "845ed9ea-eb6b-472c-8923-b5b0fd2cc64d",
+    "855c9f74-e65b-413d-a5f9-d51a121edb14"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt83",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오 시티오션",
+   "slug": "studio-city-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22.9,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 144200,
+   "images": [
+    "4c26317a-735c-4f6d-8684-fcfd6e309b68",
+    "69e67b0a-2d71-4968-85ea-d60cc47e7702",
+    "fe801783-6174-4f36-8dc5-c7b9a316c311",
+    "50be43af-3222-4201-ab26-34994fed658c",
+    "65c37112-c02f-441a-b767-6bfba9e82f09",
+    "ef9b12f4-62e7-404c-97da-6b7c132ab664",
+    "0aba9386-b7fe-4c82-b25c-e98721a4bd66",
+    "5d5dbeac-af5a-4fd6-8418-6d975c60abd9"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt85",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오 풀오션",
+   "slug": "studio-full-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 26.6,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 147000,
+   "images": [
+    "6dcd3128-c97f-48c4-a9f8-6598c9ed0329",
+    "229582a7-92db-4643-9146-a5a20bb8009f",
+    "d8168a4a-a5d4-4a9f-916e-4bb0520825ed",
+    "2f6dedac-1c31-4f8a-9c1a-b4900e519559",
+    "96c1ac29-4ea7-4f4a-aab9-ee0ab64a3f08",
+    "41e75f48-a113-45af-b651-33af165b0409",
+    "7574df6b-351a-487d-9f50-10cb915f6737",
+    "d248eda5-d961-468b-96b0-416b6403aa1e"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt88",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 27.2,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 144200,
+   "images": [
+    "8cd39f25-c789-47e5-be41-28a2eb390a25",
+    "8e8eccd1-3baa-462f-bf3e-8ddfcd6fac3b",
+    "04bec431-a176-47d3-8692-b7e397aa8c64",
+    "e360fa54-5aa5-43f2-be44-4bde3f40b56f",
+    "377466c3-c631-415b-a7db-9d3114905482",
+    "131a6590-8372-46f3-81ad-4a3767023cd2",
+    "939b3efa-a464-409a-a5c1-c41f15e762b7",
+    "0ee58d43-ad62-458a-b639-5ef2614974c7"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt106",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오 패밀리",
+   "slug": "studio-family",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 26.6,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "슈퍼싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 175500,
+   "images": [
+    "81910c88-6a4c-41b4-894b-a8f4bcd1d076",
+    "7d25f0c1-1eee-4b61-8f1c-85f89adcb095",
+    "3d0f3f7e-135f-41e9-a8e2-afb57024da34",
+    "35b1e1e8-dc32-4677-9f10-095fe35d5ffe",
+    "30bd416b-e609-4c8f-b17c-c46fa2918ba0",
+    "55eb0e36-2f13-4fa4-8ddb-7797581263b0",
+    "79c8fdc4-17fd-4bd9-a225-990b61a37890",
+    "dc183cc5-a7a9-4d72-a54e-16fb02d642bb"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt177",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 95600,
+   "images": [
+    "69ddf4de-6249-43bf-b9ce-08773e4739e1",
+    "b4025ea2-21ca-4549-af5a-efa4fb1fe639",
+    "e22d65ed-66ef-4e50-b2ef-baaf5fb1bf2d",
+    "2a12ef68-daa7-41b4-9575-7bf577d9c03d",
+    "10b71bb3-7e7a-4640-ad8f-831ebde5236b",
+    "5886a4cd-5222-4fd6-87ea-9bd286a65c7d",
+    "2186300d-9ce0-4d6c-bdda-cac2a1b82feb"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt270",
+   "branchId": "sokcho-deungdae-beach",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 22,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 93900,
+   "images": [
+    "2989fbc1-b593-47b8-95d2-4bee2e2c9cc4",
+    "2e8f2f91-79c7-42c2-b35e-22e4c9517eb0",
+    "7913696a-84a3-4d00-ace2-999cbd8f008c",
+    "b60f95b9-9e97-444b-85ae-675bda291448",
+    "e369c781-505f-4437-9c6c-8cf093b7e30b",
+    "b58dc239-8887-4dd1-b4c2-1f1622e400d7",
+    "7b207648-0e02-4d1b-926a-a13fd7edfab8",
+    "8b9608df-12bf-4b0a-831c-f9bacd4c780a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt368",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 배리어프리",
+   "slug": "studio-barrier-free",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28.99,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "베리어프리"
+   ],
+   "pricePerNight": 161000,
+   "images": [
+    "57555e36-497d-46b6-8f2d-7c5e65bd761d",
+    "45d09377-a37f-4418-b89c-5ce155ccf93e",
+    "41222ccd-a41f-4e0a-adbf-19ad358d74a4",
+    "1a4d1588-9cc5-48c3-bb1c-b69bd6e7a87e",
+    "578dad6e-c8da-4072-9723-609ac0c841b4",
+    "8b35bd5e-6bae-43e3-a92b-4f7cc1f78cae",
+    "a8387619-3b23-4c61-8fdf-086dd5a031a3",
+    "f2f1435a-7c47-4e52-b20d-f03674cdcd2a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt369",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 28.99,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 162900,
+   "images": [
+    "8260c511-669e-4b04-b1ab-068ad4850e8f",
+    "755b785c-e5e9-42f9-acd3-a8402352fbdf",
+    "99c746d6-c45a-4b48-be7f-2b7f128562e4",
+    "25b041f1-d8f2-4499-a28a-b58d758d7140",
+    "c9003062-a371-4b48-9d22-2146a6a51eda",
+    "951f0126-66b4-4471-9962-2ca187ba5f62",
+    "a21bba7e-40c8-4dd3-bfc9-5f56407a1644",
+    "2846b8c4-9bbf-4196-94bc-5c33f6e1bc35"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt371",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 트윈",
+   "slug": "studio-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23.8,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "슈퍼싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 164700,
+   "images": [
+    "6e8cd103-3121-4f19-a945-2ef510fe4288",
+    "6e605b59-2724-4b77-9a1b-4534f497b606",
+    "076c8110-5343-4f87-8894-bc4e8f718acb",
+    "53474c6c-42ad-4970-aef8-f7ce674f1564",
+    "144ae03a-bd78-4b1d-b2aa-b47e509bc11f",
+    "3d9a3373-b67e-4be8-888a-47d41d524c35",
+    "fbfa8552-eee1-4e4b-9173-31349965391f",
+    "ad2dcdcc-22a7-4566-95e9-66beeaff8636"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt372",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 와이드 랜덤",
+   "slug": "studio-wide-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 32.45,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 189600,
+   "images": [
+    "2b199746-5a78-43ab-9e5b-316907deb0cd",
+    "ba608ebf-8503-4fbb-b553-0aaa4dfca93e",
+    "33f2a898-da5f-409e-a891-4f85f2d93a9d",
+    "247ab75b-9f96-4270-9559-65d8d4e267a4",
+    "8d2c35d7-3c05-4f6e-92b0-1a66f1656d25",
+    "d63eaf6e-f0fd-47cb-8fbe-bbebdf17a10d",
+    "701f8292-1ed4-46f2-973b-dc106911eafb",
+    "d350478c-df42-4f0d-8cae-f691983ffa9b"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt373",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 와이드(B)",
+   "slug": "studio-wide-b",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 34.6,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 226700,
+   "images": [
+    "2779c786-516e-4c3a-b25e-a228c02bad54",
+    "0236f6bb-9de4-4403-8589-380b1528654c",
+    "145e8f66-43b2-4550-ace1-1cfb29fea095",
+    "a83a5177-4ad5-4a1a-af43-172996213f4f",
+    "1b44c438-f66a-48f3-8a90-5bc6bd3fb9a5",
+    "ba2ab81d-d019-44a7-ad0c-d267cf034859",
+    "1dfb6c65-bc59-4d2f-bfd8-dae974a036a4",
+    "da08beb7-4091-4861-b2b0-379af9869ed2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt374",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 와이드 오션",
+   "slug": "studio-wide-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 32.45,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 294000,
+   "images": [
+    "3f39de9a-285f-48cc-b701-fddddf3cfbcc",
+    "8d498fe3-7d7e-4da3-b386-61291c31db09",
+    "840b34f0-af56-4b5c-9c11-dea57e8b848a",
+    "c90bd892-2059-49ea-a83f-f5aaa0aa71dd",
+    "21b43e51-5ece-4d4f-8def-7b68bd696a5c",
+    "c0c98c25-fa04-4277-ad0c-d796e0f3c077",
+    "8a3878e0-df21-4d92-81b3-913264eb9c7d",
+    "82e68e9f-9ddc-4292-89d9-6b16947ffbd7"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt375",
+   "branchId": "sokcho-xiella",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 47.42,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 237700,
+   "images": [
+    "782cecf8-41e4-4529-9102-99a2f23a42b1",
+    "7ff77faf-b487-4eda-856f-701ed27503bd",
+    "551e6623-8619-4a58-a1c3-7349aa3d5f51",
+    "6308ac3d-298d-49b6-8a44-02be76b6e8b2",
+    "d66001c3-01ff-4d44-accb-b287d7e56bb8",
+    "13b77fed-437d-4e1b-8963-399a320c7be7",
+    "823b6642-b00c-4e9d-867e-ceec3675216d",
+    "d0327467-1752-4bf4-9325-408702636eda"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt376",
+   "branchId": "sokcho-xiella",
+   "name": "프리미어 스위트 오션",
+   "slug": "premier-suite-ocean",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 47.42,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 318800,
+   "images": [
+    "f1d591ad-629a-482c-bbaf-4f1ed575443e",
+    "c809cb67-875c-4873-8c48-b0068fe7d142",
+    "d0223781-455e-4364-aa82-42b2ec03bf15",
+    "5cc6d0ba-e8c1-4953-9f1f-ac17abee77ff",
+    "6b023393-7d0c-468f-a8f3-acc7da7c1ab1",
+    "b6d5320a-0609-4e4c-a021-e15625309c57",
+    "6817452e-2ff7-489a-b378-53c2e55b12ee",
+    "dd624ecd-972d-4810-9e38-2934bbd55ba4"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt377",
+   "branchId": "sokcho-xiella",
+   "name": "패밀리 투룸 오션",
+   "slug": "family-two-room-ocean",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 48.55,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [],
+   "pricePerNight": 318800,
+   "images": [
+    "96afc218-12ef-4dda-8ec9-d0e5aa53bada",
+    "2c0080b8-476b-4450-98e1-94ffccf71b04",
+    "04853410-730b-437d-a33a-f5d90268b785",
+    "82bee3f4-512e-40c7-88c6-3478fac7eb1d",
+    "1b36073c-b00b-4865-a70a-f92dc7193917",
+    "ab0be854-0354-49de-93c7-de842f75d8bc",
+    "2fc41ae5-bd66-4cf2-94f1-6158436d4fb6",
+    "de7b4f20-a557-4b54-8687-049b4a66de8f"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt378",
+   "branchId": "sokcho-xiella",
+   "name": "스튜디오 프라이빗 스파",
+   "slug": "studio-private-spa",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 36.98,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 298900,
+   "images": [
+    "3dc99e9a-4783-4544-b5cf-115644b5127c",
+    "1b630a3a-80dd-42ee-8cc8-5469b78d4a5a",
+    "66554251-260d-47d1-a129-9a43b203cb99",
+    "d0425edd-491b-4917-99d8-cb4939c53cfe",
+    "8dda0062-c5d1-483c-b640-3221d936b26f",
+    "443900e0-7705-41c7-ae64-8890f3ec8593",
+    "86d72b87-f620-475e-8846-05b36ef02e4e",
+    "635fa351-8dbb-4b72-913c-e4ab568f449a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt379",
+   "branchId": "sokcho-xiella",
+   "name": "패밀리 투룸 파노라마 오션",
+   "slug": "family-two-room-panorama-ocean",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 69.35,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 2,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 366000,
+   "images": [
+    "84881492-5742-46a1-b902-e024f55a88ab",
+    "708f595e-8036-40a4-a255-c881ee2eabc7",
+    "f9637580-8b17-49d5-961e-82daf5eff2fb",
+    "e9ceaaba-7770-4edc-a537-70d749059860",
+    "a532348b-1d99-465f-a6b1-58237615e419",
+    "3d181aa3-861e-47d8-ad55-e5f5bf88a48a",
+    "4bd22a50-4cc4-4a31-80d6-285486ac4e05",
+    "e3eb89b0-935e-461e-96b1-ed3508465eb6"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt30",
+   "branchId": "songdo-moonlight-park",
+   "name": "스튜디오 비즈니스",
+   "slug": "studio-business",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer",
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 115830,
+   "images": [
+    "2aaa1660-7c74-40d5-a283-e3ecdcb5e098",
+    "31167404-e89d-415d-b2b6-a30d15a34cc6",
+    "b52cb59b-83c3-4bf3-878c-6e3ad4f29741",
+    "6334ca83-e673-4de5-a2bb-8bef2b555bdf",
+    "ae917a0d-8c63-4835-a797-44722fe92e61",
+    "53876730-32eb-4065-821e-589055d47a09",
+    "c063e6c0-6f01-44ba-a940-c40dee828eef",
+    "3d3013ff-acb1-484f-8a4e-34051fdba0fd"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt31",
+   "branchId": "songdo-moonlight-park",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 95820,
+   "images": [
+    "6ab11006-735e-47e5-b311-a6c8630f6f33",
+    "22cb06a6-df5c-4144-9b08-f8dcfe7e6f22",
+    "4fc5921f-b318-4d48-a7ef-128ffefedd79",
+    "e8689917-8e0d-453f-a94e-d045ee5ed969",
+    "ff10d077-017b-405a-a000-bf3e1d249bef",
+    "f777073f-c095-485c-b703-082514ec0676",
+    "1d249505-b0ff-41e6-8393-70d193bb8404",
+    "bd99e4c2-53d9-4d61-8d52-bbb3a950896a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt32",
+   "branchId": "songdo-moonlight-park",
+   "name": "프리미어 스위트",
+   "slug": "premier-suite",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 33,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 154790,
+   "images": [
+    "589ec6ca-1052-4653-837b-226357c7296a",
+    "9f5e1810-9b2d-496b-9ffa-df2df7106407",
+    "5e04c67d-a8fa-48ab-ba36-a590450f7a62",
+    "aeee826f-d5aa-452c-9d6a-69126150fc57",
+    "a7092261-fbe6-4ace-90aa-d578899acb97",
+    "2b8c91ee-de3f-44c8-802a-fa26fb403c25",
+    "480fda5b-7d0e-445d-85be-43c2ce6d287c",
+    "cc13262b-c929-48c2-a064-7b97a0561f06"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt168",
+   "branchId": "songdo-moonlight-park",
+   "name": "스튜디오 와이드",
+   "slug": "studio-w",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 33,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 143210,
+   "images": [
+    "98ebb26b-7c50-4a8a-ba2d-db778e8659a2",
+    "3a7cf0fb-6cef-4976-ac54-b78f31daf410",
+    "ac75ea71-0ab8-4af8-ac7a-baf9902f184b",
+    "edf91183-cac5-4a94-875c-885828a7e458",
+    "e85198c0-b92b-4d9c-a6ff-80b7ec4ede66",
+    "9174a4cc-6285-4711-958b-9b13d6fa197e",
+    "af603f00-d1f1-458e-89d2-14030123000c",
+    "c68163ef-9308-464f-8263-b70a885d8e5a"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt260",
+   "branchId": "songdo-moonlight-park",
+   "name": "패밀리 투룸",
+   "slug": "family-two-room",
+   "baseGuests": 3,
+   "maxGuests": 4,
+   "sizeM2": 48,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 186380,
+   "images": [
+    "5c44dda2-9e8d-4d96-8767-127bccc14c0c",
+    "ba647fc5-edfd-4e06-9da9-4ca96df131ee",
+    "b4b2bc6d-cc7d-4fe7-a0a8-f005916402ec",
+    "54b69d99-0fd9-40b1-a654-c89a9d8e9bf3",
+    "4ef67712-3da0-4974-b47e-5bf0c4552735",
+    "a6839065-194b-47d1-80bc-911351649161",
+    "1085ab7b-ef47-4004-9d5a-6d8e1c593276",
+    "08f894a3-5f1b-46a4-81a9-31a0a9f7d072"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt264",
+   "branchId": "songdo-moonlight-park",
+   "name": "스튜디오 랜덤",
+   "slug": "studio-random",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 91610,
+   "images": [
+    "d1447c43-a72b-4806-badf-486ef0f25b70",
+    "62fef497-5fab-4f12-8983-a03f3e7c002a",
+    "cd62796f-ab70-4f19-b373-6380dd3fdb30",
+    "080f38ad-f796-4879-8f9f-89e64a427bbd",
+    "d0e6417d-64d3-4084-909f-0a22fa6b6e12",
+    "643fbcd7-dd8e-46ed-82e5-4d690c48a48a",
+    "b71b62cc-a37a-4456-a325-9f3c58200e64"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt265",
+   "branchId": "songdo-moonlight-park",
+   "name": "스튜디오 시티",
+   "slug": "studio-city",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 23,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 126360,
+   "images": [
+    "63fdacf7-f301-4f0a-970e-c62c52973d77",
+    "2dd2e1ea-32c1-4ab7-9a66-4628441ad276",
+    "980f4b84-273e-47a7-9ada-c93a972e726d",
+    "bb4048b9-0894-47f5-9b44-4b0b47a97d0a",
+    "4451d9d4-79d6-409c-92ae-10683f513c81",
+    "714ed161-762e-47f0-8075-86eac8d46378",
+    "d30e9818-6fa8-4472-83eb-4a1e2c3e3c88"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt150",
+   "branchId": "ulsan",
+   "name": "스탠다드 싱글",
+   "slug": "standard-single",
+   "baseGuests": 1,
+   "maxGuests": 1,
+   "sizeM2": 17.9,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 79700,
+   "images": [
+    "1de92ad5-9d0a-4e2a-9db1-04f85b5efe61",
+    "583161d2-2b5a-4580-828c-2e74133698dd",
+    "ae3e3f85-5bc6-4b12-a3f2-ae2cbecc625e",
+    "e25e71dd-d2ee-401c-8157-52fe78fddfc9",
+    "914b6e56-7d1e-4ced-96a6-c0853f8941af"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt152",
+   "branchId": "ulsan",
+   "name": "스탠다드 더블",
+   "slug": "standard-double",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19.4,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 104600,
+   "images": [
+    "f30a7aca-acfc-4bf6-9500-15693ee69e51",
+    "a72360b6-bfc4-4c13-b409-284b784a6400",
+    "005957de-0184-48ee-9bea-5cd21f470157",
+    "b5b8cbe0-5ca3-46b4-aa68-42881acac16f",
+    "50cbbb78-b650-4c6e-8a92-c5609a62c642",
+    "74985b1a-7560-48d4-8154-0a58116fa51e",
+    "3a06f047-5def-4d47-91b5-f01713fecd11"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt153",
+   "branchId": "ulsan",
+   "name": "스탠다드 트윈",
+   "slug": "standard-twin",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 19.4,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 104600,
+   "images": [
+    "39591c91-e473-4d93-8897-c688bb5b2449",
+    "ae1b3985-4573-4dea-ab5d-3164196496dc",
+    "d16b391d-300f-4327-bc2a-c0f502967dc1",
+    "46addd12-4f57-4a00-9dbe-94761d46addd",
+    "18467d40-cf32-4340-a359-6494f733cc39",
+    "35e24dc3-94a9-4ae7-98d4-d13d0ca348e6",
+    "8ed676cc-bea4-407b-b31e-e535508b8d30",
+    "0525f038-0f22-49aa-8875-e6c2d04abc78"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt157",
+   "branchId": "ulsan",
+   "name": "디럭스 패밀리 트윈",
+   "slug": "deluxe-family-twin",
+   "baseGuests": 3,
+   "maxGuests": 3,
+   "sizeM2": 22.3,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "싱글",
+     "count": 1
+    },
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [],
+   "pricePerNight": 106900,
+   "images": [
+    "f971ba25-96c1-4fb7-a613-82a299093ab2",
+    "07de5c10-c8f4-40e0-bd8a-1cba7791ff18",
+    "76295eba-e6b1-41ea-a748-3698c80a477d",
+    "795d297b-81fc-40cb-ae73-5175c2a1ee37",
+    "0be36f8f-30b8-4b0d-8cc8-46939c31572d",
+    "71b57104-a403-4a6f-93c9-cdad417285ab",
+    "25fa9fe8-9f6e-4007-b9c7-702f605f9246"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt158",
+   "branchId": "ulsan",
+   "name": "이그제큐티브 더블",
+   "slug": "executive-double",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 20.9,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 116100,
+   "images": [
+    "24a13a99-5cf2-476d-be20-933ee91e85b7",
+    "2c93938f-48f3-46f7-9e17-a4a0a0fa39db",
+    "e3db0387-2d9c-45c8-9451-6b15009b4ebc",
+    "573eeeba-5f2a-4903-b39b-54c00614ea7c",
+    "567a00e5-71f1-45ae-9639-fe5f838951a4",
+    "33ab9993-3679-4912-86bf-25619fc8912e",
+    "73f0f9e9-987d-4ed7-906e-ce2651ed469a",
+    "c4f3eac1-442e-4560-a2ac-aea9389e26d0"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt159",
+   "branchId": "ulsan",
+   "name": "주니어 스위트",
+   "slug": "junior-suite",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 40.1,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 162000,
+   "images": [
+    "d8566b32-839d-40fb-8d32-184778ee7f52",
+    "13bf71e9-5cb2-4575-ae56-ddfdee6c034f",
+    "42e1c3ee-acd2-47ae-b5b8-e4e932cd476f",
+    "ea8356ec-6f4b-4d27-9cc9-91edd5397cc7",
+    "0fcf1b6f-c0ad-4b56-890c-df9c0c116529",
+    "6c688a00-1bcd-4ba2-9543-4501e41a8e5b",
+    "8b283b20-413c-4507-a285-d46cf572cf4f",
+    "664ad678-1436-407e-8ecb-f7265dd75685"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt160",
+   "branchId": "ulsan",
+   "name": "스위트",
+   "slug": "suite",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 40.1,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "킹",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "desk"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 180200,
+   "images": [
+    "341fb9f3-b2d3-440b-91b6-8a936c74c343",
+    "602f0914-277d-4edf-ab56-f0e29945d283",
+    "5c395e57-ab6b-4f58-b675-775127596132",
+    "f08cee23-8640-4649-af8d-839288c1470f",
+    "fcdd9cc5-4d4a-4bc6-b357-ef2d2a2dc90f",
+    "bec3af51-a5ed-4585-9fd6-2c95156db1bd",
+    "b32d68d5-d4d1-492b-8b4b-bbf28a45addd",
+    "9f8fc0b3-bd8a-400a-ab72-4d5e0ebac5fc"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt382",
+   "branchId": "yangyang",
+   "name": "스튜디오 베리어프리",
+   "slug": "studio_barrier_free",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24.81,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen"
+   ],
+   "tags": [
+    "베리어프리"
+   ],
+   "pricePerNight": 133900,
+   "images": [
+    "2a0774e4-3791-469c-a683-2c1e60269fde",
+    "8afdc1a8-9319-4a5c-979d-fa850cff14a2",
+    "51fcbdc0-3207-4511-a827-97dddd20528f",
+    "99a66e03-0950-4a66-8161-2f5738b0c952",
+    "a24ede07-f951-48ce-9f91-ecaad8b629b9",
+    "de941f58-d245-43db-a68f-c5cc1542bf63",
+    "c4fa7d94-47ce-4f9d-9b35-aabe6678f515",
+    "67d1b6e4-2b55-4ae6-98e3-b9c2a3fdda82"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt383",
+   "branchId": "yangyang",
+   "name": "스튜디오",
+   "slug": "studio",
+   "baseGuests": 2,
+   "maxGuests": 2,
+   "sizeM2": 24.81,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 134200,
+   "images": [
+    "b7d7c43c-36b1-4214-a311-ed0f1c05e9df",
+    "5f6b7df2-643b-4412-b7d6-bd8f01ceb628",
+    "6af66460-413b-462c-98f3-db1b5b7fd253",
+    "21b3a74c-bb43-4f57-81f9-e3e6d7abb885",
+    "5bcb4c2e-9171-4460-8fdc-d47948888df5",
+    "08209473-93ca-4d57-b9ac-6c88e38816cb",
+    "57f7a98b-dee7-498d-8be6-0e92e25e1006",
+    "e3e375f1-570a-4f2f-a7fd-2de936bf4509"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt385",
+   "branchId": "yangyang",
+   "name": "스튜디오 로프트",
+   "slug": "studio_loft",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 25.36,
+   "bedrooms": 1,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 137200,
+   "images": [
+    "645f0084-b46d-4974-90ca-444ce10b531c",
+    "ada15016-d2e1-4043-a960-b39916c297dc",
+    "b1be3407-230d-42f4-8bd8-a279c25d407b",
+    "ec2e9ebf-010b-40ff-9bbf-202b1fc2e081",
+    "843df507-9420-4393-8bff-d09bbcfb69e7",
+    "39f619a6-e92a-420c-adeb-a7caa373be84",
+    "19f80b9d-7220-4a1e-b18b-6a58c290860d",
+    "c8032880-591d-41f6-8311-55a15e44ca74"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt387",
+   "branchId": "yangyang",
+   "name": "프리미어 스위트",
+   "slug": "premier_suite",
+   "baseGuests": 2,
+   "maxGuests": 3,
+   "sizeM2": 50.83,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [],
+   "pricePerNight": 155600,
+   "images": [
+    "b846dd6a-85a6-4a10-84ed-926deb08f750",
+    "d0347af7-9553-44e9-8c04-201624cbfa3e",
+    "419ae580-fec8-45e0-9c69-84392f067982",
+    "60540510-17ce-4412-8d71-2a6eaba101d1",
+    "99dd43fc-33cc-4757-909e-9c24f63d896c",
+    "d87ff93f-94b1-473e-aa91-413f6c866d37",
+    "fb3d4956-f9fc-4a74-a007-9186650226e3",
+    "bfd14b88-a599-4ae8-9952-82c77a1faf79"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt389",
+   "branchId": "yangyang",
+   "name": "프리미어 스위트 로프트",
+   "slug": "premier_suite_loft",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 50.83,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 164800,
+   "images": [
+    "f7b3c03b-602f-4cf0-a95b-d79843b4f9aa",
+    "49995c3c-5076-4a15-a6b5-c982eaa682bb",
+    "bff8e3ec-0b2c-439e-8fcb-3f4d9bde290b",
+    "cfe5d583-43e9-4ab0-b857-fe514345be9b",
+    "c1b298be-161b-4cd9-902a-b63b6378f1a3",
+    "77c53fed-7adb-433b-89e1-2f40cc7939dc",
+    "12ca8e7d-8f3c-4d5a-aedb-b57a8f6eb3aa",
+    "215d47ba-47e8-47f6-9437-223d24bcdbc2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt390",
+   "branchId": "yangyang",
+   "name": "펜트하우스(저층)",
+   "slug": "premier_suite_loft_spa",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 76.18,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "욕조",
+    "복층"
+   ],
+   "pricePerNight": 247600,
+   "images": [
+    "cdb8d175-4eea-481d-8961-a0ff9420e3f7",
+    "0dda2ce9-9294-4bf7-9426-900e3bc8df32",
+    "e967fca6-c267-4b59-b31a-60d3bae2d9e0",
+    "07af0e17-b199-47cf-8f07-b288ce3dd887",
+    "2db5d656-5e84-4e53-9da0-de7d6689a978",
+    "d893b7c9-304f-4fd8-9535-e13604e34bce",
+    "4e60c4f1-3e2c-4c3d-a928-7095422da938",
+    "f063532d-f563-40ea-9749-d0ada11e3dd2"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt391",
+   "branchId": "yangyang",
+   "name": "패밀리 투룸",
+   "slug": "family_two_room",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 58.32,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    },
+    {
+     "type": "토퍼",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 221800,
+   "images": [
+    "889a3395-86a4-4316-a9ae-10db07309244",
+    "87ee2768-4ff8-4ddb-89b3-74cce6b0ca31",
+    "626a3270-8465-4434-bb06-fce9f1844d23",
+    "c469b04d-7b91-4634-a767-7148587864c0",
+    "13f5394f-b6a3-4f9e-b8b7-5621047b1555",
+    "90813480-1e41-4749-9c74-c682ae88bcb6",
+    "0fa5fe81-2c95-4bd8-9ac3-afadb9107eef",
+    "6386da13-c512-49d5-b293-72ff81abe835"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt392",
+   "branchId": "yangyang",
+   "name": "패밀리 투룸 와이드",
+   "slug": "family_two_room_wide",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 70.74,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 221800,
+   "images": [
+    "7333c2e3-148f-46c6-859b-bd7dad400a1e",
+    "e1559bdf-76e2-4e91-8adc-95c73617d210",
+    "ce7c130e-4dfb-45fb-99fc-d28e9a12cfb3",
+    "76a99c84-409f-4db0-ba0b-a3a4a8556c98",
+    "9b95f089-e6a8-4540-bee8-867d14d43ba4",
+    "892d393f-57e6-4187-b242-e60127510169",
+    "c5919c44-3c8b-4e80-8f56-f56517178175",
+    "6602ac0d-0fec-479f-8bad-0f4230f60668"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt393",
+   "branchId": "yangyang",
+   "name": "패밀리 투룸 스파",
+   "slug": "family_two_room_spa",
+   "baseGuests": 4,
+   "maxGuests": 4,
+   "sizeM2": 76.18,
+   "bedrooms": 2,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 2
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "욕조"
+   ],
+   "pricePerNight": 229200,
+   "images": [
+    "71ec490f-38dc-40c1-a9c9-3a1d49025bf2",
+    "b90dce3c-22c6-40c0-88eb-10c9ce2e68fe",
+    "378ad074-23f6-4ac4-8a89-a1c1259951f7",
+    "40d3a6bb-c771-4503-9b2a-43c2ba6eea9b",
+    "9a211e84-22e7-468b-bd18-80321cb804fc",
+    "ce1bdd73-82b8-4ac8-b09e-45c7e7f303fb",
+    "a9666b38-4599-4789-961c-89a057bc6a30",
+    "3fb88a9b-301a-4228-a3fe-79c4fe5a14ec"
+   ],
+   "specSource": "observed"
+  },
+  {
+   "id": "rt413",
+   "branchId": "yangyang",
+   "name": "프리미어 스위트 로프트 코너",
+   "slug": null,
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 70.74,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 174000,
+   "images": [
+    "413cd499-70ee-4e36-98d6-d6a71a03652f",
+    "851b496a-8439-45e1-b88e-51d2b4ba1138",
+    "27ab7e07-36b3-485a-812d-261e2ed76333",
+    "edf460ae-6509-4f8f-99b4-0571c51b1056",
+    "922d9e8e-a0a3-4295-b238-ca7ca981ac86",
+    "d5eb3796-acac-4012-b6b3-d28f8ce9ba58",
+    "11c0b5f0-c4d8-41dc-8926-e9392b391f6a",
+    "4a788843-89ce-49aa-b4ef-e7f6bdd8424e"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt419",
+   "branchId": "yangyang",
+   "name": "프리미어 스위트 로프트 오션",
+   "slug": null,
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 58.32,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "복층"
+   ],
+   "pricePerNight": 183200,
+   "images": [
+    "7b936014-b54e-492e-bcfa-c09bb5846239",
+    "03e2ac2a-2ab6-4fdf-8eea-4f431e8a58d4",
+    "0f266ff0-928e-47b8-ad21-cf70cf337f1f",
+    "5d7b009f-9b78-4464-9a7a-98fb46aee97c",
+    "89b6e9d1-911f-4ae9-a6cb-051106797a3d",
+    "4a1b3c45-8f18-4414-9aaf-e6f086f6d6ac",
+    "b62ee8a3-3c86-4b7b-a086-82742db54207",
+    "c2caa29f-8c54-445f-b57e-e08bd1151a77"
+   ],
+   "specSource": "capacity"
+  },
+  {
+   "id": "rt432",
+   "branchId": "yangyang",
+   "name": "펜트하우스",
+   "slug": "penthouse",
+   "baseGuests": 2,
+   "maxGuests": 4,
+   "sizeM2": 76.18,
+   "bedrooms": 1.5,
+   "beds": [
+    {
+     "type": "퀸",
+     "count": 1
+    }
+   ],
+   "bathrooms": 1,
+   "facilities": [
+    "kitchen",
+    "washer"
+   ],
+   "tags": [
+    "욕조",
+    "복층"
+   ],
+   "pricePerNight": 339700,
+   "images": [
+    "13963cc1-d56f-4536-ac20-20d7b1555957",
+    "9d680a30-a1ff-4716-bdd5-9353f646b041",
+    "118aef82-2101-4abc-97cd-ebb7c88d1a2d",
+    "7dc2d9da-f311-439a-8c72-eb0dfdeae93a",
+    "5368d403-62be-41c9-9dbf-8d3b829ae145",
+    "f360fc66-f72b-4ff9-bd65-f4fa94bd1d1a",
+    "574733bf-8194-4887-bdf4-98f730f8172c",
+    "d12ef70b-0cf1-4a7d-9c3d-72fadcce9761"
+   ],
+   "specSource": "observed"
+  }
+ ]
+}
