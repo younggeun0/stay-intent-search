@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, useTransition, type ReactNode } from "react";
 import { interpret } from "./actions";
 import { DateRange } from "./date-range";
+import { branchHelpUrl, helpArticleFor, helpSearchFor } from "@/data/help";
 import { imageUrl, placeUrl, roomImages } from "@/lib/inventory";
 import { normalize } from "@/lib/normalize";
 import { chips, datesText, guestsText, reply, stayText } from "@/lib/reply";
@@ -218,6 +219,21 @@ function Icon({ name, size = 16 }: { name: keyof typeof PATHS; size?: number }) 
   );
 }
 
+// 헬프 센터 링크. 새 탭, 밑줄, 작은 화살표
+function HelpLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-0.5 underline decoration-line underline-offset-2 hover:text-ink">
+      {children}
+      <Icon name="arrowUpRight" size={11} />
+    </a>
+  );
+}
+// 0건 이유 문장에 맞는 정책 아티클(반려동물, 인원)이 있으면 뒤에 붙인다
+function HelpArticle({ text }: { text: string }) {
+  const a = helpArticleFor(text);
+  return a ? <HelpLink href={a.url}>{a.label}</HelpLink> : null;
+}
+
 // 공식 사이트 검색 결과 상단의 회색 알약(지역 / 날짜 · 인원)과 같은 형태. 누르면 날짜·인원 수정
 function Conditions({ c, onEdit, onChip }: { c: SearchConditions; onEdit: () => void; onChip: (say: string, patch: Partial<SearchConditions>) => void }) {
   const list = chips(c);
@@ -244,7 +260,18 @@ function Conditions({ c, onEdit, onChip }: { c: SearchConditions; onEdit: () => 
       )}
       {c.unhandled.length > 0 && (
         <p className="text-xs text-sub">
-          확인하지 못한 조건: {c.unhandled.join(", ")} · 고객센터에 문의해 주세요
+          확인하지 못한 조건:{" "}
+          {c.unhandled.map((u, i) => {
+            const url = helpSearchFor(u);
+            return (
+              <span key={u}>
+                {i > 0 && ", "}
+                {/* 헬프 센터에 아티클이 있다고 확인한 조건(주차, 조식, 수영장 등)만 검색 링크로 연결한다 (src/data/help.ts) */}
+                {url ? <HelpLink href={url}>{u}</HelpLink> : u}
+              </span>
+            );
+          })}
+          {" "}· 지점 이용 안내는 헬프 센터에, 그 밖의 문의는 고객센터에 해 주세요
         </p>
       )}
     </div>
@@ -259,7 +286,9 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
     return (
       <div className="space-y-3">
         {r.reasons.map((w) => (
-          <p key={w} className="text-sm text-sub">{w}</p>
+          <p key={w} className="text-sm text-sub">
+            {w} <HelpArticle text={w} />
+          </p>
         ))}
         {r.relaxations.length > 0 && <p className="text-sm font-bold">이렇게 바꾸면 찾을 수 있어요</p>}
         {/* 카드: 제목 = 바꿀 조건, 본문 = 왜 막혔는지, 버튼 = 제목을 그대로 반복해 "이렇게"가 무엇인지 분명히 한다 */}
@@ -273,7 +302,9 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
                 </p>
                 <ul className="mt-1.5 flex-1 space-y-1 text-label text-sub">
                   {o.reasons.map((w) => (
-                    <li key={w}>{w}</li>
+                    <li key={w}>
+                      {w} <HelpArticle text={w} />
+                    </li>
                   ))}
                 </ul>
                 {/* 공식 "예약하기" 버튼 형태: 알약, 12px semibold */}
@@ -444,9 +475,15 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
       ) : (
         <p className="text-sm text-sub">날짜를 정하면 예약 가능한 일정을 보여드려요. 1박 {won(r.pricePerNight)}원부터예요.</p>
       )}
-      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] w-full items-center justify-center gap-1 rounded-card border border-line text-body">
-        공식 사이트 상세 페이지 <Icon name="arrowUpRight" size={14} />
-      </a>
+      <div className="grid grid-cols-2 gap-2">
+        <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body">
+          공식 사이트 상세 <Icon name="arrowUpRight" size={14} />
+        </a>
+        {/* 헬프 센터의 지점 카테고리: 주차, 조식, 부대시설, 짐 보관처럼 검색 조건이 아닌 궁금증을 그 자리에서 푼다 */}
+        <a href={branchHelpUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body">
+          지점 이용 안내 <Icon name="arrowUpRight" size={14} />
+        </a>
+      </div>
       <p className="-mt-3 text-center text-xs text-mute">공식 사이트에서는 날짜를 다시 골라야 해요. 실제 가격과 재고는 다를 수 있어요.</p>
     </div>
     </Body>
