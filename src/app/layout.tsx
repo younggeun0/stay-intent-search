@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "대화형 숙소 검색",
   description: "필터로 표현되지 않는 조건을 말로 찾는 숙소 검색 (채용 과제 프로토타입)",
+  // 파비콘도 공식 CDN을 참조한다 (DESIGN.md: 브랜드 자산은 레포에 복사하지 않는다)
+  icons: {
+    icon: [{ url: "https://cdn.ustay.life/favicon-32x32.png", sizes: "32x32", type: "image/png" }, { url: "https://cdn.ustay.life/favicon-16x16.png", sizes: "16x16", type: "image/png" }],
+    apple: "https://cdn.ustay.life/icon-180x180.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
