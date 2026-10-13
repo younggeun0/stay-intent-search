@@ -56,30 +56,28 @@ export default function Chat() {
   const current = last?.role === "assistant" ? last : null;
 
   return (
-    <div className="h-dvh lg:bg-surface">
-    <div className="h-dvh lg:mx-auto lg:grid lg:max-w-[1280px] lg:grid-cols-[440px_1fr] lg:bg-white lg:shadow-[0_0_20px_rgb(0_0_0/5%)]">
+    <div className="h-dvh bg-surface">
+    {/* 한 컬럼일 때도 최대 폭을 둔다: 글꼴을 키운 PC는 lg 기준(rem)에 못 미쳐 한 컬럼이 된다 */}
+    <div className="mx-auto h-dvh max-w-[40rem] bg-white shadow-[0_0_20px_rgb(0_0_0/5%)] lg:grid lg:max-w-[1280px] lg:grid-cols-[440px_1fr]">
       <section className="flex h-dvh flex-col bg-white lg:border-r lg:border-line">
+        {/* 입력창만 고정하고 나머지는 함께 스크롤한다. 글꼴을 크게 설정한 기기에서 고정 영역이 화면을 다 차지하지 않게 */}
+        <div className="flex-1 overflow-y-auto">
         <header className="border-b border-line px-5 pb-3 pt-4">
-          <p className="text-[11px] text-mute">채용 과제 프로토타입 · 어반스테이 공식 서비스가 아닙니다</p>
-          <h1 className="mt-1 font-serif text-[20px]">말로 찾는 숙소 검색</h1>
+          <p className="text-xs text-mute">채용 과제 프로토타입 · 어반스테이 공식 서비스가 아닙니다</p>
+          <h1 className="mt-1 font-serif text-xl">말로 찾는 숙소 검색</h1>
         </header>
-        {current && (
-          <div className="border-b border-line px-5 py-3 lg:hidden">
-            <Conditions c={current.conditions} onEdit={() => setEditing(true)} onChip={(say, patch) => edit(say, { ...current.conditions, ...patch })} />
-          </div>
-        )}
 
-        <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">
+        <div className="space-y-3 px-5 py-4">
           {msgs.length === 0 && (
             <div className="space-y-3">
-              <p className="text-[15px] leading-relaxed">
+              <p className="text-body leading-relaxed">
                 지역, 날짜, 인원만으로는 말하기 어려운 조건도 그대로 말씀해 주세요.
                 <br />
                 <span className="text-sub">예: 침대 따로, 반려동물 동반, 바다 보이는 방, 11월 말 주말</span>
               </p>
               <div className="flex flex-col items-start gap-2">
                 {EXAMPLES.map((e) => (
-                  <button key={e} onClick={() => send(e)} className="rounded-card bg-surface px-4 py-2.5 text-left text-[14px]">
+                  <button key={e} onClick={() => send(e)} className="rounded-card bg-surface px-4 py-2.5 text-left text-sm">
                     {e}
                   </button>
                 ))}
@@ -89,15 +87,18 @@ export default function Chat() {
           {msgs.map((m, i) => (
             <div key={i}>
               {m.role === "user" ? (
-                <p className={`ml-auto w-fit max-w-[85%] rounded-card px-4 py-2.5 text-[15px] ${m.edit ? "border border-line text-sub" : "bg-ink text-white"}`}>{m.text}</p>
+                <p className={`ml-auto w-fit max-w-[85%] rounded-card px-4 py-2.5 text-body ${m.edit ? "border border-line text-sub" : "bg-ink text-white"}`}>{m.text}</p>
               ) : m.role === "error" ? (
-                <p className="w-fit max-w-[85%] rounded-card bg-red-50 px-4 py-2.5 text-[15px] text-red-700">{m.text}</p>
+                <p className="w-fit max-w-[85%] rounded-card bg-red-50 px-4 py-2.5 text-body text-red-700">{m.text}</p>
               ) : (
                 <>
-                  <p className="w-fit max-w-[85%] rounded-card bg-surface px-4 py-2.5 text-[15px]">{m.text}</p>
+                  <p className="w-fit max-w-[85%] rounded-card bg-surface px-4 py-2.5 text-body">{m.text}</p>
                   {/* 모바일은 최신 결과를 대화 안에, PC는 오른쪽 패널에 */}
                   {m === current && (
-                    <div className="mt-3 lg:hidden">
+                    <div className="mt-3 space-y-3 lg:hidden">
+                      <div className="rounded-card border border-line p-3">
+                        <Conditions c={m.conditions} onEdit={() => setEditing(true)} onChip={(say, patch) => edit(say, { ...m.conditions, ...patch })} />
+                      </div>
                       <Results c={m.conditions} r={m.result} onOpen={setDetail} onRelax={edit} />
                     </div>
                   )}
@@ -105,12 +106,13 @@ export default function Chat() {
               )}
             </div>
           ))}
-          {pending && <p className="w-fit rounded-card bg-surface px-4 py-2.5 text-[15px] text-mute">조건을 이해하는 중…</p>}
+          {pending && <p className="w-fit rounded-card bg-surface px-4 py-2.5 text-body text-mute">조건을 이해하는 중…</p>}
           <div ref={end} />
+        </div>
         </div>
 
         <form
-          className="flex gap-2 border-t border-line p-3"
+          className="flex flex-wrap gap-2 border-t border-line p-3"
           onSubmit={(e) => {
             e.preventDefault();
             const input = e.currentTarget.elements.namedItem("q") as HTMLInputElement;
@@ -118,8 +120,8 @@ export default function Chat() {
             input.value = "";
           }}
         >
-          <input name="q" maxLength={300} autoComplete="off" placeholder="원하는 조건을 말씀해 주세요" className="h-[50px] flex-1 rounded-card bg-surface px-4 text-[15px] outline-none placeholder:text-mute" />
-          <button disabled={pending} className="h-[50px] rounded-card bg-ink px-5 text-[15px] font-medium text-white disabled:opacity-40">보내기</button>
+          <input name="q" maxLength={300} autoComplete="off" placeholder="조건을 말씀해 주세요" className="min-h-[3.125rem] min-w-0 flex-[1_1_12rem] rounded-card bg-surface px-4 text-base outline-none placeholder:text-mute" />
+          <button disabled={pending} className="ml-auto min-h-[3.125rem] shrink-0 rounded-card bg-ink px-5 text-body font-medium text-white disabled:opacity-40">보내기</button>
         </form>
       </section>
 
@@ -132,7 +134,7 @@ export default function Chat() {
             <Results c={current.conditions} r={current.result} onOpen={setDetail} onRelax={edit} />
           </div>
         ) : (
-          <p className="p-8 text-[15px] text-mute">말씀하신 조건과 맞는 객실이 여기에 표시돼요.</p>
+          <p className="p-8 text-body text-mute">말씀하신 조건과 맞는 객실이 여기에 표시돼요.</p>
         )}
       </section>
     </div>
@@ -161,22 +163,22 @@ function Conditions({ c, onEdit, onChip }: { c: SearchConditions; onEdit: () => 
   return (
     <div className="space-y-2.5">
       <button onClick={onEdit} className="w-full rounded-card bg-surface px-4 py-2.5 text-left lg:bg-surface">
-        <span className="block text-[15px] font-bold">{c.area ? `${c.region} ${c.area}` : (c.region ?? "전 지역")}</span>
-        <span className="block text-[12px] text-sub">
+        <span className="block text-body font-bold">{c.area ? `${c.region} ${c.area}` : (c.region ?? "전 지역")}</span>
+        <span className="block text-xs text-sub">
           {datesText(c) ?? "날짜 미정"} · {guestsText(c) ?? "인원 미정"}
         </span>
       </button>
       {list.length > 0 && (
         <div className="flex flex-wrap gap-1.5">
           {list.map((k) => (
-            <button key={k.key} onClick={() => onChip(k.say, k.patch)} aria-label={`${k.label} 조건 빼기`} className="flex h-8 items-center gap-1 rounded-full border border-line bg-white px-3 text-[13px]">
+            <button key={k.key} onClick={() => onChip(k.say, k.patch)} aria-label={`${k.label} 조건 빼기`} className="flex min-h-10 items-center gap-1 rounded-full border border-line bg-white px-3 text-label">
               {k.label} <span className="text-mute">×</span>
             </button>
           ))}
         </div>
       )}
       {c.unhandled.length > 0 && (
-        <p className="text-[12px] text-sub">
+        <p className="text-xs text-sub">
           확인하지 못한 조건: {c.unhandled.join(", ")} · 고객센터에 문의해 주세요
         </p>
       )}
@@ -192,20 +194,20 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
     return (
       <div className="space-y-3">
         {r.reasons.map((w) => (
-          <p key={w} className="text-[14px] text-sub">{w}</p>
+          <p key={w} className="text-sm text-sub">{w}</p>
         ))}
-        {r.relaxations.length > 0 && <p className="text-[14px] font-bold">이렇게 바꾸면 찾을 수 있어요</p>}
+        {r.relaxations.length > 0 && <p className="text-sm font-bold">이렇게 바꾸면 찾을 수 있어요</p>}
         {r.relaxations.map((o) => (
           <div key={o.labels.join()} className="rounded-card border border-line bg-white p-4">
-            <p className="text-[15px] font-bold">
+            <p className="text-body font-bold">
               {o.labels.join(" + ")} <span className="font-medium text-sub">· {o.count}실</span>
             </p>
-            <ul className="mt-1.5 space-y-1 text-[13px] text-sub">
+            <ul className="mt-1.5 space-y-1 text-label text-sub">
               {o.reasons.map((w) => (
                 <li key={w}>{w}</li>
               ))}
             </ul>
-            <button onClick={() => onRelax(o.says.join(", "), o.conditions)} className="mt-3 h-10 w-full rounded-card bg-ink text-[14px] font-medium text-white">
+            <button onClick={() => onRelax(o.says.join(", "), o.conditions)} className="mt-3 min-h-10 w-full rounded-card bg-ink text-sm font-medium text-white">
               이렇게 다시 찾기
             </button>
           </div>
@@ -215,7 +217,7 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
   const shown = all ? r.hits : r.hits.slice(0, CARD_LIMIT);
   return (
     <div className="space-y-3">
-      <p className="text-[14px]">
+      <p className="text-sm">
         <b>{r.hits.length}개</b>의 객실 · 가격 낮은 순
       </p>
       <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-3">
@@ -224,7 +226,7 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
         ))}
       </div>
       {!all && r.hits.length > CARD_LIMIT && (
-        <button onClick={() => setAll(true)} className="h-[50px] w-full rounded-card border border-line bg-white text-[15px]">
+        <button onClick={() => setAll(true)} className="min-h-[3.125rem] w-full rounded-card border border-line bg-white text-body">
           {r.hits.length - CARD_LIMIT}개 더 보기
         </button>
       )}
@@ -260,39 +262,41 @@ function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: 
           )}
         </div>
         <div className="flex flex-1 flex-col p-4 pb-3">
-          <p className="text-[15px] font-bold leading-snug">{hit.branch.name}</p>
-          <p className="mt-0.5 text-[12px] leading-snug text-sub">
+          <p className="text-body font-bold leading-snug">{hit.branch.name}</p>
+          <p className="mt-0.5 text-xs leading-snug text-sub">
             {hit.branch.region} {hit.branch.areas[0]}
           </p>
-          <p className="mt-2 text-[14px] leading-snug">{hit.room.name}</p>
-          <p className="mt-0.5 text-[12px] leading-snug text-sub">
+          <p className="mt-2 text-sm leading-snug">{hit.room.name}</p>
+          <p className="mt-0.5 text-xs leading-snug text-sub">
             최대 {hit.room.maxGuests}인 · {hit.room.sizeM2 ? `${hit.room.sizeM2}㎡ · ` : ""}
             {bedsText(hit)}
           </p>
           {badges(hit).length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
               {badges(hit).map((b) => (
-                <span key={b} className="inline-flex h-5 items-center rounded-full bg-surface px-2 text-[11px] leading-none">{b}</span>
+                <span key={b} className="inline-flex min-h-5 items-center rounded-full bg-surface px-2 py-0.5 text-xs leading-none">{b}</span>
               ))}
             </div>
           )}
           {rangeSearch && hit.stays.length > 0 && (
-            <p className="mt-2 text-[12px] leading-snug text-sub">
+            <p className="mt-2 text-xs leading-snug text-sub">
               가능한 일정: {hit.stays.slice(0, STAY_LIMIT).map((s) => shortStay(s.checkIn, s.checkOut)).join(", ")}
               {hit.stays.length > STAY_LIMIT && ` 외 ${hit.stays.length - STAY_LIMIT}개`}
             </p>
           )}
           {/* 남는 높이를 채워 같은 줄 카드의 가격 줄을 맞춘다 */}
           <div className="min-h-3 flex-1" />
-          <div className="flex items-baseline justify-end gap-1 border-t border-line pt-2.5">
-            <span className="text-[12px]">{cheapest ? `${cheapest.nights}박` : "1박"}</span>
-            <span className="text-[20px] font-bold">{won(cheapest?.total ?? hit.room.pricePerNight)}</span>
-            <span className="text-[12px]">원~</span>
+          <div className="flex flex-wrap items-baseline justify-end gap-x-1 whitespace-nowrap border-t border-line pt-2.5">
+            <span className="text-xs">{cheapest ? `${cheapest.nights}박` : "1박"}</span>
+            <span>
+              <span className="text-xl font-bold">{won(cheapest?.total ?? hit.room.pricePerNight)}</span>
+              <span className="ml-0.5 text-xs">원~</span>
+            </span>
           </div>
-          {!datesKnown && <p className="mt-1.5 text-right text-[11px] text-mute">날짜를 정하면 예약 가능 여부를 확인해요</p>}
+          {!datesKnown && <p className="mt-1.5 text-right text-xs text-mute">날짜를 정하면 예약 가능 여부를 확인해요</p>}
         </div>
       </button>
-      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex h-10 items-center justify-center border-t border-line text-[13px] text-sub hover:bg-surface">
+      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-10 items-center justify-center border-t border-line text-label text-sub hover:bg-surface">
         공식 사이트에서 지점 보기 ↗
       </a>
     </article>
@@ -316,7 +320,7 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
   if (confirm && pick)
     return (
       <div className="space-y-4">
-        <dl className="divide-y divide-line text-[14px]">
+        <dl className="divide-y divide-line text-sm">
           {(
             [
               ["지점", hit.branch.name],
@@ -332,10 +336,10 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
             </div>
           ))}
         </dl>
-        <p className="rounded-card bg-surface p-4 text-[13px] text-sub">
+        <p className="rounded-card bg-surface p-4 text-label text-sub">
           프로토타입은 여기까지예요. 결제와 예약 확정은 과제 범위에서 제외했고, 가격과 재고는 가짜 데이터예요.
         </p>
-        <button onClick={() => setConfirm(false)} className="h-[50px] w-full rounded-card border border-line text-[15px]">
+        <button onClick={() => setConfirm(false)} className="min-h-[3.125rem] w-full rounded-card border border-line text-body">
           다시 고르기
         </button>
       </div>
@@ -348,7 +352,7 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
           <img key={id} src={imageUrl(id, 768)} alt={`${r.name} 사진`} className="aspect-[3/2] w-full shrink-0 snap-start object-cover" />
         ))}
       </div>
-      <dl className="text-[14px]">
+      <dl className="text-sm">
         {rows.map(([k, v]) => (
           <div key={k} className="flex gap-4 py-1.5">
             <dt className="w-12 shrink-0 text-sub">{k}</dt>
@@ -357,17 +361,17 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
         ))}
       </dl>
       {r.specSource !== "observed" && (
-        <p className="text-[12px] text-mute">{r.specSource === "capacity" ? "인원만 공식 사이트에서 확인했고, 나머지 사양은 객실 유형으로 추정했어요." : "사양은 객실 유형으로 추정했어요."}</p>
+        <p className="text-xs text-mute">{r.specSource === "capacity" ? "인원만 공식 사이트에서 확인했고, 나머지 사양은 객실 유형으로 추정했어요." : "사양은 객실 유형으로 추정했어요."}</p>
       )}
       {hit.stays.length > 0 ? (
         <div>
-          <p className="mb-2 text-[14px] font-bold">예약 가능한 일정</p>
+          <p className="mb-2 text-sm font-bold">예약 가능한 일정</p>
           <div className="flex max-h-48 flex-wrap gap-1.5 overflow-y-auto">
             {hit.stays.map((s) => (
               <button
                 key={s.checkIn}
                 onClick={() => setPick(s)}
-                className={`rounded-full border px-3 py-1.5 text-[13px] ${pick === s ? "border-ink bg-ink text-white" : "border-line"}`}
+                className={`rounded-full border px-3 py-1.5 text-label ${pick === s ? "border-ink bg-ink text-white" : "border-line"}`}
               >
                 {stayText(s.checkIn, s.checkOut)} · {won(s.total)}원
               </button>
@@ -375,13 +379,13 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
           </div>
         </div>
       ) : (
-        <p className="text-[14px] text-sub">날짜를 정하면 예약 가능한 일정을 보여드려요. 1박 {won(r.pricePerNight)}원부터예요.</p>
+        <p className="text-sm text-sub">날짜를 정하면 예약 가능한 일정을 보여드려요. 1박 {won(r.pricePerNight)}원부터예요.</p>
       )}
-      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex h-[50px] w-full items-center justify-center rounded-card border border-line text-[15px]">
+      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] w-full items-center justify-center rounded-card border border-line text-body">
         공식 사이트 상세 페이지 ↗
       </a>
-      <p className="-mt-3 text-center text-[11px] text-mute">공식 사이트에서는 날짜를 다시 골라야 해요. 실제 가격과 재고는 다를 수 있어요.</p>
-      <button disabled={!pick} onClick={() => setConfirm(true)} className="h-[50px] w-full rounded-card bg-ink text-[15px] font-medium text-white disabled:opacity-30">
+      <p className="-mt-3 text-center text-xs text-mute">공식 사이트에서는 날짜를 다시 골라야 해요. 실제 가격과 재고는 다를 수 있어요.</p>
+      <button disabled={!pick} onClick={() => setConfirm(true)} className="min-h-[3.125rem] w-full rounded-card bg-ink text-body font-medium text-white disabled:opacity-30">
         {pick ? "이 일정으로 예약 확인" : "일정을 골라 주세요"}
       </button>
     </div>
@@ -393,28 +397,30 @@ function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c:
   const [checkOut, setCheckOut] = useState(c.checkOut ?? "");
   const [guests, setGuests] = useState(c.guests ?? 2);
   const valid = !!checkIn && !!checkOut;
-  const step = "flex size-8 items-center justify-center rounded-full border border-line text-[16px] disabled:text-line";
+  const step = "flex size-10 shrink-0 items-center justify-center rounded-full border border-line text-base disabled:text-line";
   return (
     <div className="space-y-4">
-      {c.dateRange && <p className="text-[13px] text-sub">지금은 {datesText(c)} 조건으로 찾고 있어요. 날짜를 정하면 그 일정만 찾아요.</p>}
+      {c.dateRange && <p className="text-label text-sub">지금은 {datesText(c)} 조건으로 찾고 있어요. 날짜를 정하면 그 일정만 찾아요.</p>}
       <DateRange checkIn={checkIn} checkOut={checkOut} focus={c.dateRange?.from} onChange={(a, b) => { setCheckIn(a); setCheckOut(b); }} />
+      <div className="sticky -bottom-8 -mx-5 space-y-3 border-t border-line bg-white px-5 pb-8 pt-4">
       {/* 공식 사이트 홈 검색의 인원 행과 같은 형태 */}
-      <div className="flex items-center border-t border-line pt-4">
-        <span className="text-[15px] font-bold">인원</span>
-        <span className="ml-2 text-[12px] text-mute">36개월 이하 영유아 제외</span>
+      <div className="flex flex-wrap items-center gap-y-2">
+        <span className="text-body font-bold">인원</span>
+        <span className="ml-2 text-xs text-mute">36개월 이하 영유아 제외</span>
         <div className="ml-auto flex items-center gap-3">
           <button type="button" aria-label="인원 줄이기" disabled={guests <= 1} onClick={() => setGuests(guests - 1)} className={step}>−</button>
-          <span className="w-8 text-center text-[15px] font-bold">{guests}명</span>
+          <span className="w-8 text-center text-body font-bold">{guests}명</span>
           <button type="button" aria-label="인원 늘리기" disabled={guests >= 20} onClick={() => setGuests(guests + 1)} className={step}>+</button>
         </div>
       </div>
       <button
         disabled={!valid}
         onClick={() => onSave(`${stayText(checkIn, checkOut)}, ${guests}명으로 바꿀게요`, { ...c, checkIn, checkOut, dateRange: null, nights: null, weekend: null, guests })}
-        className="h-[50px] w-full rounded-card bg-ink text-[15px] font-medium text-white disabled:bg-line disabled:text-mute"
+        className="min-h-[3.125rem] w-full rounded-card bg-ink text-body font-medium text-white disabled:bg-line disabled:text-mute"
       >
         완료
       </button>
+      </div>
     </div>
   );
 }
@@ -432,11 +438,11 @@ function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () 
       ref={ref}
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
-      className="m-0 mt-auto max-h-[85dvh] w-full max-w-full rounded-t-sheet bg-white p-0 backdrop:bg-black/50 lg:m-auto lg:max-w-[460px] lg:rounded-card"
+      className="m-0 mt-auto max-h-[85dvh] w-full max-w-full overflow-y-auto rounded-t-sheet bg-white p-0 backdrop:bg-black/50 lg:m-auto lg:max-w-[460px] lg:rounded-card"
     >
-      <div className="sticky top-0 flex items-center justify-between border-b border-line bg-white px-5 py-4">
-        <h2 className="text-[17px] font-bold">{title}</h2>
-        <button onClick={onClose} aria-label="닫기" className="flex size-8 items-center justify-center rounded-full bg-surface text-[14px]">
+      <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-line bg-white px-5 py-4">
+        <h2 className="text-title font-bold">{title}</h2>
+        <button onClick={onClose} aria-label="닫기" className="flex size-10 shrink-0 items-center justify-center rounded-full bg-surface text-sm">
           ×
         </button>
       </div>

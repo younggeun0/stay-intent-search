@@ -28,27 +28,26 @@ export function DateRange({ checkIn, checkOut, focus, onChange }: { checkIn: str
   const list = useRef<HTMLDivElement>(null);
   const focusMonth = (checkIn || focus || today).slice(0, 7);
   useEffect(() => {
-    const el = list.current?.querySelector<HTMLElement>(`[data-month="${focusMonth}"]`);
-    // scrollIntoView는 바깥 시트까지 스크롤하므로 달력 목록만 움직인다
-    if (el && list.current) list.current.scrollTop = el.offsetTop - list.current.offsetTop;
-  }, [focusMonth]);
+    // 이번 달이 아니면 그 달로 시트를 스크롤한다
+    if (focusMonth !== today.slice(0, 7)) list.current?.querySelector<HTMLElement>(`[data-month="${focusMonth}"]`)?.scrollIntoView({ block: "start" });
+  }, [focusMonth, today]);
   const pick = (d: string) => {
     if (!checkIn || checkOut || d <= checkIn) onChange(d, "");
     else onChange(checkIn, d);
   };
   return (
     <div>
-      <div className="flex items-center gap-2 text-[16px] font-bold">
+      <div className="flex items-center gap-2 text-base font-bold">
         <span>{checkIn ? dot(checkIn) : "체크인"}</span>
         <span className="text-mute">→</span>
         <span className={checkOut ? "" : "font-medium text-mute"}>{checkOut ? dot(checkOut) : "체크아웃"}</span>
-        {checkIn && checkOut && <span className="ml-auto rounded-full bg-blue-50 px-2.5 py-0.5 text-[12px] font-bold text-blue-700">{nightsBetween(checkIn, checkOut)}박</span>}
+        {checkIn && checkOut && <span className="ml-auto shrink-0 whitespace-nowrap rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-bold text-blue-700">{nightsBetween(checkIn, checkOut)}박</span>}
       </div>
-      <div ref={list} className="mt-4 max-h-[46dvh] space-y-6 overflow-y-auto">
+      <div ref={list} className="mt-4 space-y-6">
         {months(today, 6).map((mo) => (
-          <section key={mo.key} data-month={mo.key.slice(0, 7)}>
-            <h3 className="mb-2 text-center text-[15px] font-bold">{mo.label}</h3>
-            <div className="grid grid-cols-7 text-center text-[13px]">
+          <section key={mo.key} data-month={mo.key.slice(0, 7)} className="scroll-mt-20">
+            <h3 className="mb-2 text-center text-body font-bold">{mo.label}</h3>
+            <div className="grid grid-cols-7 text-center text-label">
               {"일월화수목금토".split("").map((w, i) => (
                 <span key={w} className={`py-1 ${i === 0 ? "text-red-500" : i === 6 ? "text-blue-600" : "text-sub"}`}>{w}</span>
               ))}
@@ -63,14 +62,14 @@ export function DateRange({ checkIn, checkOut, focus, onChange }: { checkIn: str
                 // 띠: 체크인 칸은 오른쪽 절반, 체크아웃 칸은 왼쪽 절반만 칠해 원과 이어 보이게 한다
                 const band = inBand ? "bg-surface" : isIn && checkOut ? "bg-[linear-gradient(to_right,transparent_50%,var(--color-surface)_50%)]" : isOut ? "bg-[linear-gradient(to_left,transparent_50%,var(--color-surface)_50%)]" : "";
                 return (
-                  <button key={d} type="button" disabled={past} onClick={() => pick(d)} className="flex h-14 flex-col items-center pt-1 disabled:cursor-default">
-                    <span className={`flex h-9 w-full items-center justify-center ${band}`}>
-                      <span className={`relative flex size-9 items-center justify-center rounded-full text-[15px] ${isIn || isOut ? "bg-ink font-bold" : ""} ${color} ${d === today ? "font-bold" : ""}`}>
+                  <button key={d} type="button" disabled={past} onClick={() => pick(d)} className="flex min-h-14 min-w-0 flex-col items-center pt-1 disabled:cursor-default">
+                    <span className={`flex min-h-9 w-full items-center justify-center ${band}`}>
+                      <span className={`relative flex aspect-square w-9 max-w-full items-center justify-center rounded-full text-body ${isIn || isOut ? "bg-ink font-bold" : ""} ${color} ${d === today ? "font-bold" : ""}`}>
                         {d === today && !isIn && <span className="absolute -top-0.5 size-1 rounded-full bg-red-500" />}
                         {Number(d.slice(8))}
                       </span>
                     </span>
-                    <span className="text-[10px] leading-4">{isIn ? "체크인" : isOut ? "체크아웃" : ""}</span>
+                    <span className="text-[0.625rem] leading-snug">{isIn ? "체크인" : isOut ? "체크아웃" : ""}</span>
                   </button>
                 );
               })}

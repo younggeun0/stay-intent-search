@@ -6,9 +6,17 @@
   --font-serif: var(--font-noto-serif), AppleMyungjo, serif;
   --color-ink: #111;
   --color-sub: #444;
-  --color-mute: #aaa;
+  /* 공식 사이트는 #aaa지만 흰 바탕 대비가 2.3:1이라 작은 글자가 안 읽힌다. WCAG AA(4.5:1)를 넘는 값으로 올렸다 */
+  --color-mute: #767676;
   --color-line: #e8e8e8;
   --color-surface: #f4f5fa;
+  /* 글자 크기는 rem: 사용자가 기기·브라우저에서 키운 글꼴 크기를 따른다 (px로 쓰면 설정이 무시된다) */
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.4;
+  --text-body: 0.9375rem;
+  --text-body--line-height: 1.45;
+  --text-title: 1.0625rem;
+  --text-title--line-height: 1.35;
   --radius-card: 14px;
   --radius-sheet: 20px;
 }
