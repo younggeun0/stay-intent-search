@@ -1,0 +1,613 @@
+{
+  "label": "v2-final",
+  "split": "holdout",
+  "reasoning": "none",
+  "ranAt": "2026-10-13T03:54:37.191Z",
+  "report": {
+    "openai/gpt-6-luna": {
+      "ok": 14,
+      "total": 18,
+      "errors": 0,
+      "fieldAccuracy": 0.9836601307189542,
+      "clarifyMissed": 0,
+      "clarifyExtra": 1,
+      "p50": 2258,
+      "p95": 2762,
+      "cost": 0.006291799999999999,
+      "byField": {
+        "dateRange": 1,
+        "guests": 2,
+        "needsClarification": 1,
+        "unhandled": 1
+      },
+      "rows": [
+        {
+          "id": "h01",
+          "actual": {
+            "region": "부산",
+            "area": null,
+            "checkIn": "2026-10-22",
+            "checkOut": "2026-10-24",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 3,
+            "infants": null,
+            "pet": null,
+            "oceanView": true,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2467,
+          "cost": 0.0003473,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h02",
+          "actual": {
+            "region": "강원",
+            "area": "속초",
+            "checkIn": "2026-10-17",
+            "checkOut": "2026-10-18",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 2,
+            "infants": null,
+            "pet": true,
+            "oceanView": true,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [
+            "guests"
+          ],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2762,
+          "cost": 0.0003475,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h03",
+          "actual": {
+            "region": "제주",
+            "area": null,
+            "checkIn": "2026-12-23",
+            "checkOut": "2026-12-27",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 4,
+            "infants": 1,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2260,
+          "cost": 0.0003484,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h04",
+          "actual": {
+            "region": null,
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-11-11",
+              "to": "2026-11-20"
+            },
+            "nights": null,
+            "weekend": null,
+            "guests": 2,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": [
+              "경주 쪽"
+            ]
+          },
+          "wrong": [
+            "dateRange"
+          ],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2083,
+          "cost": 0.0003523,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h05",
+          "actual": {
+            "region": "강원",
+            "area": "양양",
+            "checkIn": "2026-10-23",
+            "checkOut": "2026-10-24",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 2,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [
+              "loft",
+              "bathtub"
+            ],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2211,
+          "cost": 0.000351,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h06",
+          "actual": {
+            "region": "서울",
+            "area": null,
+            "checkIn": "2026-11-20",
+            "checkOut": "2026-11-21",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 4,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": 2,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2052,
+          "cost": 0.0003483,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h07",
+          "actual": {
+            "region": "부산",
+            "area": null,
+            "checkIn": "2026-10-31",
+            "checkOut": "2026-11-01",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 3,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": 3,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2271,
+          "cost": 0.0003481,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h08",
+          "actual": {
+            "region": null,
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": null,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [
+              "dates",
+              "guests"
+            ],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2258,
+          "cost": 0.0003433,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h09",
+          "actual": {
+            "region": "서울",
+            "area": null,
+            "checkIn": "2026-11-01",
+            "checkOut": "2026-12-01",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 1,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [
+              "washer"
+            ],
+            "needsClarification": [],
+            "unhandled": [
+              "장기 투숙 가능한 곳"
+            ]
+          },
+          "wrong": [
+            "unhandled"
+          ],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2404,
+          "cost": 0.000352,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "h10",
+          "actual": {
+            "region": "인천",
+            "area": null,
+            "checkIn": "2026-10-25",
+            "checkOut": "2026-10-26",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 3,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [
+              "barrierFree"
+            ],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2699,
+          "cost": 0.0003508,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "m08",
+          "actual": {
+            "region": "강원",
+            "area": "양양",
+            "checkIn": "2026-10-24",
+            "checkOut": "2026-10-25",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 4,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": 2,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2303,
+          "cost": 0.0003502,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "m09",
+          "actual": {
+            "region": "제주",
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-12-01",
+              "to": "2026-12-10"
+            },
+            "nights": null,
+            "weekend": true,
+            "guests": 8,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2188,
+          "cost": 0.0003545,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "m10",
+          "actual": {
+            "region": "서울",
+            "area": null,
+            "checkIn": "2026-10-20",
+            "checkOut": "2026-10-21",
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": 2,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2229,
+          "cost": 0.0003506,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "u01",
+          "actual": {
+            "region": "서울",
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-12-21",
+              "to": "2026-12-31"
+            },
+            "nights": null,
+            "weekend": null,
+            "guests": 2,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2154,
+          "cost": 0.0003502,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "u02",
+          "actual": {
+            "region": null,
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-11-21",
+              "to": "2026-11-30"
+            },
+            "nights": 2,
+            "weekend": true,
+            "guests": 4,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2025,
+          "cost": 0.00035160000000000004,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "u03",
+          "actual": {
+            "region": null,
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-12-01",
+              "to": "2026-12-10"
+            },
+            "nights": null,
+            "weekend": true,
+            "guests": 8,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 2291,
+          "cost": 0.0003503,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "u04",
+          "actual": {
+            "region": "제주",
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": null,
+            "nights": null,
+            "weekend": null,
+            "guests": null,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": 3,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [
+              "dates",
+              "guests"
+            ],
+            "unhandled": []
+          },
+          "wrong": [
+            "guests",
+            "needsClarification"
+          ],
+          "clarify": {
+            "missed": [],
+            "extra": [
+              "guests"
+            ]
+          },
+          "latencyMs": 2080,
+          "cost": 0.0003447,
+          "reasoningTokens": 0
+        },
+        {
+          "id": "u05",
+          "actual": {
+            "region": "서울",
+            "area": null,
+            "checkIn": null,
+            "checkOut": null,
+            "dateRange": {
+              "from": "2026-11-01",
+              "to": "2026-11-30"
+            },
+            "nights": null,
+            "weekend": null,
+            "guests": 3,
+            "infants": null,
+            "pet": null,
+            "oceanView": null,
+            "minBedrooms": null,
+            "minBeds": null,
+            "features": [],
+            "facilities": [],
+            "needsClarification": [],
+            "unhandled": []
+          },
+          "wrong": [],
+          "clarify": {
+            "missed": [],
+            "extra": []
+          },
+          "latencyMs": 1744,
+          "cost": 0.0003507,
+          "reasoningTokens": 0
+        }
+      ]
+    }
+  }
+}
