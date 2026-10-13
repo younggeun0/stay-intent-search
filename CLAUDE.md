@@ -11,6 +11,8 @@
 - `npm run eval:check`: 평가셋 라벨 불변식 검증
 - `npm run inventory:check`: 인벤토리 검증
 - `npm run search:check`: 평가셋 정답 조건으로 검색, 0건 케이스와 대안 출력
+- `npm run eval:roundtrip`: 화면 조작 문구(칩 ×, 대안 버튼)가 다음 추출에서 의도대로 해석되는지 (실제 모델 호출)
+- `npm run dev`: 화면 확인 (`.env.local` 필요)
 - `npm run eval:run -- --split dev --label v1`: 모델 평가 (`.env.local`의 `AI_GATEWAY_API_KEY` 필요). holdout은 마지막에 한 번만
 - `npx tsc --noEmit`: 타입 검사 (`LayoutProps` 오류가 나면 `npx next typegen` 먼저)
 
