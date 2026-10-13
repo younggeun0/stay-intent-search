@@ -5,13 +5,16 @@ import type { Branch, Room, SearchConditions } from "./schema";
 
 export type Stay = { checkIn: string; checkOut: string; nights: number; total: number };
 export type Hit = { room: Room; branch: Branch; stays: Stay[] }; // 날짜 미정이면 stays는 []
-export type Relaxation = { labels: string[]; reasons: string[]; conditions: SearchConditions; count: number }; // labels를 모두 바꾸면 count실, reasons는 각 조건이 막힌 이유
+export type Relaxation = { labels: string[]; says: string[]; reasons: string[]; conditions: SearchConditions; count: number }; // labels를 모두 바꾸면 count실, reasons는 각 조건이 막힌 이유
 export type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
 export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; reasons: string[] }; // reasons는 대안이 하나도 없을 때만
 
 const DAY_MS = 86_400_000;
 const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
 const diffDays = (a: string, b: string) => (Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / DAY_MS;
+// 받침 있으면 a, 없으면 b (은/는, 이/가)
+export const josa = (w: string, a: string, b: string) => { const c = w.charCodeAt(w.length - 1) - 0xac00; return c >= 0 && c <= 11171 && c % 28 ? w + a : w + b; };
+export const md = (d: string) => `${Number(d.slice(5, 7))}월 ${Number(d.slice(8))}일`;
 const isSaturday = (d: string) => new Date(`${d}T00:00:00Z`).getUTCDay() === 6;
 
 // 토퍼는 침대로 세지 않는다. "침대 따로"를 토퍼로 채우면 고객 기대와 다르다
@@ -36,8 +39,8 @@ export function candidateStays(c: SearchConditions): { checkIn: string; checkOut
 const available = (r: Room, s: { checkIn: string; checkOut: string }) =>
   r.blocked.every((b) => s.checkOut <= b.from || b.to <= s.checkIn);
 
-const FEATURE_LABEL = { bathtub: "욕조", spa: "스파", twin: "트윈", barrierFree: "베리어프리", loft: "복층", connecting: "커넥팅" } as const;
-const FACILITY_LABEL = { kitchen: "주방", washer: "세탁기", dishwasher: "식기세척기", desk: "업무용 책상", styler: "스타일러" } as const;
+export const FEATURE_LABEL = { bathtub: "욕조", spa: "스파", twin: "트윈", barrierFree: "베리어프리", loft: "복층", connecting: "커넥팅" } as const;
+export const FACILITY_LABEL = { kitchen: "주방", washer: "세탁기", dishwasher: "식기세척기", desk: "업무용 책상", styler: "스타일러" } as const;
 
 type Check = { label: string; place?: true; ok: (r: Room, b: Branch) => boolean };
 
@@ -73,7 +76,8 @@ export function find(c: SearchConditions): Hit[] {
 }
 
 // 풀 수 있는 조건. check는 이 조건이 푸는 검사 이름(이유 설명용), 날짜는 null
-type Option = { label: string; check: string | null; apply: (c: SearchConditions) => SearchConditions };
+// say는 이 조건을 고객이 직접 바꾼다면 할 말. 버튼을 누르면 대화에 남겨 다음 추출에도 반영되게 한다
+type Option = { label: string; say: string; check: string | null; apply: (c: SearchConditions) => SearchConditions };
 
 // 인원은 풀지 않는다(못 묵는 방을 권할 수 없다)
 function relaxOptions(c: SearchConditions): Option[] {
@@ -83,17 +87,17 @@ function relaxOptions(c: SearchConditions): Option[] {
     const nights = diffDays(c.checkIn, c.checkOut);
     const weekend = Array.from({ length: nights }, (_, i) => addDays(c.checkIn!, i)).some(isSaturday) || null;
     const range = { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, 28) };
-    opts.push({ label: "다른 날짜", check: null, apply: (x) => ({ ...x, checkIn: null, checkOut: null, dateRange: range, nights, weekend }) });
+    opts.push({ label: "다른 날짜", say: `${md(range.from)}~${md(range.to)} 사이 ${weekend ? "주말 " : ""}${nights}박이면 괜찮아요`, check: null, apply: (x) => ({ ...x, checkIn: null, checkOut: null, dateRange: range, nights, weekend }) });
   }
-  if (c.weekend) opts.push({ label: "주말 제외", check: null, apply: (x) => ({ ...x, weekend: null }) });
-  if (c.area) opts.push({ label: `${c.area} 대신 ${c.region} 전체`, check: c.area, apply: (x) => ({ ...x, area: null }) });
-  if (c.region) opts.push({ label: "다른 지역", check: c.area ?? c.region, apply: (x) => ({ ...x, region: null, area: null }) });
-  if (c.pet) opts.push({ label: "반려동물 동반 제외", check: "반려동물 동반", apply: (x) => ({ ...x, pet: null }) });
-  if (c.oceanView) opts.push({ label: "오션뷰 제외", check: "오션뷰", apply: (x) => ({ ...x, oceanView: null }) });
-  if (c.minBedrooms !== null) opts.push({ label: `방 ${c.minBedrooms}개 조건 제외`, check: `방 ${c.minBedrooms}개 이상`, apply: (x) => ({ ...x, minBedrooms: null }) });
-  if (c.minBeds !== null) opts.push({ label: `침대 ${c.minBeds}개 조건 제외`, check: `침대 ${c.minBeds}개 이상`, apply: (x) => ({ ...x, minBeds: null }) });
-  for (const f of c.features) opts.push({ label: `${FEATURE_LABEL[f]} 제외`, check: FEATURE_LABEL[f], apply: (x) => ({ ...x, features: x.features.filter((y) => y !== f) }) });
-  for (const f of c.facilities) opts.push({ label: `${FACILITY_LABEL[f]} 제외`, check: FACILITY_LABEL[f], apply: (x) => ({ ...x, facilities: x.facilities.filter((y) => y !== f) }) });
+  if (c.weekend) opts.push({ label: "주말 제외", say: "주말이 아니어도 괜찮아요", check: null, apply: (x) => ({ ...x, weekend: null }) });
+  if (c.area) opts.push({ label: `${c.area} 대신 ${c.region} 전체`, say: `${c.region} 어디든 괜찮아요`, check: c.area, apply: (x) => ({ ...x, area: null }) });
+  if (c.region) opts.push({ label: "다른 지역", say: "지역은 어디든 상관없어요", check: c.area ?? c.region, apply: (x) => ({ ...x, region: null, area: null }) });
+  if (c.pet) opts.push({ label: "반려동물 동반 제외", say: "반려동물은 데려가지 않을게요", check: "반려동물 동반", apply: (x) => ({ ...x, pet: null }) });
+  if (c.oceanView) opts.push({ label: "오션뷰 제외", say: "오션뷰가 아니어도 괜찮아요", check: "오션뷰", apply: (x) => ({ ...x, oceanView: null }) });
+  if (c.minBedrooms !== null) opts.push({ label: `방 ${c.minBedrooms}개 조건 제외`, say: "방 개수는 상관없어요", check: `방 ${c.minBedrooms}개 이상`, apply: (x) => ({ ...x, minBedrooms: null }) });
+  if (c.minBeds !== null) opts.push({ label: `침대 ${c.minBeds}개 조건 제외`, say: "침대 개수는 상관없어요", check: `침대 ${c.minBeds}개 이상`, apply: (x) => ({ ...x, minBeds: null }) });
+  for (const f of c.features) opts.push({ label: `${FEATURE_LABEL[f]} 제외`, say: `${josa(FEATURE_LABEL[f], "은", "는")} 없어도 괜찮아요`, check: FEATURE_LABEL[f], apply: (x) => ({ ...x, features: x.features.filter((y) => y !== f) }) });
+  for (const f of c.facilities) opts.push({ label: `${FACILITY_LABEL[f]} 제외`, say: `${josa(FACILITY_LABEL[f], "은", "는")} 없어도 괜찮아요`, check: FACILITY_LABEL[f], apply: (x) => ({ ...x, facilities: x.facilities.filter((y) => y !== f) }) });
   return opts;
 }
 
@@ -168,6 +172,7 @@ export function search(c: SearchConditions): SearchResult {
   if (hits.length) return { hits, datesKnown, relaxations: [], reasons: [] };
   const relaxations = minimalRelaxations(c).map((f) => ({
     labels: f.options.map((o) => o.label),
+    says: f.options.map((o) => o.say),
     reasons: [...new Set(f.options.map((o) => reasonFor(o, f.options.filter((x) => x !== o).reduce((x, y) => y.apply(x), c))))],
     conditions: f.conditions,
     count: f.count,

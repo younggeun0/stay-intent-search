@@ -118,7 +118,7 @@
 |---|---|
 | 10/13(화) | 문제 정의 확정, 공개 근거 수집, 목업 인벤토리, **평가셋 작성** → 완료 (라벨 검수만 남음) |
 | 10/14(수) | 조건 추출 + 검색 로직 + 평가 스크립트, 첫 정확도 측정 → 10/13에 앞당겨 완료. 모델은 GPT-6 Luna로 확정 |
-| 10/15(목) | 프롬프트 개선과 수치 기록, 대화 UI, 되묻기, 확인 단계, 배포 |
+| 10/15(목) | 프롬프트 개선과 수치 기록, 대화 UI, 되묻기, 확인 단계, 배포 → UI는 10/13에 첫 버전 완료. 배포 전 Gateway 예산 설정 필요 |
 | 10/16(금) | README(문제, 가정, 범위, 설계 결정, 평가 결과, 한계), AI 로그 정리, 버퍼 |
 
 ## 8. 미결정 사항
@@ -145,6 +145,11 @@
 | `src/lib/rules.ts` | **해석 규칙의 단일 출처**. LLM 프롬프트이자 라벨 기준 |
 | `src/lib/extract.ts` | 조건 추출 (AI SDK `generateText` + `Output.object`, Zod 스키마 그대로 사용) |
 | `src/lib/search.ts` | 조건 → 객실·가능 일정 검색, 0건이면 조건 완화 대안 (LLM 없음) |
+| `src/lib/reply.ts` | 상담원 답변·조건 칩 문장 (코드가 만든다, 형식은 평가셋 m 케이스와 같게) |
+| `src/lib/normalize.ts` | 추출 결과 정규화 (서버·화면 공용) |
+| `src/app/actions.ts` | 유일한 서버 엔드포인트 `interpret`: 입력 검증·크기 제한, KST 기준일, 모델 `openai/gpt-6-luna` |
+| `src/app/chat.tsx` | 화면 전체 (반응형: 모바일 한 컬럼, PC 2단, `<dialog>` 하나로 시트/모달) |
+| `eval/roundtrip.mts` | 화면 조작 문구가 다음 추출에서 의도대로 해석되는지 실제 모델로 확인 (`npm run eval:roundtrip`) |
 | `eval/run.mts`, `eval/score.ts` | 모델별 평가 실행(정확도, 되묻기 오류, 지연, 비용)과 채점 |
 
 검증 명령: `npm run search:check`(평가셋 정답으로 검색), `npm run eval:check`(라벨 불변식 + 채점기 검사), `npm run inventory:check`(인벤토리), `npm run eval:run -- --split dev --label v1`(모델 평가).

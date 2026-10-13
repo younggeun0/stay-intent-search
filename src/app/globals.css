@@ -1,26 +1,21 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 공식 사이트(urbanstay.co.kr) CSS에서 추출한 값 (docs/direction.md 4장 UI 룩앤필). 다크 모드는 두지 않는다 */
+@theme {
+  --font-sans: Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-serif: var(--font-noto-serif), AppleMyungjo, serif;
+  --color-ink: #111;
+  --color-sub: #444;
+  --color-mute: #aaa;
+  --color-line: #e8e8e8;
+  --color-surface: #f4f5fa;
+  --radius-card: 14px;
+  --radius-sheet: 20px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #000;
+  font-family: var(--font-sans);
+  line-height: 1.4;
 }

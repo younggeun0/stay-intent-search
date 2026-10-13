@@ -10,7 +10,8 @@
     "eval:check": "tsx eval/check.ts",
     "inventory:check": "tsx src/lib/inventory.check.ts",
     "eval:run": "tsx --env-file-if-exists=.env.local eval/run.mts",
-    "search:check": "tsx src/lib/search.check.ts"
+    "search:check": "tsx src/lib/search.check.ts",
+    "eval:roundtrip": "tsx --env-file-if-exists=.env.local eval/roundtrip.mts"
   },
   "dependencies": {
     "ai": "^7.0.138",
