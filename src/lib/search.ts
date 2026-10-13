@@ -133,9 +133,11 @@ function reasonFor(o: Option, ctx: SearchConditions): string {
   const k = all.find((x) => x.label === o.check)!;
   const rooms = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! })).filter(({ room, branch }) => k.ok(room, branch));
   if (!rooms.length) return k.place ? `${k.label}에는 지점이 없어요.` : `'${k.label}' 객실이 없어요.`;
-  const subject = k.place ? `${k.label} 객실 ${rooms.length}실` : `'${k.label}' 객실 ${rooms.length}실`;
+  // 1~2실이면 어떤 방인지 밝힌다: 고객이 그 방에 맞춰 조건을 바꿀 수 있게
+  const which = rooms.length <= 2 ? `(${rooms.map(({ room, branch }) => `${branch.name} ${room.name}, ${branch.region}, 최대 ${room.maxGuests}인`).join(" / ")})` : "";
+  const subject = k.place ? `${k.label} 객실 ${rooms.length}실${which}` : `'${k.label}' 객실 ${rooms.length}실${which}`;
   const common = all.filter((x) => x !== k && rooms.every(({ room, branch }) => !x.ok(room, branch))).map((x) => x.label);
-  if (common.length) return `${subject}은 모두 ${common.join(", ")} 조건에 맞지 않아요.`;
+  if (common.length) return `${subject}은${rooms.length > 1 ? " 모두" : ""} ${common.join(", ")} 조건에 맞지 않아요.`;
   if (candidateStays(ctx)) return `${subject}은 그 날짜에 예약이 찼어요.`;
   return `${subject}은 나머지 조건과 함께 맞는 방이 없어요.`;
 }

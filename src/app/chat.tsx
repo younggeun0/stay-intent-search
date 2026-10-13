@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useRef, useState, useTransition, type ReactNode } from "react";
 import { interpret } from "./actions";
+import { DateRange } from "./date-range";
+import { imageUrl, placeUrl, roomImages } from "@/lib/inventory";
 import { normalize } from "@/lib/normalize";
-import { chips, datesText, guestsText, mdw, reply, stayText } from "@/lib/reply";
+import { chips, datesText, guestsText, reply, stayText } from "@/lib/reply";
 import { bedCount, FACILITY_LABEL, FEATURE_LABEL, search, type Hit, type SearchResult, type Stay } from "@/lib/search";
 import type { SearchConditions, Turn } from "@/lib/schema";
 
@@ -54,8 +56,9 @@ export default function Chat() {
   const current = last?.role === "assistant" ? last : null;
 
   return (
-    <div className="h-dvh lg:grid lg:grid-cols-[420px_1fr]">
-      <section className="flex h-dvh flex-col lg:border-r lg:border-line">
+    <div className="h-dvh lg:bg-surface">
+    <div className="h-dvh lg:mx-auto lg:grid lg:max-w-[1280px] lg:grid-cols-[440px_1fr] lg:bg-white lg:shadow-[0_0_20px_rgb(0_0_0/5%)]">
+      <section className="flex h-dvh flex-col bg-white lg:border-r lg:border-line">
         <header className="border-b border-line px-5 pb-3 pt-4">
           <p className="text-[11px] text-mute">채용 과제 프로토타입 · 어반스테이 공식 서비스가 아닙니다</p>
           <h1 className="mt-1 font-serif text-[20px]">말로 찾는 숙소 검색</h1>
@@ -122,7 +125,7 @@ export default function Chat() {
 
       <section className="hidden h-dvh overflow-y-auto bg-surface lg:block">
         {current ? (
-          <div className="mx-auto max-w-[960px] space-y-5 p-8">
+          <div className="space-y-5 p-8">
             <div className="rounded-card bg-white p-5">
               <Conditions c={current.conditions} onEdit={() => setEditing(true)} onChip={(say, patch) => edit(say, { ...current.conditions, ...patch })} />
             </div>
@@ -132,11 +135,12 @@ export default function Chat() {
           <p className="p-8 text-[15px] text-mute">말씀하신 조건과 맞는 객실이 여기에 표시돼요.</p>
         )}
       </section>
+    </div>
 
       <Sheet open={!!detail} onClose={() => setDetail(null)} title={detail?.room.name ?? ""}>
         {detail && current && <Detail key={detail.room.id} hit={detail} c={current.conditions} />}
       </Sheet>
-      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜와 인원">
+      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜 선택">
         {current && editing && (
           <EditForm
             c={current.conditions}
@@ -235,41 +239,63 @@ function badges(h: Hit): string[] {
 const bedsText = (h: Hit) => h.room.beds.map((b) => `${b.type} ${b.count}`).join(", ");
 
 const STAY_LIMIT = 3;
+// 카드용 짧은 일정: "11.21(토)~23(월)"
+const shortStay = (a: string, b: string) => `${Number(a.slice(5, 7))}.${Number(a.slice(8))}(${dowOf(a)})~${a.slice(5, 7) === b.slice(5, 7) ? "" : `${Number(b.slice(5, 7))}.`}${Number(b.slice(8))}(${dowOf(b)})`;
+const dowOf = (d: string) => "일월화수목금토"[new Date(`${d}T00:00:00Z`).getUTCDay()];
 
-// 공식 사이트 지점 카드 형식: 이름, 위치, 구분선, 오른쪽 아래 "N박 가격원~"
+// 공식 사이트 지점 카드 형식: 사진, 이름, 위치, 구분선, 오른쪽 아래 "N박 가격원~"
 function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: boolean; rangeSearch: boolean; onOpen: () => void }) {
   const cheapest = hit.stays.reduce<Stay | null>((a, s) => (!a || s.total < a.total ? s : a), null);
+  const [main, side] = roomImages(hit.room);
   return (
-    <button onClick={onOpen} className="w-full rounded-card border border-line bg-white p-4 text-left">
-      <p className="text-[15px] font-bold">{hit.branch.name}</p>
-      <p className="mt-0.5 text-[12px] text-sub">
-        {hit.branch.region} {hit.branch.areas[0]}
-      </p>
-      <p className="mt-2 text-[14px]">{hit.room.name}</p>
-      <p className="mt-0.5 text-[12px] text-sub">
-        최대 {hit.room.maxGuests}인 · {hit.room.sizeM2 ? `${hit.room.sizeM2}㎡ · ` : ""}
-        {bedsText(hit)}
-      </p>
-      {badges(hit).length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-1">
-          {badges(hit).map((b) => (
-            <span key={b} className="rounded-full bg-surface px-2 py-0.5 text-[11px]">{b}</span>
-          ))}
+    <article className="flex flex-col overflow-hidden rounded-card border border-line bg-white">
+      <button onClick={onOpen} className="flex w-full flex-1 flex-col text-left">
+        {/* 사진은 공식 CDN 참조. 사이트 카드처럼 큰 사진 + 작은 사진 */}
+        <div className="flex aspect-[2/1] gap-0.5 bg-surface">
+          {/* eslint-disable-next-line @next/next/no-img-element -- 공식 CDN이 크기 조절(?w=)을 하므로 Next 이미지 최적화를 거치지 않는다 */}
+          <img src={imageUrl(main)} alt={`${hit.room.name} 사진`} loading="lazy" className="h-full min-w-0 flex-[2] object-cover" />
+          {side && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={imageUrl(side, 256)} alt={`${hit.branch.name} 사진`} loading="lazy" className="h-full min-w-0 flex-1 object-cover" />
+          )}
         </div>
-      )}
-      {rangeSearch && hit.stays.length > 0 && (
-        <p className="mt-2 text-[12px] text-sub">
-          가능한 일정: {hit.stays.slice(0, STAY_LIMIT).map((s) => stayText(s.checkIn, s.checkOut)).join(", ")}
-          {hit.stays.length > STAY_LIMIT && ` 외 ${hit.stays.length - STAY_LIMIT}개`}
-        </p>
-      )}
-      <div className="mt-3 flex items-baseline justify-end gap-1 border-t border-line pt-2.5">
-        <span className="text-[12px]">{cheapest ? `${cheapest.nights}박` : "1박"}</span>
-        <span className="text-[20px] font-bold">{won(cheapest?.total ?? hit.room.pricePerNight)}</span>
-        <span className="text-[12px]">원~</span>
-      </div>
-      {!datesKnown && <p className="mt-1 text-right text-[11px] text-mute">날짜를 정하면 예약 가능 여부를 확인해요</p>}
-    </button>
+        <div className="flex flex-1 flex-col p-4 pb-3">
+          <p className="text-[15px] font-bold leading-snug">{hit.branch.name}</p>
+          <p className="mt-0.5 text-[12px] leading-snug text-sub">
+            {hit.branch.region} {hit.branch.areas[0]}
+          </p>
+          <p className="mt-2 text-[14px] leading-snug">{hit.room.name}</p>
+          <p className="mt-0.5 text-[12px] leading-snug text-sub">
+            최대 {hit.room.maxGuests}인 · {hit.room.sizeM2 ? `${hit.room.sizeM2}㎡ · ` : ""}
+            {bedsText(hit)}
+          </p>
+          {badges(hit).length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-1">
+              {badges(hit).map((b) => (
+                <span key={b} className="inline-flex h-5 items-center rounded-full bg-surface px-2 text-[11px] leading-none">{b}</span>
+              ))}
+            </div>
+          )}
+          {rangeSearch && hit.stays.length > 0 && (
+            <p className="mt-2 text-[12px] leading-snug text-sub">
+              가능한 일정: {hit.stays.slice(0, STAY_LIMIT).map((s) => shortStay(s.checkIn, s.checkOut)).join(", ")}
+              {hit.stays.length > STAY_LIMIT && ` 외 ${hit.stays.length - STAY_LIMIT}개`}
+            </p>
+          )}
+          {/* 남는 높이를 채워 같은 줄 카드의 가격 줄을 맞춘다 */}
+          <div className="min-h-3 flex-1" />
+          <div className="flex items-baseline justify-end gap-1 border-t border-line pt-2.5">
+            <span className="text-[12px]">{cheapest ? `${cheapest.nights}박` : "1박"}</span>
+            <span className="text-[20px] font-bold">{won(cheapest?.total ?? hit.room.pricePerNight)}</span>
+            <span className="text-[12px]">원~</span>
+          </div>
+          {!datesKnown && <p className="mt-1.5 text-right text-[11px] text-mute">날짜를 정하면 예약 가능 여부를 확인해요</p>}
+        </div>
+      </button>
+      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex h-10 items-center justify-center border-t border-line text-[13px] text-sub hover:bg-surface">
+        공식 사이트에서 지점 보기 ↗
+      </a>
+    </article>
   );
 }
 
@@ -316,6 +342,12 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
     );
   return (
     <div className="space-y-5">
+      <div className="-mx-5 -mt-4 flex snap-x gap-0.5 overflow-x-auto">
+        {roomImages(r).map((id) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={id} src={imageUrl(id, 768)} alt={`${r.name} 사진`} className="aspect-[3/2] w-full shrink-0 snap-start object-cover" />
+        ))}
+      </div>
       <dl className="text-[14px]">
         {rows.map(([k, v]) => (
           <div key={k} className="flex gap-4 py-1.5">
@@ -345,6 +377,10 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
       ) : (
         <p className="text-[14px] text-sub">날짜를 정하면 예약 가능한 일정을 보여드려요. 1박 {won(r.pricePerNight)}원부터예요.</p>
       )}
+      <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex h-[50px] w-full items-center justify-center rounded-card border border-line text-[15px]">
+        공식 사이트 상세 페이지 ↗
+      </a>
+      <p className="-mt-3 text-center text-[11px] text-mute">공식 사이트에서는 날짜를 다시 골라야 해요. 실제 가격과 재고는 다를 수 있어요.</p>
       <button disabled={!pick} onClick={() => setConfirm(true)} className="h-[50px] w-full rounded-card bg-ink text-[15px] font-medium text-white disabled:opacity-30">
         {pick ? "이 일정으로 예약 확인" : "일정을 골라 주세요"}
       </button>
@@ -356,34 +392,30 @@ function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c:
   const [checkIn, setCheckIn] = useState(c.checkIn ?? "");
   const [checkOut, setCheckOut] = useState(c.checkOut ?? "");
   const [guests, setGuests] = useState(c.guests ?? 2);
-  const valid = checkIn && checkOut && checkOut > checkIn && guests > 0;
-  const field = "h-[50px] w-full rounded-card bg-surface px-4 text-[15px]";
+  const valid = !!checkIn && !!checkOut;
+  const step = "flex size-8 items-center justify-center rounded-full border border-line text-[16px] disabled:text-line";
   return (
-    <form
-      className="space-y-3"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (!valid) return;
-        onSave(`${stayText(checkIn, checkOut)}, ${guests}명으로 바꿀게요`, { ...c, checkIn, checkOut, dateRange: null, nights: null, weekend: null, guests });
-      }}
-    >
-      {c.dateRange && <p className="text-[13px] text-sub">지금은 {datesText(c)}(으)로 찾고 있어요. 날짜를 정하면 그 일정만 찾아요.</p>}
-      <label className="block text-[13px] text-sub">
-        체크인
-        <input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className={field} />
-      </label>
-      <label className="block text-[13px] text-sub">
-        체크아웃
-        <input type="date" value={checkOut} min={checkIn} onChange={(e) => setCheckOut(e.target.value)} className={field} />
-      </label>
-      <label className="block text-[13px] text-sub">
-        인원 (36개월 이하 영유아 제외)
-        <input type="number" min={1} max={20} value={guests} onChange={(e) => setGuests(Number(e.target.value))} className={field} />
-      </label>
-      <button disabled={!valid} className="h-[50px] w-full rounded-card bg-ink text-[15px] font-medium text-white disabled:opacity-30">
-        {valid ? `${mdw(checkIn)} 체크인으로 다시 찾기` : "날짜를 골라 주세요"}
+    <div className="space-y-4">
+      {c.dateRange && <p className="text-[13px] text-sub">지금은 {datesText(c)} 조건으로 찾고 있어요. 날짜를 정하면 그 일정만 찾아요.</p>}
+      <DateRange checkIn={checkIn} checkOut={checkOut} focus={c.dateRange?.from} onChange={(a, b) => { setCheckIn(a); setCheckOut(b); }} />
+      {/* 공식 사이트 홈 검색의 인원 행과 같은 형태 */}
+      <div className="flex items-center border-t border-line pt-4">
+        <span className="text-[15px] font-bold">인원</span>
+        <span className="ml-2 text-[12px] text-mute">36개월 이하 영유아 제외</span>
+        <div className="ml-auto flex items-center gap-3">
+          <button type="button" aria-label="인원 줄이기" disabled={guests <= 1} onClick={() => setGuests(guests - 1)} className={step}>−</button>
+          <span className="w-8 text-center text-[15px] font-bold">{guests}명</span>
+          <button type="button" aria-label="인원 늘리기" disabled={guests >= 20} onClick={() => setGuests(guests + 1)} className={step}>+</button>
+        </div>
+      </div>
+      <button
+        disabled={!valid}
+        onClick={() => onSave(`${stayText(checkIn, checkOut)}, ${guests}명으로 바꿀게요`, { ...c, checkIn, checkOut, dateRange: null, nights: null, weekend: null, guests })}
+        className="h-[50px] w-full rounded-card bg-ink text-[15px] font-medium text-white disabled:bg-line disabled:text-mute"
+      >
+        완료
       </button>
-    </form>
+    </div>
   );
 }
 

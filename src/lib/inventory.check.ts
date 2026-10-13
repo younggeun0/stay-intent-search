@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { attrsFromName, BRANCHES, ROOMS } from "./inventory";
+import { attrsFromName, BRANCHES, placeUrl, roomImages, ROOMS } from "./inventory";
 
 assert.deepEqual(attrsFromName("프리미어 스위트 로프트 스파"), { oceanView: false, features: ["spa", "loft"], petAllowed: false });
 assert.deepEqual(attrsFromName("스튜디오 로프트 파셜 오션"), { oceanView: true, features: ["loft"], petAllowed: false });
@@ -15,3 +15,5 @@ for (const f of ["bathtub", "spa", "twin", "barrierFree", "loft", "connecting"] 
   console.log(`  ${f}: ${ROOMS.filter((r) => r.features.includes(f)).map((r) => r.name).join(", ")}`);
 }
 console.log("인벤토리 검증 통과");
+// 모든 지점이 공식 사이트 slug와 이미지를 가진다
+for (const b of BRANCHES) assert.ok(placeUrl(b.id).endsWith("/place/") === false && roomImages(ROOMS.find((r) => r.branchId === b.id)!).length > 0, b.id);
