@@ -3,7 +3,6 @@
 /* 공식 사이트(urbanstay.co.kr) CSS에서 추출한 값 (docs/direction.md 4장 UI 룩앤필). 다크 모드는 두지 않는다 */
 @theme {
   --font-sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-  --font-serif: var(--font-noto-serif), AppleMyungjo, serif;
   --color-ink: #111;
   --color-sub: #444;
   /* 공식 사이트는 #aaa지만 흰 바탕 대비가 2.3:1이라 작은 글자가 안 읽힌다. WCAG AA(4.5:1)를 넘는 값으로 올렸다 */

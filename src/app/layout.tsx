@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Serif_KR } from "next/font/google";
 import "./globals.css";
-
-// 공식 사이트 제목 글꼴(AritaBuri)의 무료 대체. 한글 글꼴이라 미리 불러오지 않는다
-const serif = Noto_Serif_KR({ weight: "600", variable: "--font-noto-serif", preload: false });
 
 export const metadata: Metadata = {
   title: "대화형 숙소 검색",
@@ -12,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ko" className={`${serif.variable} h-full antialiased`}>
+    <html lang="ko" className="h-full antialiased">
       <head>
         {/* Pretendard는 Google Fonts에 없어 공식 사이트와 같은 CDN에서 불러온다. 가변 글꼴 + 쓰는 글자만 받는 dynamic subset */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />

@@ -64,7 +64,7 @@ export default function Chat() {
         <div className="flex-1 overflow-y-auto">
         <header className="border-b border-line px-5 pb-3 pt-4">
           <p className="text-xs text-mute">채용 과제 프로토타입 · 어반스테이 공식 서비스가 아닙니다</p>
-          <h1 className="mt-1 font-serif text-xl">말로 찾는 숙소 검색</h1>
+          <h1 className="mt-1 text-xl font-semibold">말로 찾는 숙소 검색</h1>
         </header>
 
         <div className="space-y-3 px-5 py-4">
