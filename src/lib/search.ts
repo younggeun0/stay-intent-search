@@ -5,9 +5,9 @@ import type { Branch, Room, SearchConditions } from "./schema";
 
 export type Stay = { checkIn: string; checkOut: string; nights: number; total: number };
 export type Hit = { room: Room; branch: Branch; stays: Stay[] }; // 날짜 미정이면 stays는 []
-export type Relaxation = { label: string; conditions: SearchConditions; count: number };
+export type Relaxation = { labels: string[]; reasons: string[]; conditions: SearchConditions; count: number }; // labels를 모두 바꾸면 count실, reasons는 각 조건이 막힌 이유
 export type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
-export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; funnel: Step[]; reason: string | null };
+export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; reasons: string[] }; // reasons는 대안이 하나도 없을 때만
 
 const DAY_MS = 86_400_000;
 const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
@@ -72,26 +72,68 @@ export function find(c: SearchConditions): Hit[] {
   return hits.sort((a, b) => a.room.pricePerNight - b.room.pricePerNight);
 }
 
-// 조건을 하나씩 풀어 본 후보. 인원은 풀지 않는다(못 묵는 방을 권할 수 없다)
-function relaxOptions(c: SearchConditions): { label: string; conditions: SearchConditions }[] {
-  const opts: { label: string; conditions: SearchConditions }[] = [];
-  const push = (label: string, patch: Partial<SearchConditions>) => opts.push({ label, conditions: { ...c, ...patch } });
+// 풀 수 있는 조건. check는 이 조건이 푸는 검사 이름(이유 설명용), 날짜는 null
+type Option = { label: string; check: string | null; apply: (c: SearchConditions) => SearchConditions };
+
+// 인원은 풀지 않는다(못 묵는 방을 권할 수 없다)
+function relaxOptions(c: SearchConditions): Option[] {
+  const opts: Option[] = [];
   // 정확한 날짜가 막혔으면 같은 박수로 이후 4주 안에서 찾는다
   if (c.checkIn && c.checkOut) {
     const nights = diffDays(c.checkIn, c.checkOut);
     const weekend = Array.from({ length: nights }, (_, i) => addDays(c.checkIn!, i)).some(isSaturday) || null;
-    push("다른 날짜", { checkIn: null, checkOut: null, dateRange: { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, 28) }, nights, weekend });
+    const range = { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, 28) };
+    opts.push({ label: "다른 날짜", check: null, apply: (x) => ({ ...x, checkIn: null, checkOut: null, dateRange: range, nights, weekend }) });
   }
-  if (c.weekend) push("주말 제외", { weekend: null });
-  if (c.area) push(`${c.area} 대신 ${c.region} 전체`, { area: null });
-  if (c.region) push("다른 지역", { region: null, area: null });
-  if (c.pet) push("반려동물 동반 제외", { pet: null });
-  if (c.oceanView) push("오션뷰 제외", { oceanView: null });
-  if (c.minBedrooms !== null) push(`방 ${c.minBedrooms}개 조건 제외`, { minBedrooms: null });
-  if (c.minBeds !== null) push(`침대 ${c.minBeds}개 조건 제외`, { minBeds: null });
-  for (const f of c.features) push(`${FEATURE_LABEL[f]} 제외`, { features: c.features.filter((x) => x !== f) });
-  for (const f of c.facilities) push(`${FACILITY_LABEL[f]} 제외`, { facilities: c.facilities.filter((x) => x !== f) });
+  if (c.weekend) opts.push({ label: "주말 제외", check: null, apply: (x) => ({ ...x, weekend: null }) });
+  if (c.area) opts.push({ label: `${c.area} 대신 ${c.region} 전체`, check: c.area, apply: (x) => ({ ...x, area: null }) });
+  if (c.region) opts.push({ label: "다른 지역", check: c.area ?? c.region, apply: (x) => ({ ...x, region: null, area: null }) });
+  if (c.pet) opts.push({ label: "반려동물 동반 제외", check: "반려동물 동반", apply: (x) => ({ ...x, pet: null }) });
+  if (c.oceanView) opts.push({ label: "오션뷰 제외", check: "오션뷰", apply: (x) => ({ ...x, oceanView: null }) });
+  if (c.minBedrooms !== null) opts.push({ label: `방 ${c.minBedrooms}개 조건 제외`, check: `방 ${c.minBedrooms}개 이상`, apply: (x) => ({ ...x, minBedrooms: null }) });
+  if (c.minBeds !== null) opts.push({ label: `침대 ${c.minBeds}개 조건 제외`, check: `침대 ${c.minBeds}개 이상`, apply: (x) => ({ ...x, minBeds: null }) });
+  for (const f of c.features) opts.push({ label: `${FEATURE_LABEL[f]} 제외`, check: FEATURE_LABEL[f], apply: (x) => ({ ...x, features: x.features.filter((y) => y !== f) }) });
+  for (const f of c.facilities) opts.push({ label: `${FACILITY_LABEL[f]} 제외`, check: FACILITY_LABEL[f], apply: (x) => ({ ...x, facilities: x.facilities.filter((y) => y !== f) }) });
   return opts;
+}
+
+const MAX_RELAX = 3; // ponytail: 조합을 전부 시도한다(조건 n개면 최대 C(n,3)). 조건이 수십 개가 되면 탐욕 탐색으로 바꾼다
+
+function subsets<T>(xs: T[], k: number): T[][] {
+  if (k === 0) return [[]];
+  return xs.flatMap((x, i) => subsets(xs.slice(i + 1), k - 1).map((rest) => [x, ...rest]));
+}
+
+// 결과가 나오는 최소 조합: 작은 조합부터 시도하고, 이미 찾은 조합을 포함하는 큰 조합은 건너뛴다
+function minimalRelaxations(c: SearchConditions): { options: Option[]; conditions: SearchConditions; count: number }[] {
+  const opts = relaxOptions(c);
+  const found: { options: Option[]; conditions: SearchConditions; count: number }[] = [];
+  for (let k = 1; k <= Math.min(MAX_RELAX, opts.length); k++) {
+    for (const set of subsets(opts, k)) {
+      if (found.some((f) => f.options.every((o) => set.includes(o)))) continue;
+      const conditions = set.reduce((x, o) => o.apply(x), c);
+      const count = find(conditions).length;
+      if (count) found.push({ options: set, conditions, count });
+    }
+  }
+  return found;
+}
+
+const roomsWith = (c: SearchConditions) => ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! }))
+  .filter(({ room, branch }) => checks(c).every((k) => k.ok(room, branch)));
+
+// 조건 하나가 왜 막혔는지. ctx는 같은 조합의 다른 조건을 이미 푼 상태라, 이 조건만 풀면 결과가 나온다
+function reasonFor(o: Option, ctx: SearchConditions): string {
+  const all = checks(ctx);
+  if (o.check === null) return `나머지 조건에 맞는 객실 ${roomsWith(o.apply(ctx)).length}실이 그 날짜에 모두 예약이 찼어요.`;
+  const k = all.find((x) => x.label === o.check)!;
+  const rooms = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! })).filter(({ room, branch }) => k.ok(room, branch));
+  if (!rooms.length) return k.place ? `${k.label}에는 지점이 없어요.` : `'${k.label}' 객실이 없어요.`;
+  const subject = k.place ? `${k.label} 객실 ${rooms.length}실` : `'${k.label}' 객실 ${rooms.length}실`;
+  const common = all.filter((x) => x !== k && rooms.every(({ room, branch }) => !x.ok(room, branch))).map((x) => x.label);
+  if (common.length) return `${subject}은 모두 ${common.join(", ")} 조건에 맞지 않아요.`;
+  if (candidateStays(ctx)) return `${subject}은 그 날짜에 예약이 찼어요.`;
+  return `${subject}은 나머지 조건과 함께 맞는 방이 없어요.`;
 }
 
 // 조건을 순서대로 적용하며 남는 객실 수. 마지막 단계는 예약 가능 여부
@@ -106,7 +148,7 @@ export function funnel(c: SearchConditions): Step[] {
   return steps;
 }
 
-// 0건이 된 첫 단계를 이유로 말한다. 문장은 코드가 만든다(LLM이 재고를 말하지 않게)
+// 풀 수 있는 조건을 다 풀어도 없을 때(인원이 너무 많을 때 등): 0건이 된 첫 단계를 말한다
 export function explain(steps: Step[]): string | null {
   const i = steps.findIndex((s) => s.count === 0);
   if (i < 1) return null;
@@ -119,11 +161,17 @@ export function explain(steps: Step[]): string | null {
     : `'${steps[i].label}' 조건에 맞는 객실이 없어요.`;
 }
 
+// 이유와 대안 문장은 코드가 만든다(LLM이 없는 객실이나 재고를 말하지 않게)
 export function search(c: SearchConditions): SearchResult {
   const hits = find(c);
   const datesKnown = candidateStays(c) !== null;
-  if (hits.length) return { hits, datesKnown, relaxations: [], funnel: [], reason: null };
-  const steps = funnel(c);
-  const relaxations = relaxOptions(c).map((o) => ({ ...o, count: find(o.conditions).length })).filter((o) => o.count > 0);
-  return { hits, datesKnown, relaxations, funnel: steps, reason: explain(steps) };
+  if (hits.length) return { hits, datesKnown, relaxations: [], reasons: [] };
+  const relaxations = minimalRelaxations(c).map((f) => ({
+    labels: f.options.map((o) => o.label),
+    reasons: [...new Set(f.options.map((o) => reasonFor(o, f.options.filter((x) => x !== o).reduce((x, y) => y.apply(x), c))))],
+    conditions: f.conditions,
+    count: f.count,
+  }));
+  const reasons = relaxations.length ? [] : [explain(funnel(c)) ?? "조건에 맞는 객실이 없어요."];
+  return { hits, datesKnown, relaxations, reasons };
 }
