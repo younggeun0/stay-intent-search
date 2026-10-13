@@ -6,7 +6,8 @@ import type { Branch, Room, SearchConditions } from "./schema";
 export type Stay = { checkIn: string; checkOut: string; nights: number; total: number };
 export type Hit = { room: Room; branch: Branch; stays: Stay[] }; // 날짜 미정이면 stays는 []
 export type Relaxation = { label: string; conditions: SearchConditions; count: number };
-export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[] };
+export type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
+export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; funnel: Step[]; reason: string | null };
 
 const DAY_MS = 86_400_000;
 const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
@@ -35,27 +36,34 @@ export function candidateStays(c: SearchConditions): { checkIn: string; checkOut
 const available = (r: Room, s: { checkIn: string; checkOut: string }) =>
   r.blocked.every((b) => s.checkOut <= b.from || b.to <= s.checkIn);
 
-function matchesRoom(r: Room, b: Branch, c: SearchConditions): boolean {
-  return (
-    (!c.region || b.region === c.region) &&
-    (!c.area || b.areas.includes(c.area)) &&
-    // 36개월 이하 영유아는 인원수에 포함하지 않는다 (direction.md 3장 관찰 4)
-    (c.guests === null || c.guests <= r.maxGuests) &&
-    (!c.pet || r.petAllowed) &&
-    (!c.oceanView || r.oceanView) &&
-    (c.minBedrooms === null || r.bedrooms >= c.minBedrooms) &&
-    (c.minBeds === null || bedCount(r) >= c.minBeds) &&
-    c.features.every((f) => r.features.includes(f)) &&
-    c.facilities.every((f) => r.facilities.includes(f))
-  );
+const FEATURE_LABEL = { bathtub: "욕조", spa: "스파", twin: "트윈", barrierFree: "베리어프리", loft: "복층", connecting: "커넥팅" } as const;
+const FACILITY_LABEL = { kitchen: "주방", washer: "세탁기", dishwasher: "식기세척기", desk: "업무용 책상", styler: "스타일러" } as const;
+
+type Check = { label: string; place?: true; ok: (r: Room, b: Branch) => boolean };
+
+// 고객 조건 → 이름 붙은 검사 목록. 순서는 결과 없음 이유를 설명할 때의 순서(넓은 조건 → 좁은 조건)
+function checks(c: SearchConditions): Check[] {
+  const out: Check[] = [];
+  if (c.region) out.push({ label: c.region, place: true, ok: (_, b) => b.region === c.region });
+  if (c.area) out.push({ label: c.area, place: true, ok: (_, b) => b.areas.includes(c.area!) });
+  // 36개월 이하 영유아는 인원수에 포함하지 않는다 (direction.md 3장 관찰 4)
+  if (c.guests !== null) out.push({ label: `${c.guests}명 숙박 가능`, ok: (r) => c.guests! <= r.maxGuests });
+  if (c.pet) out.push({ label: "반려동물 동반", ok: (r) => r.petAllowed });
+  if (c.oceanView) out.push({ label: "오션뷰", ok: (r) => r.oceanView });
+  if (c.minBedrooms !== null) out.push({ label: `방 ${c.minBedrooms}개 이상`, ok: (r) => r.bedrooms >= c.minBedrooms! });
+  if (c.minBeds !== null) out.push({ label: `침대 ${c.minBeds}개 이상`, ok: (r) => bedCount(r) >= c.minBeds! });
+  for (const f of c.features) out.push({ label: FEATURE_LABEL[f], ok: (r) => r.features.includes(f) });
+  for (const f of c.facilities) out.push({ label: FACILITY_LABEL[f], ok: (r) => r.facilities.includes(f) });
+  return out;
 }
 
 export function find(c: SearchConditions): Hit[] {
   const stays = candidateStays(c);
+  const cs = checks(c);
   const hits: Hit[] = [];
   for (const room of ROOMS) {
     const branch = BRANCHES.find((b) => b.id === room.branchId)!;
-    if (!matchesRoom(room, branch, c)) continue;
+    if (!cs.every((k) => k.ok(room, branch))) continue;
     if (!stays) { hits.push({ room, branch, stays: [] }); continue; }
     const ok = stays.filter((s) => available(room, s))
       .map((s) => ({ ...s, nights: diffDays(s.checkIn, s.checkOut), total: room.pricePerNight * diffDays(s.checkIn, s.checkOut) }));
@@ -63,9 +71,6 @@ export function find(c: SearchConditions): Hit[] {
   }
   return hits.sort((a, b) => a.room.pricePerNight - b.room.pricePerNight);
 }
-
-const FEATURE_LABEL = { bathtub: "욕조", spa: "스파", twin: "트윈", barrierFree: "베리어프리", loft: "복층", connecting: "커넥팅" } as const;
-const FACILITY_LABEL = { kitchen: "주방", washer: "세탁기", dishwasher: "식기세척기", desk: "업무용 책상", styler: "스타일러" } as const;
 
 // 조건을 하나씩 풀어 본 후보. 인원은 풀지 않는다(못 묵는 방을 권할 수 없다)
 function relaxOptions(c: SearchConditions): { label: string; conditions: SearchConditions }[] {
@@ -89,11 +94,36 @@ function relaxOptions(c: SearchConditions): { label: string; conditions: SearchC
   return opts;
 }
 
+// 조건을 순서대로 적용하며 남는 객실 수. 마지막 단계는 예약 가능 여부
+export function funnel(c: SearchConditions): Step[] {
+  let rooms = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! }));
+  const steps: Step[] = [{ label: "전체", count: rooms.length }];
+  for (const k of checks(c)) {
+    rooms = rooms.filter(({ room, branch }) => k.ok(room, branch));
+    steps.push({ label: k.label, count: rooms.length, place: k.place });
+  }
+  if (candidateStays(c)) steps.push({ label: "해당 날짜 예약 가능", count: find(c).length });
+  return steps;
+}
+
+// 0건이 된 첫 단계를 이유로 말한다. 문장은 코드가 만든다(LLM이 재고를 말하지 않게)
+export function explain(steps: Step[]): string | null {
+  const i = steps.findIndex((s) => s.count === 0);
+  if (i < 1) return null;
+  const prev = steps[i - 1];
+  const before = steps.slice(1, i).map((s) => s.label).join(", ");
+  if (steps[i].place) return `${steps[i].label}에는 지점이 없어요.`;
+  if (steps[i].label === "해당 날짜 예약 가능") return `${before ? `${before} 조건에 맞는 ` : ""}객실 ${prev.count}실이 모두 해당 날짜에 예약이 찼어요.`;
+  return before
+    ? `${before} 조건에 맞는 객실 ${prev.count}실 중 '${steps[i].label}' 객실이 없어요.`
+    : `'${steps[i].label}' 조건에 맞는 객실이 없어요.`;
+}
+
 export function search(c: SearchConditions): SearchResult {
   const hits = find(c);
   const datesKnown = candidateStays(c) !== null;
-  const relaxations = hits.length
-    ? []
-    : relaxOptions(c).map((o) => ({ ...o, count: find(o.conditions).length })).filter((o) => o.count > 0);
-  return { hits, datesKnown, relaxations };
+  if (hits.length) return { hits, datesKnown, relaxations: [], funnel: [], reason: null };
+  const steps = funnel(c);
+  const relaxations = relaxOptions(c).map((o) => ({ ...o, count: find(o.conditions).length })).filter((o) => o.count > 0);
+  return { hits, datesKnown, relaxations, funnel: steps, reason: explain(steps) };
 }
