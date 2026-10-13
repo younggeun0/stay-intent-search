@@ -107,7 +107,9 @@
 - [x] 기술 스택: Next.js 16 + TypeScript + Zod 단일 앱. Spring API 분리는 시간이 남을 때만 검토한다
 - [ ] **평가셋 정답 라벨 사람 검수** (`npm run eval:check` 출력을 보며 `eval/cases.json` 확인). 검수 전에는 프롬프트 작업을 시작하지 않는다
 - [x] LLM 제공자: Vercel AI Gateway(월 $5 무료 크레딧)로 Claude Haiku 5.5, GPT-6 Luna, Gemini 2.5 Flash-Lite를 같은 평가셋으로 비교해 고른다. 세 모델 모두 입력/출력 100만 토큰당 $0.10/$0.40~0.50이다
-- [ ] **AI Gateway API 키 발급** → `.env.local`에 `AI_GATEWAY_API_KEY` (사용자 작업)
+- [x] AI Gateway API 키 발급 → `.env.local`에 `AI_GATEWAY_API_KEY` (사용자 작업 완료)
+- [ ] **연결 방식:** 비교는 Gateway로 하고(모델 문자열만 바꿔 같은 평가셋을 돌림), 결과를 본 뒤 운영 연결을 정한다. 모델 하나로 확정하면 제공자 직접 연결도 검토한다(`extract()`의 `model` 인자만 바뀜)
+- [ ] **Gateway 유료 크레딧 충전** (사용자 작업). GPT-6 Luna, Claude Haiku 5.5는 무료 등급에서 호출 불가(2026-10-13 확인). 충전하면 월 $5 무료 크레딧은 끊긴다
 - [x] 실제 사이트 필터 지원 범위 확인 (3장 관찰 결과)
 - [ ] 제출 형식: 공개 GitHub 레포 여부, 배포 URL 필요 여부
 
