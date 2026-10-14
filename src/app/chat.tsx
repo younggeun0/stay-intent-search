@@ -165,7 +165,7 @@ export default function Chat() {
       <Sheet open={!!detail} onClose={() => setDetail(null)} title={detail?.room.name ?? ""} full>
         {detail && current && <Detail key={detail.room.id} hit={detail} c={current.conditions} />}
       </Sheet>
-      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜 선택">
+      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜 선택" full>
         {current && editing && (
           <EditForm
             c={current.conditions}
@@ -497,15 +497,16 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
 }
 
 // 공식 지점 페이지의 사진 슬라이더와 같은 형태: 가로 스냅 스크롤 + 오른쪽 아래 "01 / 08" 배지(현재 번호만 굵게)
+// Swiper 대신 CSS: snap-always로 한 번에 한 장, overscroll-x-contain으로 브라우저 뒤로가기 제스처 차단, 스크롤바 숨김
 function Gallery({ ids, alt }: { ids: string[]; alt: string }) {
   const [i, setI] = useState(0);
   const pad = (n: number) => String(n).padStart(2, "0");
   return (
     <div className="relative -mx-5 -mt-4">
-      <div onScroll={(e) => setI(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))} className="flex snap-x snap-mandatory gap-0.5 overflow-x-auto">
+      <div onScroll={(e) => setI(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))} className="flex snap-x snap-mandatory gap-0.5 overflow-x-auto overscroll-x-contain [scrollbar-width:none]">
         {ids.map((id, n) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={id} src={imageUrl(id, 768)} alt={alt} loading={n === 0 ? "eager" : "lazy"} className="aspect-[430/303] w-full shrink-0 snap-start object-cover" />
+          <img key={id} src={imageUrl(id, 768)} alt={alt} loading={n === 0 ? "eager" : "lazy"} className="aspect-[430/303] w-full shrink-0 snap-start snap-always object-cover" />
         ))}
       </div>
       <p aria-live="polite" className="absolute bottom-3 right-3 rounded-full bg-black/45 px-2.5 py-1 text-xs leading-none text-white">
