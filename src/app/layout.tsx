@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "대화형 숙소 검색",
+  title: "숙소 찾기 · 채용 과제 프로토타입",
   description: "필터로 표현되지 않는 조건을 말로 찾는 숙소 검색 (채용 과제 프로토타입)",
   // 파비콘도 공식 CDN을 참조한다 (DESIGN.md: 브랜드 자산은 레포에 복사하지 않는다)
   icons: {

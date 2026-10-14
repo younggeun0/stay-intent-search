@@ -14,7 +14,7 @@ type Msg =
   | { role: "assistant"; text: string; conditions: SearchConditions; result: SearchResult }
   | { role: "error"; text: string };
 
-const EXAMPLES = ["다음주 금토 부산 바다 보이는 곳, 둘이요", "아이 둘이라 침대 따로 있는 방, 11월 말 주말 포함 2박 4명", "강아지랑 이번 주말 속초 가고 싶어요"];
+const EXAMPLES = ["다음주 금토 부산 바다 보이는 곳, 둘이요", "아이 둘이라 침대 따로 있는 방, 11월 말 주말 포함 2박 4명", "강아지랑 같이 묵을 수 있는 곳"];
 const won = (n: number) => n.toLocaleString("ko-KR");
 
 export default function Chat() {
@@ -87,11 +87,7 @@ export default function Chat() {
           // 첫 화면: 안내와 입력창을 뷰포트 가운데에
           <div className="flex flex-1 flex-col justify-center gap-6 px-5 py-8">
             <Brand />
-            <p className="text-body leading-relaxed">
-              지역, 날짜, 인원만으로는 말하기 어려운 조건도 그대로 말씀해 주세요.
-              <br />
-              <span className="text-sub">예: 침대 따로, 반려동물 동반, 바다 보이는 방, 11월 말 주말</span>
-            </p>
+            <p className="text-body leading-relaxed">지역, 날짜, 인원만으로는 말하기 어려운 조건도 그대로 말씀해 주세요.</p>
             {form}
             <div className="flex flex-col items-start gap-2">
               {EXAMPLES.map((e) => (
@@ -156,7 +152,7 @@ export default function Chat() {
               </div>
             </div>
           ) : (
-            <div className="p-8">{pending ? <Thinking /> : <p className="text-body text-mute">말씀하신 조건과 맞는 객실이 여기에 표시돼요.</p>}</div>
+            <div className="p-8">{pending ? <Thinking /> : <p className="text-body text-mute">조건에 맞는 객실이 여기에 표시돼요.</p>}</div>
           )}
         </section>
       )}
@@ -188,7 +184,7 @@ function Brand() {
       <img src="https://cdn.ustay.life/icon-192x192.png" alt="어반스테이" width={40} height={40} className="size-10 shrink-0" />
       <div className="min-w-0">
         <p className="text-xs text-mute">채용 과제 프로토타입 · 어반스테이 공식 서비스가 아닙니다</p>
-        <h1 className="mt-0.5 text-xl font-semibold">말로 찾는 숙소 검색</h1>
+        <h1 className="mt-0.5 text-xl font-semibold">숙소 찾기</h1>
       </div>
     </div>
   );
@@ -271,7 +267,7 @@ function Conditions({ c, onEdit, onChip }: { c: SearchConditions; onEdit: () => 
               </span>
             );
           })}
-          {" "}· 지점 이용 안내는 헬프 센터에, 그 밖의 문의는 고객센터에 해 주세요
+          {" "}· 고객센터에 문의해 주세요
         </p>
       )}
     </div>
@@ -525,7 +521,7 @@ function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c:
   return (
     <>
     <Body>
-      {c.dateRange && <p className="mb-4 text-label text-sub">지금은 {datesText(c)} 조건으로 찾고 있어요. 날짜를 정하면 그 일정만 찾아요.</p>}
+      {c.dateRange && <p className="mb-4 text-label text-sub">지금 찾는 일정: {datesText(c)}</p>}
       <DateRange checkIn={checkIn} checkOut={checkOut} focus={c.dateRange?.from} onChange={(a, b) => { setCheckIn(a); setCheckOut(b); }} />
     </Body>
     <Footer>
