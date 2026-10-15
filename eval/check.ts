@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { cases } from "./cases";
 import { clarifyErrors, wrongFields } from "./score";
-import { normalize } from "../src/lib/extract";
+import { normalize } from "../src/lib/normalize";
 
 const DAY = "일월화수목금토";
 const dow = (d: string) => DAY[new Date(`${d}T00:00:00Z`).getUTCDay()];

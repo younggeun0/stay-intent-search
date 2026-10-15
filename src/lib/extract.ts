@@ -36,7 +36,6 @@ export function transcript(turns: Turn[]): string {
 export type Reasoning = "none" | "minimal" | "low" | "medium" | "provider-default";
 
 // normalize는 화면(클라이언트)에서도 쓰므로 AI SDK를 import하지 않는 파일에 둔다
-export { normalize } from "./normalize";
 import { normalize } from "./normalize";
 
 export async function extract(

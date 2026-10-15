@@ -10,7 +10,7 @@ const Input = z.array(Turn.extend({ text: z.string().min(1).max(300) })).min(1).
 // 기준일은 서버에서 한국 날짜로 계산한다 (toISOString은 UTC라 자정~오전 9시에 하루 틀린다)
 const todayKst = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(new Date());
 
-export type Interpreted = { ok: true; conditions: SearchConditions; referenceDate: string } | { ok: false; error: string };
+type Interpreted = { ok: true; conditions: SearchConditions } | { ok: false; error: string };
 
 export async function interpret(turns: Turn[]): Promise<Interpreted> {
   const parsed = Input.safeParse(turns);
@@ -18,7 +18,7 @@ export async function interpret(turns: Turn[]): Promise<Interpreted> {
   const referenceDate = todayKst();
   try {
     const { conditions } = await extract(parsed.data, { model: MODEL, referenceDate });
-    return { ok: true, conditions, referenceDate };
+    return { ok: true, conditions };
   } catch (e) {
     console.error("interpret failed", e);
     const busy = /rate limit|429|credit|budget|quota/i.test(String(e));

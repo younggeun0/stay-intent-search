@@ -7,7 +7,7 @@ export const branches: Branch[] = official.branches as Branch[];
 
 // 가짜 재고. 평가셋의 0건 시나리오(d02·h02: 펫 객실이 이번 주말에 참)를 만들기 위한 고정값과,
 // 객실마다 결정적으로 고른 주말 하나.
-// ponytail: 해시 대신 roomtypeId 나머지 연산. PMS 연동 시 이 함수 전체가 재고 API로 바뀐다
+// ponytail: 해시 대신 객실 id(rt178 등) 숫자의 나머지 연산. PMS 연동 시 이 함수 전체가 재고 API로 바뀐다
 const PET_BLOCKED = [{ from: "2026-10-16", to: "2026-10-19" }];
 function fakeBlocked(id: string, name: string): { from: string; to: string }[] {
   const n = Number(id.replace(/\D/g, ""));

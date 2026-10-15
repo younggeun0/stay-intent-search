@@ -65,7 +65,8 @@ export default function Chat() {
   const current = last?.role === "assistant" ? last : null;
   const started = msgs.length > 0;
 
-  // 대화가 시작되면 입력창이 대화 화면 아래에 새로 그려진다. 터치 기기에서 자동 포커스를 주면 샘플 버튼만 눌러도 가상 키보드가 열리므로 마우스 기기에서만 준다
+  // 첫 화면 입력창은 항상 자동 포커스. 대화가 시작되면 입력창이 대화 화면 아래에 새로 그려지는데,
+  // 터치 기기에서 여기에 포커스를 주면 샘플 버튼만 눌러도 가상 키보드가 열리므로 마우스 기기에서만 준다
   const form = (
     <form
       className="flex flex-wrap gap-2"
@@ -161,10 +162,10 @@ export default function Chat() {
       )}
     </div>
 
-      <Sheet open={!!detail} onClose={() => setDetail(null)} title={detail?.room.name ?? ""} full>
+      <Sheet open={!!detail} onClose={() => setDetail(null)} title={detail?.room.name ?? ""}>
         {detail && current && <Detail key={detail.room.id} hit={detail} c={current.conditions} />}
       </Sheet>
-      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜 선택" full>
+      <Sheet open={editing} onClose={() => setEditing(false)} title="날짜 선택">
         {current && editing && (
           <EditForm
             c={current.conditions}
@@ -238,7 +239,7 @@ function Conditions({ c, onEdit, onChip }: { c: SearchConditions; onEdit: () => 
   const list = chips(c);
   return (
     <div className="space-y-2.5">
-      <button onClick={onEdit} className="w-full rounded-card bg-surface px-4 py-2.5 text-left lg:bg-surface">
+      <button onClick={onEdit} className="w-full rounded-card bg-surface px-4 py-2.5 text-left">
         <span className="block text-body font-bold">{c.area ? `${c.region} ${c.area}` : (c.region ?? "전 지역")}</span>
         <span className="block text-xs text-sub">
           {datesText(c) ?? "날짜 미정"} · {guestsText(c) ?? "인원 미정"}
@@ -306,7 +307,7 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
                     </li>
                   ))}
                 </ul>
-                {/* 공식 "예약하기" 버튼 형태: 알약, 12px semibold */}
+                {/* 공식 "예약하기" 버튼 형태(알약, semibold). 글자는 공식 12px보다 큰 13px (DESIGN.md) */}
                 <button onClick={() => onRelax(o.says.join(", "), o.conditions)} className="mt-3 min-h-10 w-fit self-end rounded-full bg-ink px-4 text-label font-semibold text-white">
                   {josa(title, "으로", "로")} 다시 찾기
                 </button>
@@ -555,9 +556,9 @@ function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c:
   );
 }
 
-// 네이티브 <dialog> 하나. 모바일은 하단 시트(full이면 전체 화면), PC(lg)는 가운데 모달.
+// 네이티브 <dialog> 하나. 모바일은 전체 화면, PC(lg)는 가운데 모달.
 // 헤더와 푸터는 고정하고 가운데 본문만 스크롤한다: children은 <Body>와 <Footer>로 나눠 넣는다
-function Sheet({ open, onClose, title, full, children }: { open: boolean; onClose: () => void; title: string; full?: boolean; children: ReactNode }) {
+function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () => void; title: string; children: ReactNode }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const d = ref.current;
@@ -569,7 +570,7 @@ function Sheet({ open, onClose, title, full, children }: { open: boolean; onClos
       ref={ref}
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
-      className={`m-0 mt-auto w-full max-w-full flex-col bg-white p-0 backdrop:bg-black/50 open:flex lg:m-auto lg:max-h-[85dvh] lg:max-w-[460px] lg:rounded-card ${full ? "h-dvh max-h-none" : "max-h-[85dvh] rounded-t-sheet"}`}
+      className="m-0 mt-auto h-dvh max-h-none w-full max-w-full flex-col bg-white p-0 backdrop:bg-black/50 open:flex lg:m-auto lg:max-h-[85dvh] lg:max-w-[460px] lg:rounded-card"
     >
       <div className="flex shrink-0 items-center justify-between gap-3 border-b border-line px-5 py-4">
         <h2 className="text-title font-bold">{title}</h2>

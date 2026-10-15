@@ -19,7 +19,6 @@
 | `--color-line` | `#e8e8e8` | 테두리, 구분선 |
 | `--color-surface` | `#f4f5fa` | 회색 면(요약 알약, 입력창, 바깥 배경) |
 | `--radius-card` | `14px` | 카드, 버튼, 입력창. 공식 CSS에서 71회로 압도적 |
-| `--radius-sheet` | `20px` | 하단 시트 위쪽 모서리 |
 | `--text-label` | `0.8125rem` | 칩 보조 문구, 이유 문장 |
 | `--text-body` | `0.9375rem` | 본문, 버튼, 칩 |
 | `--text-title` | `1.0625rem` | 시트 제목 |

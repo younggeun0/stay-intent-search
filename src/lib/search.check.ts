@@ -6,7 +6,6 @@ import { candidateStays, search } from "./search";
 for (const c of cases) {
   const r = search(c.expected);
   const dates = r.datesKnown ? `일정 ${r.hits.reduce((n, h) => n + h.stays.length, 0)}` : "날짜 미정";
-  
   console.log(`${c.id.padEnd(4)} 객실 ${String(r.hits.length).padStart(2)} · ${dates}`);
   for (const why of r.reasons) console.log(`     ✗ ${why}`);
   for (const o of r.relaxations) console.log(`     → ${o.labels.join(" + ")}: ${o.count}실\n${o.reasons.map((w) => `         ${w}`).join("\n")}`);

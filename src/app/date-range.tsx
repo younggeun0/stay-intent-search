@@ -9,7 +9,7 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
 const addDays = (d: string, n: number) => iso(new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS));
 const nightsBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / DAY_MS;
 const dot = (d: string) => `${d.slice(5, 7)}.${d.slice(8)}`;
-export const todayKst = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(new Date());
+const todayKst = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(new Date());
 
 function months(today: string, count: number): { key: string; label: string; cells: (string | null)[] }[] {
   const [y, m] = today.split("-").map(Number);

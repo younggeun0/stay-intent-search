@@ -101,7 +101,7 @@ function relaxOptions(c: SearchConditions): Option[] {
   return opts;
 }
 
-const MAX_RELAX = 3; // ponytail: 조합을 전부 시도한다(조건 n개면 최대 C(n,3)). 조건이 수십 개가 되면 탐욕 탐색으로 바꾼다
+const MAX_RELAX = 3; // ponytail: 조합을 전부 시도한다(조건 n개면 C(n,1)+C(n,2)+C(n,3)개). 조건이 수십 개가 되면 탐욕 탐색으로 바꾼다
 
 function subsets<T>(xs: T[], k: number): T[][] {
   if (k === 0) return [[]];
