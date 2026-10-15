@@ -63,6 +63,7 @@ export default function Chat() {
   const current = last?.role === "assistant" ? last : null;
   const started = msgs.length > 0;
 
+  // 대화가 시작되면 입력창이 대화 화면 아래에 새로 그려진다. 터치 기기에서 자동 포커스를 주면 샘플 버튼만 눌러도 가상 키보드가 열리므로 마우스 기기에서만 준다
   const form = (
     <form
       className="flex flex-wrap gap-2"
@@ -73,7 +74,7 @@ export default function Chat() {
         input.value = "";
       }}
     >
-      <input name="q" maxLength={300} autoComplete="off" autoFocus placeholder="조건을 말씀해 주세요" className="min-h-[3.125rem] min-w-0 flex-[1_1_12rem] rounded-card bg-surface px-4 text-base outline-none placeholder:text-mute" />
+      <input name="q" maxLength={300} autoComplete="off" autoFocus={!started || matchMedia("(pointer: fine)").matches} placeholder="조건을 말씀해 주세요" className="min-h-[3.125rem] min-w-0 flex-[1_1_12rem] rounded-card bg-surface px-4 text-base outline-none placeholder:text-mute" />
       <button disabled={pending} className="ml-auto min-h-[3.125rem] shrink-0 rounded-card bg-ink px-5 text-body font-medium text-white disabled:opacity-40">보내기</button>
     </form>
   );
