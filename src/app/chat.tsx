@@ -397,10 +397,10 @@ function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: 
   );
 }
 
-// 상세 창: 공식 사이트 "자세히 보기" 형식(라벨-값 행). 일정을 고르면 확인 단계까지만 간다
 // 상세 창 아래 외부 링크 두 개(공식 사이트 상세, 지점 이용 안내)
 const linkButton = "flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body";
 
+// 상세 창: 공식 사이트 "자세히 보기" 형식(라벨-값 행). 일정을 고르면 확인 단계까지만 간다
 function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
   const [pick, setPick] = useState<Stay | null>(hit.stays.length === 1 ? hit.stays[0] : null);
   const [confirm, setConfirm] = useState(false);

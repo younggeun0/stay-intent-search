@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 import { addDays, DAY_MS } from "@/lib/search";
 
 const iso = (d: Date) => d.toISOString().slice(0, 10);
-
 const nightsBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / DAY_MS;
 const dot = (d: string) => `${d.slice(5, 7)}.${d.slice(8)}`;
 const todayKst = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(new Date());
