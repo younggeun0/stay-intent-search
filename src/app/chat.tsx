@@ -410,7 +410,7 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
     ["시설", r.facilities.map((f) => FACILITY_LABEL[f]).join(", ") || "-"],
   ];
   const dates = pick ?? (c.checkIn && c.checkOut ? { checkIn: c.checkIn, checkOut: c.checkOut } : null);
-  const again = [dates && stayText(dates.checkIn, dates.checkOut), guestsText(c)].filter(Boolean).join(" · ");
+  const again = dates ? [stayText(dates.checkIn, dates.checkOut), guestsText(c)].filter(Boolean).join(" · ") : "";
   if (confirm && pick)
     return (
       <>
