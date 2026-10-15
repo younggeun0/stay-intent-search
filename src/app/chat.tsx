@@ -409,6 +409,8 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
     ["욕실", `${r.bathrooms}개`],
     ["시설", r.facilities.map((f) => FACILITY_LABEL[f]).join(", ") || "-"],
   ];
+  const dates = pick ?? (c.checkIn && c.checkOut ? { checkIn: c.checkIn, checkOut: c.checkOut } : null);
+  const again = [dates && stayText(dates.checkIn, dates.checkOut), guestsText(c)].filter(Boolean).join(" · ");
   if (confirm && pick)
     return (
       <>
@@ -483,7 +485,10 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
           지점 이용 안내 <Icon name="arrowUpRight" size={14} />
         </a>
       </div>
-      <p className="-mt-3 text-center text-xs text-mute">공식 사이트에서는 날짜를 다시 골라야 해요. 실제 가격과 재고는 다를 수 있어요.</p>
+      {/* 공식 사이트는 URL의 checkIn·checkOut·guestCount를 읽지 않는다(새로 열면 오늘·1명). 링크로 일정을 넘길 수 없어 다시 고를 값을 적어 준다 */}
+      <p className="-mt-3 text-center text-xs text-mute">
+        {again ? `공식 사이트에서 다시 고를 일정: ${again}.` : "공식 사이트에서는 날짜를 다시 골라야 해요."} 실제 가격과 재고는 다를 수 있어요.
+      </p>
     </div>
     </Body>
     <Footer>
