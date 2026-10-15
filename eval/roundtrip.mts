@@ -22,3 +22,4 @@ for (const q of first) {
   }
 }
 console.log("실패", fails);
+if (fails) process.exit(1);
