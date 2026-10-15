@@ -5,7 +5,7 @@ import { DateRange } from "./date-range";
 import { branchHelpUrl, helpArticleFor, helpSearchFor } from "@/data/help";
 import { ROOMS, imageUrl, placeUrl, roomImages } from "@/lib/inventory";
 import { normalize } from "@/lib/normalize";
-import { chips, datesText, guestsText, reply, stayText } from "@/lib/reply";
+import { chips, datesText, dow, guestsText, reply, stayText } from "@/lib/reply";
 import { bedCount, FACILITY_LABEL, FEATURE_LABEL, josa, search, type Hit, type SearchResult, type Stay } from "@/lib/search";
 import type { SearchConditions, Turn } from "@/lib/schema";
 
@@ -345,8 +345,7 @@ const bedsText = (h: Hit) => h.room.beds.map((b) => `${b.type} ${b.count}`).join
 
 const STAY_LIMIT = 3;
 // 카드용 짧은 일정: "11.21(토)~23(월)"
-const shortStay = (a: string, b: string) => `${Number(a.slice(5, 7))}.${Number(a.slice(8))}(${dowOf(a)})~${a.slice(5, 7) === b.slice(5, 7) ? "" : `${Number(b.slice(5, 7))}.`}${Number(b.slice(8))}(${dowOf(b)})`;
-const dowOf = (d: string) => "일월화수목금토"[new Date(`${d}T00:00:00Z`).getUTCDay()];
+const shortStay = (a: string, b: string) => `${Number(a.slice(5, 7))}.${Number(a.slice(8))}(${dow(a)})~${a.slice(5, 7) === b.slice(5, 7) ? "" : `${Number(b.slice(5, 7))}.`}${Number(b.slice(8))}(${dow(b)})`;
 
 // 공식 지점 페이지의 객실 카드 형식: 사진 한 장(430:303), 이름, 사양, 오른쪽 아래 "N박 가격원~"
 function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: boolean; rangeSearch: boolean; onOpen: () => void }) {

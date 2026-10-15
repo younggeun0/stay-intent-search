@@ -1,6 +1,6 @@
 // 평가셋 정답 조건으로 검색해 결과 수와 0건일 때의 대안을 출력한다. 빈 결과 목록(direction.md 9장)의 출처
 import assert from "node:assert/strict";
-import { cases } from "../../eval/cases";
+import { cases, EMPTY } from "../../eval/cases";
 import { candidateStays, search } from "./search";
 
 for (const c of cases) {
@@ -11,8 +11,7 @@ for (const c of cases) {
   for (const o of r.relaxations) console.log(`     → ${o.labels.join(" + ")}: ${o.count}실\n${o.reasons.map((w) => `         ${w}`).join("\n")}`);
 }
 
-const base = cases[0].expected;
-const blank = { ...base, region: null, area: null, checkIn: null, checkOut: null, dateRange: null, nights: null, weekend: null, guests: null, infants: null, pet: null, oceanView: null, minBedrooms: null, minBeds: null, features: [], facilities: [], unhandled: [] };
+const blank = EMPTY;
 // 주말 포함 2박: 금~일 또는 토~월만 (2026-11-21은 토요일)
 assert.deepEqual(candidateStays({ ...blank, dateRange: { from: "2026-11-19", to: "2026-11-23" }, nights: 2, weekend: true })!.map((s) => s.checkIn), ["2026-11-20", "2026-11-21"]);
 // 예약 불가 기간 [10-16, 10-19)과 겹치면 빠지고, 끝나는 날 체크인은 된다

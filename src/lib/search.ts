@@ -9,13 +9,15 @@ export type Relaxation = { labels: string[]; says: string[]; reasons: string[]; 
 export type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
 export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; reasons: string[] }; // reasons는 대안이 하나도 없을 때만
 
-const DAY_MS = 86_400_000;
-const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
+export const DAY_MS = 86_400_000;
+export const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
 const diffDays = (a: string, b: string) => (Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / DAY_MS;
 // 받침 있으면 a, 없으면 b (은/는, 이/가)
 export const josa = (w: string, a: string, b: string) => { const c = w.charCodeAt(w.length - 1) - 0xac00; return c >= 0 && c <= 11171 && c % 28 ? w + a : w + b; };
 export const md = (d: string) => `${Number(d.slice(5, 7))}월 ${Number(d.slice(8))}일`;
 const isSaturday = (d: string) => new Date(`${d}T00:00:00Z`).getUTCDay() === 6;
+// 주말 포함 = 토요일 밤을 묵는다
+const hasSaturdayNight = (checkIn: string, nights: number) => Array.from({ length: nights }, (_, i) => addDays(checkIn, i)).some(isSaturday);
 
 // 토퍼는 침대로 세지 않는다. "침대 따로"를 토퍼로 채우면 고객 기대와 다르다
 export const bedCount = (r: Room) => r.beds.filter((b) => b.type !== "토퍼").reduce((n, b) => n + b.count, 0);
@@ -28,8 +30,7 @@ export function candidateStays(c: SearchConditions): { checkIn: string; checkOut
   const out = [];
   for (let d = c.dateRange.from; d <= c.dateRange.to; d = addDays(d, 1)) {
     const stay = { checkIn: d, checkOut: addDays(d, nights) };
-    // 주말 포함 = 토요일 밤을 묵는다
-    if (c.weekend && !Array.from({ length: nights }, (_, i) => addDays(d, i)).some(isSaturday)) continue;
+    if (c.weekend && !hasSaturdayNight(d, nights)) continue;
     out.push(stay);
   }
   return out;
@@ -60,12 +61,14 @@ function checks(c: SearchConditions): Check[] {
   return out;
 }
 
+// 객실과 그 지점. 인벤토리는 고정이라 한 번만 만든다
+const PAIRS = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! }));
+
 export function find(c: SearchConditions): Hit[] {
   const stays = candidateStays(c);
   const cs = checks(c);
   const hits: Hit[] = [];
-  for (const room of ROOMS) {
-    const branch = BRANCHES.find((b) => b.id === room.branchId)!;
+  for (const { room, branch } of PAIRS) {
     if (!cs.every((k) => k.ok(room, branch))) continue;
     if (!stays) { hits.push({ room, branch, stays: [] }); continue; }
     const ok = stays.filter((s) => available(room, s))
@@ -85,7 +88,7 @@ function relaxOptions(c: SearchConditions): Option[] {
   // 정확한 날짜가 막혔으면 같은 박수로 이후 4주 안에서 찾는다
   if (c.checkIn && c.checkOut) {
     const nights = diffDays(c.checkIn, c.checkOut);
-    const weekend = Array.from({ length: nights }, (_, i) => addDays(c.checkIn!, i)).some(isSaturday) || null;
+    const weekend = hasSaturdayNight(c.checkIn, nights) || null;
     const range = { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, 28) };
     opts.push({ label: "다른 날짜", say: `${md(range.from)}~${md(range.to)} 사이 ${weekend ? "주말 " : ""}${nights}박이면 괜찮아요`, check: null, apply: (x) => ({ ...x, checkIn: null, checkOut: null, dateRange: range, nights, weekend }) });
   }
@@ -123,15 +126,17 @@ function minimalRelaxations(c: SearchConditions): { options: Option[]; condition
   return found;
 }
 
-const roomsWith = (c: SearchConditions) => ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! }))
-  .filter(({ room, branch }) => checks(c).every((k) => k.ok(room, branch)));
+const roomsWith = (c: SearchConditions) => {
+  const cs = checks(c);
+  return PAIRS.filter(({ room, branch }) => cs.every((k) => k.ok(room, branch)));
+};
 
 // 조건 하나가 왜 막혔는지. ctx는 같은 조합의 다른 조건을 이미 푼 상태라, 이 조건만 풀면 결과가 나온다
 function reasonFor(o: Option, ctx: SearchConditions): string {
   const all = checks(ctx);
   if (o.check === null) return `나머지 조건에 맞는 객실 ${roomsWith(o.apply(ctx)).length}실이 그 날짜에 모두 예약이 찼어요.`;
   const k = all.find((x) => x.label === o.check)!;
-  const rooms = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! })).filter(({ room, branch }) => k.ok(room, branch));
+  const rooms = PAIRS.filter(({ room, branch }) => k.ok(room, branch));
   if (!rooms.length) return k.place ? `${k.label}에는 지점이 없어요.` : `'${k.label}' 객실이 없어요.`;
   // 1~2실이면 어떤 방인지 밝힌다: 고객이 그 방에 맞춰 조건을 바꿀 수 있게
   const which = rooms.length <= 2 ? `(${rooms.map(({ room, branch }) => `${branch.name} ${room.name}, ${branch.region}, 최대 ${room.maxGuests}인`).join(" / ")})` : "";
@@ -144,7 +149,7 @@ function reasonFor(o: Option, ctx: SearchConditions): string {
 
 // 조건을 순서대로 적용하며 남는 객실 수. 마지막 단계는 예약 가능 여부
 export function funnel(c: SearchConditions): Step[] {
-  let rooms = ROOMS.map((room) => ({ room, branch: BRANCHES.find((b) => b.id === room.branchId)! }));
+  let rooms = PAIRS;
   const steps: Step[] = [{ label: "전체", count: rooms.length }];
   for (const k of checks(c)) {
     rooms = rooms.filter(({ room, branch }) => k.ok(room, branch));

@@ -3,10 +3,10 @@
 // 달은 세로로 이어지고, 첫 탭은 체크인(체크아웃 비움), 두 번째 탭은 체크아웃. 체크인보다 앞이거나 같은 날을 누르면 체크인을 다시 정한다.
 // 일요일 빨강, 토요일 파랑, 지난 날 회색, 오늘은 빨간 점. 선택일은 검정 원 + "체크인/체크아웃", 사이는 회색 띠.
 import { useEffect, useRef } from "react";
+import { addDays, DAY_MS } from "@/lib/search";
 
-const DAY_MS = 86_400_000;
 const iso = (d: Date) => d.toISOString().slice(0, 10);
-const addDays = (d: string, n: number) => iso(new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS));
+
 const nightsBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / DAY_MS;
 const dot = (d: string) => `${d.slice(5, 7)}.${d.slice(8)}`;
 const todayKst = () => new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Seoul" }).format(new Date());

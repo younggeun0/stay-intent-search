@@ -4,7 +4,7 @@ import { FACILITY_LABEL, FEATURE_LABEL, josa, md, type SearchResult } from "./se
 import type { SearchConditions } from "./schema";
 
 const DAY = "일월화수목금토";
-const dow = (d: string) => DAY[new Date(`${d}T00:00:00Z`).getUTCDay()];
+export const dow = (d: string) => DAY[new Date(`${d}T00:00:00Z`).getUTCDay()];
 export const mdw = (d: string) => `${md(d)}(${dow(d)})`;
 
 // "10월 23일(금)~24일(토)" / 월이 바뀌면 "10월 31일(토)~11월 1일(일)"
