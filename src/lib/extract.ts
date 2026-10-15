@@ -8,7 +8,7 @@ const day = (d: Date) => DAY[d.getUTCDay()];
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 
 // 모델은 요일 계산을 자주 틀린다(eval v1: "다음주"를 이번 주로 계산). 계산 대신 찾아보게 달력을 준다
-export function calendar(referenceDate: string, weeks = 14): string {
+function calendar(referenceDate: string, weeks = 14): string {
   const ref = new Date(`${referenceDate}T00:00:00Z`);
   const monday = new Date(ref);
   monday.setUTCDate(ref.getUTCDate() - ((ref.getUTCDay() + 6) % 7));
@@ -23,13 +23,13 @@ export function calendar(referenceDate: string, weeks = 14): string {
   }).join("\n");
 }
 
-export function systemPrompt(referenceDate: string): string {
+function systemPrompt(referenceDate: string): string {
   const ref = new Date(`${referenceDate}T00:00:00Z`);
   return `${RULES}\n\n기준일(오늘): ${referenceDate} (${day(ref)})\n\n## 달력 (날짜와 요일은 계산하지 말고 여기서 찾는다)\n${calendar(referenceDate)}`;
 }
 
 // 여러 턴을 메시지 배열로 주면 작은 모델이 앞 대화를 잊었다(eval v1: m04, m05). 대화록 하나로 준다
-export function transcript(turns: Turn[]): string {
+function transcript(turns: Turn[]): string {
   return turns.map((t) => `${t.role === "user" ? "고객" : "상담원"}: ${t.text}`).join("\n");
 }
 

@@ -1,15 +1,15 @@
 import { z } from "zod";
 
 // 사이트 검색 폼의 지역 선택지 그대로 (docs/evidence/01-home-search.jpg)
-export const REGIONS = ["서울", "경기", "인천", "부산", "강원", "제주", "울산", "당진"] as const;
+const REGIONS = ["서울", "경기", "인천", "부산", "강원", "제주", "울산", "당진"] as const;
 
 // 객실 이름에만 있는 속성 (direction.md 3b)
 export const ROOM_FEATURES = ["bathtub", "spa", "twin", "barrierFree", "loft", "connecting"] as const;
 
 // 상세 창 시설 태그 중 고객이 조건으로 말할 법한 것만 (direction.md 3a)
-export const FACILITIES = ["kitchen", "washer", "dishwasher", "desk", "styler"] as const;
+const FACILITIES = ["kitchen", "washer", "dishwasher", "desk", "styler"] as const;
 
-export const CLARIFY_FIELDS = ["dates", "guests"] as const;
+const CLARIFY_FIELDS = ["dates", "guests"] as const;
 
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 

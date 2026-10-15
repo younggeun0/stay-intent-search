@@ -17,6 +17,7 @@ type Msg =
 const EXAMPLES = ["다음주 금토 부산 바다 보이는 곳, 둘이요", "아이 둘이라 침대 따로 있는 방, 11월 말 주말 포함 2박 4명", "강아지랑 같이 묵을 수 있는 곳"];
 // 인원 선택 상한: 전 객실 중 최대 인원(지금은 10명). 이보다 많으면 어떤 방도 맞지 않는다
 const MAX_GUESTS = Math.max(...ROOMS.map((r) => r.maxGuests));
+const DEFAULT_GUESTS = 2; // 날짜 선택에서 인원을 말하지 않았을 때 (공식 홈 검색 기본값)
 const won = (n: number) => n.toLocaleString("ko-KR");
 
 export default function Chat() {
@@ -349,6 +350,7 @@ const shortStay = (a: string, b: string) => `${Number(a.slice(5, 7))}.${Number(a
 
 // 공식 지점 페이지의 객실 카드 형식: 사진 한 장(430:303), 이름, 사양, 오른쪽 아래 "N박 가격원~"
 function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: boolean; rangeSearch: boolean; onOpen: () => void }) {
+  const tags = badges(hit);
   const cheapest = hit.stays.reduce<Stay | null>((a, s) => (!a || s.total < a.total ? s : a), null);
   const [main] = roomImages(hit.room);
   return (
@@ -366,9 +368,9 @@ function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: 
             최대 {hit.room.maxGuests}인 · {hit.room.sizeM2 ? `${hit.room.sizeM2}㎡ · ` : ""}
             {bedsText(hit)}
           </p>
-          {badges(hit).length > 0 && (
+          {tags.length > 0 && (
             <div className="mt-2 flex flex-wrap gap-1">
-              {badges(hit).map((b) => (
+              {tags.map((b) => (
                 <span key={b} className="inline-flex min-h-5 items-center rounded-full bg-surface px-2 py-0.5 text-xs leading-none">{b}</span>
               ))}
             </div>
@@ -396,6 +398,9 @@ function Card({ hit, datesKnown, rangeSearch, onOpen }: { hit: Hit; datesKnown: 
 }
 
 // 상세 창: 공식 사이트 "자세히 보기" 형식(라벨-값 행). 일정을 고르면 확인 단계까지만 간다
+// 상세 창 아래 외부 링크 두 개(공식 사이트 상세, 지점 이용 안내)
+const linkButton = "flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body";
+
 function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
   const [pick, setPick] = useState<Stay | null>(hit.stays.length === 1 ? hit.stays[0] : null);
   const [confirm, setConfirm] = useState(false);
@@ -477,11 +482,11 @@ function Detail({ hit, c }: { hit: Hit; c: SearchConditions }) {
         <p className="text-sm text-sub">날짜를 정하면 예약 가능한 일정을 보여드려요. 1박 {won(r.pricePerNight)}원부터예요.</p>
       )}
       <div className="grid grid-cols-2 gap-2">
-        <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body">
+        <a href={placeUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className={linkButton}>
           공식 사이트 상세 <Icon name="arrowUpRight" size={14} />
         </a>
         {/* 헬프 센터의 지점 카테고리: 주차, 조식, 부대시설, 짐 보관처럼 검색 조건이 아닌 궁금증을 그 자리에서 푼다 */}
-        <a href={branchHelpUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className="flex min-h-[3.125rem] items-center justify-center gap-1 rounded-card border border-line text-center text-body">
+        <a href={branchHelpUrl(hit.branch.id)} target="_blank" rel="noopener noreferrer" className={linkButton}>
           지점 이용 안내 <Icon name="arrowUpRight" size={14} />
         </a>
       </div>
@@ -523,7 +528,7 @@ function Gallery({ ids, alt }: { ids: string[]; alt: string }) {
 function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c: SearchConditions) => void }) {
   const [checkIn, setCheckIn] = useState(c.checkIn ?? "");
   const [checkOut, setCheckOut] = useState(c.checkOut ?? "");
-  const [guests, setGuests] = useState(c.guests ?? 2);
+  const [guests, setGuests] = useState(c.guests ?? DEFAULT_GUESTS);
   const valid = !!checkIn && !!checkOut;
   const step = "flex size-10 shrink-0 items-center justify-center rounded-full border border-line disabled:text-line";
   return (

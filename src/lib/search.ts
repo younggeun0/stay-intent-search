@@ -5,15 +5,16 @@ import type { Branch, Room, SearchConditions } from "./schema";
 
 export type Stay = { checkIn: string; checkOut: string; nights: number; total: number };
 export type Hit = { room: Room; branch: Branch; stays: Stay[] }; // 날짜 미정이면 stays는 []
-export type Relaxation = { labels: string[]; says: string[]; reasons: string[]; conditions: SearchConditions; count: number }; // labels를 모두 바꾸면 count실, reasons는 각 조건이 막힌 이유
-export type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
+type Relaxation = { labels: string[]; says: string[]; reasons: string[]; conditions: SearchConditions; count: number }; // labels를 모두 바꾸면 count실, reasons는 각 조건이 막힌 이유
+type Step = { label: string; count: number; place?: true }; // 이 조건까지 적용했을 때 남는 객실 수
 export type SearchResult = { hits: Hit[]; datesKnown: boolean; relaxations: Relaxation[]; reasons: string[] }; // reasons는 대안이 하나도 없을 때만
 
 export const DAY_MS = 86_400_000;
 export const addDays = (d: string, n: number) => new Date(Date.parse(`${d}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
 const diffDays = (a: string, b: string) => (Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / DAY_MS;
-// 받침 있으면 a, 없으면 b (은/는, 이/가)
-export const josa = (w: string, a: string, b: string) => { const c = w.charCodeAt(w.length - 1) - 0xac00; return c >= 0 && c <= 11171 && c % 28 ? w + a : w + b; };
+// 받침 있으면 a, 없으면 b (은/는, 이/가). 한글 음절은 "가"(U+AC00)부터 11172자, 한 초성·중성마다 받침 28가지(0번은 받침 없음)
+const HANGUL_FIRST = 0xac00, HANGUL_COUNT = 11172, JONGSEONG_COUNT = 28;
+export const josa = (w: string, a: string, b: string) => { const c = w.charCodeAt(w.length - 1) - HANGUL_FIRST; return c >= 0 && c < HANGUL_COUNT && c % JONGSEONG_COUNT ? w + a : w + b; };
 export const md = (d: string) => `${Number(d.slice(5, 7))}월 ${Number(d.slice(8))}일`;
 const isSaturday = (d: string) => new Date(`${d}T00:00:00Z`).getUTCDay() === 6;
 // 주말 포함 = 토요일 밤을 묵는다
@@ -43,6 +44,17 @@ const available = (r: Room, s: { checkIn: string; checkOut: string }) =>
 export const FEATURE_LABEL = { bathtub: "욕조", spa: "스파", twin: "트윈", barrierFree: "베리어프리", loft: "복층", connecting: "커넥팅" } as const;
 export const FACILITY_LABEL = { kitchen: "주방", washer: "세탁기", dishwasher: "식기세척기", desk: "업무용 책상", styler: "스타일러" } as const;
 
+// 뺄 수 있는 조건의 라벨과, 뺄 때 고객 발화로 남기는 문장. 검사(checks)·대안(relaxOptions)·칩(reply.ts chips)이 같은 값을 써야 한다:
+// 대안의 check는 검사 라벨로 찾고, 발화는 다음 추출의 입력이라 문장이 바뀌면 eval:roundtrip을 다시 돌린다
+export const LABEL = { pet: "반려동물 동반", oceanView: "오션뷰", bedrooms: (n: number) => `방 ${n}개 이상`, beds: (n: number) => `침대 ${n}개 이상` };
+export const SAY = {
+  pet: "반려동물은 데려가지 않을게요",
+  oceanView: "오션뷰가 아니어도 괜찮아요",
+  bedrooms: "방 개수는 상관없어요",
+  beds: "침대 개수는 상관없어요",
+  without: (label: string) => `${josa(label, "은", "는")} 없어도 괜찮아요`,
+};
+
 type Check = { label: string; place?: true; ok: (r: Room, b: Branch) => boolean };
 
 // 고객 조건 → 이름 붙은 검사 목록. 순서는 결과 없음 이유를 설명할 때의 순서(넓은 조건 → 좁은 조건)
@@ -52,10 +64,10 @@ function checks(c: SearchConditions): Check[] {
   if (c.area) out.push({ label: c.area, place: true, ok: (_, b) => b.areas.includes(c.area!) });
   // 36개월 이하 영유아는 인원수에 포함하지 않는다 (direction.md 3장 관찰 4)
   if (c.guests !== null) out.push({ label: `${c.guests}명 숙박 가능`, ok: (r) => c.guests! <= r.maxGuests });
-  if (c.pet) out.push({ label: "반려동물 동반", ok: (r) => r.petAllowed });
-  if (c.oceanView) out.push({ label: "오션뷰", ok: (r) => r.oceanView });
-  if (c.minBedrooms !== null) out.push({ label: `방 ${c.minBedrooms}개 이상`, ok: (r) => r.bedrooms >= c.minBedrooms! });
-  if (c.minBeds !== null) out.push({ label: `침대 ${c.minBeds}개 이상`, ok: (r) => bedCount(r) >= c.minBeds! });
+  if (c.pet) out.push({ label: LABEL.pet, ok: (r) => r.petAllowed });
+  if (c.oceanView) out.push({ label: LABEL.oceanView, ok: (r) => r.oceanView });
+  if (c.minBedrooms !== null) out.push({ label: LABEL.bedrooms(c.minBedrooms), ok: (r) => r.bedrooms >= c.minBedrooms! });
+  if (c.minBeds !== null) out.push({ label: LABEL.beds(c.minBeds), ok: (r) => bedCount(r) >= c.minBeds! });
   for (const f of c.features) out.push({ label: FEATURE_LABEL[f], ok: (r) => r.features.includes(f) });
   for (const f of c.facilities) out.push({ label: FACILITY_LABEL[f], ok: (r) => r.facilities.includes(f) });
   return out;
@@ -82,25 +94,27 @@ export function find(c: SearchConditions): Hit[] {
 // say는 이 조건을 고객이 직접 바꾼다면 할 말. 버튼을 누르면 대화에 남겨 다음 추출에도 반영되게 한다
 type Option = { label: string; say: string; check: string | null; apply: (c: SearchConditions) => SearchConditions };
 
+const RELAX_DAYS = 28;
+
 // 인원은 풀지 않는다(못 묵는 방을 권할 수 없다)
 function relaxOptions(c: SearchConditions): Option[] {
   const opts: Option[] = [];
-  // 정확한 날짜가 막혔으면 같은 박수로 이후 4주 안에서 찾는다
+  // 정확한 날짜가 막혔으면 같은 박수로 이후 RELAX_DAYS(4주) 안에서 찾는다
   if (c.checkIn && c.checkOut) {
     const nights = diffDays(c.checkIn, c.checkOut);
     const weekend = hasSaturdayNight(c.checkIn, nights) || null;
-    const range = { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, 28) };
+    const range = { from: addDays(c.checkIn, 1), to: addDays(c.checkIn, RELAX_DAYS) };
     opts.push({ label: "다른 날짜", say: `${md(range.from)}~${md(range.to)} 사이 ${weekend ? "주말 " : ""}${nights}박이면 괜찮아요`, check: null, apply: (x) => ({ ...x, checkIn: null, checkOut: null, dateRange: range, nights, weekend }) });
   }
   if (c.weekend) opts.push({ label: "주말 제외", say: "주말이 아니어도 괜찮아요", check: null, apply: (x) => ({ ...x, weekend: null }) });
   if (c.area) opts.push({ label: `${c.area} 대신 ${c.region} 전체`, say: `${c.region} 어디든 괜찮아요`, check: c.area, apply: (x) => ({ ...x, area: null }) });
   if (c.region) opts.push({ label: "다른 지역", say: "지역은 어디든 상관없어요", check: c.area ?? c.region, apply: (x) => ({ ...x, region: null, area: null }) });
-  if (c.pet) opts.push({ label: "반려동물 동반 제외", say: "반려동물은 데려가지 않을게요", check: "반려동물 동반", apply: (x) => ({ ...x, pet: null }) });
-  if (c.oceanView) opts.push({ label: "오션뷰 제외", say: "오션뷰가 아니어도 괜찮아요", check: "오션뷰", apply: (x) => ({ ...x, oceanView: null }) });
-  if (c.minBedrooms !== null) opts.push({ label: `방 ${c.minBedrooms}개 조건 제외`, say: "방 개수는 상관없어요", check: `방 ${c.minBedrooms}개 이상`, apply: (x) => ({ ...x, minBedrooms: null }) });
-  if (c.minBeds !== null) opts.push({ label: `침대 ${c.minBeds}개 조건 제외`, say: "침대 개수는 상관없어요", check: `침대 ${c.minBeds}개 이상`, apply: (x) => ({ ...x, minBeds: null }) });
-  for (const f of c.features) opts.push({ label: `${FEATURE_LABEL[f]} 제외`, say: `${josa(FEATURE_LABEL[f], "은", "는")} 없어도 괜찮아요`, check: FEATURE_LABEL[f], apply: (x) => ({ ...x, features: x.features.filter((y) => y !== f) }) });
-  for (const f of c.facilities) opts.push({ label: `${FACILITY_LABEL[f]} 제외`, say: `${josa(FACILITY_LABEL[f], "은", "는")} 없어도 괜찮아요`, check: FACILITY_LABEL[f], apply: (x) => ({ ...x, facilities: x.facilities.filter((y) => y !== f) }) });
+  if (c.pet) opts.push({ label: "반려동물 동반 제외", say: SAY.pet, check: LABEL.pet, apply: (x) => ({ ...x, pet: null }) });
+  if (c.oceanView) opts.push({ label: "오션뷰 제외", say: SAY.oceanView, check: LABEL.oceanView, apply: (x) => ({ ...x, oceanView: null }) });
+  if (c.minBedrooms !== null) opts.push({ label: `방 ${c.minBedrooms}개 조건 제외`, say: SAY.bedrooms, check: LABEL.bedrooms(c.minBedrooms), apply: (x) => ({ ...x, minBedrooms: null }) });
+  if (c.minBeds !== null) opts.push({ label: `침대 ${c.minBeds}개 조건 제외`, say: SAY.beds, check: LABEL.beds(c.minBeds), apply: (x) => ({ ...x, minBeds: null }) });
+  for (const f of c.features) opts.push({ label: `${FEATURE_LABEL[f]} 제외`, say: SAY.without(FEATURE_LABEL[f]), check: FEATURE_LABEL[f], apply: (x) => ({ ...x, features: x.features.filter((y) => y !== f) }) });
+  for (const f of c.facilities) opts.push({ label: `${FACILITY_LABEL[f]} 제외`, say: SAY.without(FACILITY_LABEL[f]), check: FACILITY_LABEL[f], apply: (x) => ({ ...x, facilities: x.facilities.filter((y) => y !== f) }) });
   return opts;
 }
 
@@ -148,7 +162,7 @@ function reasonFor(o: Option, ctx: SearchConditions): string {
 }
 
 // 조건을 순서대로 적용하며 남는 객실 수. 마지막 단계는 예약 가능 여부
-export function funnel(c: SearchConditions): Step[] {
+function funnel(c: SearchConditions): Step[] {
   let rooms = PAIRS;
   const steps: Step[] = [{ label: "전체", count: rooms.length }];
   for (const k of checks(c)) {
@@ -160,7 +174,7 @@ export function funnel(c: SearchConditions): Step[] {
 }
 
 // 풀 수 있는 조건을 다 풀어도 없을 때(인원이 너무 많을 때 등): 0건이 된 첫 단계를 말한다
-export function explain(steps: Step[]): string | null {
+function explain(steps: Step[]): string | null {
   const i = steps.findIndex((s) => s.count === 0);
   if (i < 1) return null;
   const prev = steps[i - 1];

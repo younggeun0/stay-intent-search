@@ -14,7 +14,7 @@ function fakeBlocked(id: string, name: string): { from: string; to: string }[] {
   const week = n % 9; // 2026-10-17(토)부터 9주 중 하나
   const sat = new Date(Date.UTC(2026, 9, 17 + week * 7));
   const iso = (d: Date) => d.toISOString().slice(0, 10);
-  const sun = new Date(sat.getTime() + 86400000);
+  const sun = new Date(Date.UTC(2026, 9, 18 + week * 7));
   return [...(name.includes("펫") ? PET_BLOCKED : []), ...(n % 3 === 0 ? [{ from: iso(sat), to: iso(sun) }] : [])];
 }
 

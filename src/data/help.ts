@@ -2,9 +2,9 @@
 // - 검색은 `/ko?query=검색어`로 공유된다. 시설·서비스 명사(주차, 조식, 수영장, 짐 보관, 유아용품, 흡연, 식기세척기, 인원 추가)는 결과가 정확하고,
 //   "바다 근처", "조용한 곳", "욕실 2개", "장기 투숙", "경주"처럼 막연한 표현은 잡음이거나 0건이라 링크를 걸지 않는다 (docs/ai-log.md).
 // - 지점마다 카테고리가 있고(8~13편: 위치, 주차, 부대시설, 조식, 짐 보관, 인원추가·유아용품, 주방 용품, 냉난방, 가전, 쓰레기, FAQ), 30지점이 1:1로 맞는다.
-export const HELP = "https://help.urbanstay.co.kr";
+const HELP = "https://help.urbanstay.co.kr";
 
-export const HELP_ARTICLE = {
+const HELP_ARTICLE = {
   rules: `${HELP}/ko/articles/FAQ-객실-이용규정-05c13035`, // 기준 인원, 36개월 이하 미포함, 반려동물 동반 불가(전사 정책)
   extraGuests: `${HELP}/ko/articles/FAQ-추가-인원이-발생하는-경우-인원-추가-신청-방법은-293e6393`, // 최대 인원까지만, 1인 35,000원
 } as const;
@@ -44,7 +44,7 @@ export const BRANCH_HELP: Record<string, string> = {
 };
 export const branchHelpUrl = (branchId: string) => HELP + BRANCH_HELP[branchId];
 
-export const helpSearchUrl = (q: string) => `${HELP}/ko?query=${encodeURIComponent(q)}`;
+const helpSearchUrl = (q: string) => `${HELP}/ko?query=${encodeURIComponent(q)}`;
 
 // unhandled 문구 → 검색어. 아티클이 있다고 확인한 키워드만 (위 주석). 없으면 null
 const KEYWORDS: [RegExp, string][] = [
