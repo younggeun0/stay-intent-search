@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useTransition, type ReactNode } from "reac
 import { interpret } from "./actions";
 import { DateRange } from "./date-range";
 import { branchHelpUrl, helpArticleFor, helpSearchFor } from "@/data/help";
-import { imageUrl, placeUrl, roomImages } from "@/lib/inventory";
+import { ROOMS, imageUrl, placeUrl, roomImages } from "@/lib/inventory";
 import { normalize } from "@/lib/normalize";
 import { chips, datesText, guestsText, reply, stayText } from "@/lib/reply";
 import { bedCount, FACILITY_LABEL, FEATURE_LABEL, josa, search, type Hit, type SearchResult, type Stay } from "@/lib/search";
@@ -15,6 +15,8 @@ type Msg =
   | { role: "error"; text: string };
 
 const EXAMPLES = ["다음주 금토 부산 바다 보이는 곳, 둘이요", "아이 둘이라 침대 따로 있는 방, 11월 말 주말 포함 2박 4명", "강아지랑 같이 묵을 수 있는 곳"];
+// 인원 선택 상한: 전 객실 중 최대 인원(지금은 10명). 이보다 많으면 어떤 방도 맞지 않는다
+const MAX_GUESTS = Math.max(...ROOMS.map((r) => r.maxGuests));
 const won = (n: number) => n.toLocaleString("ko-KR");
 
 export default function Chat() {
@@ -533,7 +535,7 @@ function EditForm({ c, onSave }: { c: SearchConditions; onSave: (say: string, c:
         <div className="ml-auto flex items-center gap-3">
           <button type="button" aria-label="인원 줄이기" disabled={guests <= 1} onClick={() => setGuests(guests - 1)} className={step}><Icon name="minus" /></button>
           <span className="w-8 text-center text-body font-bold">{guests}명</span>
-          <button type="button" aria-label="인원 늘리기" disabled={guests >= 20} onClick={() => setGuests(guests + 1)} className={step}><Icon name="plus" /></button>
+          <button type="button" aria-label="인원 늘리기" disabled={guests >= MAX_GUESTS} onClick={() => setGuests(guests + 1)} className={step}><Icon name="plus" /></button>
         </div>
       </div>
       <button
