@@ -324,9 +324,13 @@ function Results({ c, r, onOpen, onRelax }: { c: SearchConditions; r: SearchResu
       <p className="text-sm">
         <b>{r.hits.length}개</b>의 객실 · 가격 낮은 순
       </p>
-      <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-3">
+      {/* 모바일은 가로 스냅 스크롤: 세로로 쌓으면 대화가 길어져 이전 메시지로 돌아가기 어렵다. 다음 카드가 조금 보이게 폭 80%.
+          대화 영역 좌우 여백(px-5)까지 넓혀 화면 끝에서 넘어가게 한다. PC는 그리드 */}
+      <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-3 overflow-x-auto overscroll-x-contain px-5 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-2 lg:overflow-visible lg:px-0 xl:grid-cols-3">
         {shown.map((h) => (
-          <Card key={h.room.id} hit={h} datesKnown={r.datesKnown} rangeSearch={!c.checkIn} onOpen={() => onOpen(h)} />
+          <div key={h.room.id} className="grid w-4/5 max-w-80 shrink-0 snap-start lg:w-auto lg:max-w-none">
+            <Card hit={h} datesKnown={r.datesKnown} rangeSearch={!c.checkIn} onOpen={() => onOpen(h)} />
+          </div>
         ))}
       </div>
       {!all && r.hits.length > CARD_LIMIT && (
