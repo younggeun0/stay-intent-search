@@ -570,15 +570,20 @@ function Sheet({ open, onClose, title, children }: { open: boolean; onClose: () 
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const d = ref.current;
-    if (open && !d?.open) d?.showModal();
+    if (open && !d?.open) {
+      d?.showModal();
+      // showModal은 첫 버튼(닫기)에 포커스를 줘 테두리가 그려진다. 창 자체로 옮기고, 키보드 Tab부터 버튼에 포커스 링이 보이게 한다
+      d?.focus();
+    }
     if (!open && d?.open) d.close();
   }, [open]);
   return (
     <dialog
       ref={ref}
+      tabIndex={-1}
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
-      className="m-0 mt-auto h-dvh max-h-none w-full max-w-full flex-col bg-white p-0 backdrop:bg-black/50 open:flex lg:m-auto lg:max-h-[85dvh] lg:max-w-[460px] lg:rounded-card"
+      className="m-0 mt-auto h-dvh max-h-none w-full outline-none max-w-full flex-col bg-white p-0 backdrop:bg-black/50 open:flex lg:m-auto lg:max-h-[85dvh] lg:max-w-[460px] lg:rounded-card"
     >
       <div className="flex shrink-0 items-center justify-between gap-3 border-b border-line px-5 py-4">
         <h2 className="text-title font-bold">{title}</h2>
